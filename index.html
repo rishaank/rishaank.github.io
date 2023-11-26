@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Portfolio, Technology, Tech, Coding">
+  <meta name="description" content="Rishaan's Portfolio">
+  <title>About</title>
+  <style>
+    .rkLogo {
+      border-radius: 25px;
+    }
+
+    .bar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-image: url('images/Banner.png');
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .barList {
+      display: inline;
+      float: left;
+    }
+
+    .barLink {
+      display: block;
+      padding: 8px;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Calibri;
+    }
+
+    .active {
+      background-color: rgb(81, 0, 255);
+    }
+
+    .barList .barLink:hover {
+      background-color: blue;
+    }
+
+    body {
+      background-color: rgb(25, 27, 38);
+      margin: 0;
+    }
+
+    .horizontalLayout {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: rgb(35, 37, 53);
+      border-radius: 25px;
+      margin: 20px;
+      margin-left: 100px;
+      margin-right: 100px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .rkLogo {
+      border-radius: 25px;
+      margin-right: 50px;
+      margin-left: 50px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      width: 400px;
+      height: 400px;
+    }
+
+    .vertText {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 500px;
+      width: 100vh;
+    }
+
+    .title {
+      font-size: 55px;
+      color: white;
+      font-family: Calibri;
+      margin: 0;
+      margin-top: 60px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .titleInfo {
+      font-size: 55px;
+      color: white;
+      font-family: Calibri;
+      margin: 0;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .bodyText {
+      font-size: 30px;
+      color: white;
+      font-family: Calibri;
+      margin: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-align: center;
+    }
+
+    .project {
+      width: 400px;
+      height: 400px;
+    }
+
+    img.overlay {
+      align-self: flex-end;
+      height: 200px;
+      width: 400px;
+      position: absolute;
+      opacity: 70%;
+    }
+
+    h3.overlay {
+      align-self: center;
+      justify-content: center;
+      text-align: center;
+      position: absolute;
+      color: white;
+      font-family: Calibri;
+      font-weight: bold;
+    }
+
+    .projectLayout {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="bar">
+    <li class="barList"><a class="barLink active" href="index.html">Home</a></li>
+  </ul>
+  <h1 class="title">A B O U T</h1>
+  <div class="horizontalLayout">
+    <img class="rkLogo" src="images/rkLogo.png" alt="RK Logo">
+    <div class="vertText">
+      <h2 class="titleInfo">Rishaan K</h2> <br>
+      <h4 class="bodyText">This is temporary</h4>
+    </div>
+  </div>
+  <h1 class="title">P R O J E C T S</h1>
+  <div class="horizontalLayout">
+    <div class="projectLayout">
+      <img class="project" src="images/rkLogo.png" alt="RK Logo">
+      <img class="overlay" src="images/Vignette.png" alt="Vignette">
+      <h3 class="overlay">T E M P O R A R Y</h3>
+    </div>
+    <div class="projectLayout">
+      <img class="project" src="images/BrainBattleWithBG.png" alt="Brain Battle">
+      <img class="overlay" src="images/Vignette.png" alt="Vignette">
+    </div>
+  </div>
+</body>
+
+</html>
