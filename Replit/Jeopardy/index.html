@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body bgcolor=#181320>
+  <h1 class=cool>
+    <center>Jeopardy</center>
+  </h1>
+  <center>
+    <table border=1 cellpadding=20 cellspacing=10>
+      <tr>
+        <th>Operating Systems</th>
+        <th>Computer Hardware</th>
+        <th>Phone Brands</th>
+      </tr>
+      <tr>
+        <td><a href="topic1.html#200" target="questions">200</a></td>
+        <td><a href="topic2.html#200" target="questions">200</a></td>
+        <td><a href="topic3.html#200" target="questions">200</a></td>
+      </tr>
+      <tr>
+        <td><a href="topic1.html#400" target="questions">400</a></td>
+        <td><a href="topic2.html#400" target="questions">400</a></td>
+        <td><a href="topic3.html#400" target="questions">400</a></td>
+      </tr>
+      <tr>
+        <td><a href="topic1.html#600" target="questions">600</a></td>
+        <td><a href="topic2.html#600" target="questions">600</a></td>
+        <td><a href="topic3.html#600" target="questions">600</a></td>
+      </tr>
+      <table border=1 cellpadding=52.5 cellspacing=10>
+        <tr>
+          <th>
+            <p class="p1">Team 1
+          </th>
+          <th>
+            <p class="p1">Team 2
+          </th>
+        <tr>
+          <center>
+            <td id="updateScore1">
+              <p class="p1">0.0<i>
+            </td>
+            </i>
+          </center>
+          <center>
+            <td id="updateScore2">
+              <p class="p1">0.0<i>
+            </td>
+            </i>
+          </center>
+        </tr>
+        </tr>
+        <tr>
+          <button type="button" onclick="addscore('1')">Team 1 +</button>
+          <button type="button" onclick="addscore('2')">Team 2 +</button>
+        </tr>
+        <script>
+          var teamscore = [0, 0];
+          function addscore(teamid) {
+            index = parseInt(teamid) - 1;
+            score = document.getElementById("updateScore" + teamid).value;
+            teamscore[index] += parseInt(score);
+            document.getElementById("Update Score" + teamid).innerHTML = teamscore[index];
+          }
+        </script>
+      </table>
+    </table>
+    <iframe name="questions" width=350 height=200 scrolling="no">
+    </iframe>
+  </center>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

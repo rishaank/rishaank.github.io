@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #212134;
+      }
+
+      h1 {
+        color: white;
+        text-align: center;
+        font-family: verdana;
+
+      }
+
+      h2 {
+        color: white;
+        font-family: verdana;
+        font-size: 20px;
+        }
+
+      p {
+        font-family: verdana;
+        font-size: 20px;
+
+        color: white;
+      }
+      p1 {
+        font-family: verdana;
+        font-size: 7px;
+
+        color: white;
+      }
+
+      img {
+        width: 55px;
+          height: 55px;
+          border-radius: 10px;
+          margin: 10px;
+      }
+
+      .bar {
+        display: flex;
+          width: 100%;
+      }
+
+      .button {
+        background-color: #FFFFFF;
+        border-color: #808080;
+        border-width: 4px;
+        border-radius: 5px;
+        height: 70px;
+        width: 150px;
+        color: black;
+        padding: 2px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        transition-duration: 0.5s:
+      }
+
+      .bigger {
+        width: 457px;
+      }
+
+      .button:hover {
+        background-color: #808080; /* Green */
+        color: white;
+      }
+
+      .inputs{
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Calculator</h1>
+      <h2>Result:</h2>
+      <p id="answer"></p>
+      <input type="number" class="inputs" id="num1" size="10" />
+      <input type="number" class="inputs" id="num2" size="10" />
+      <br />
+      <br />
+      <button type="button" class="button" onclick="number(1)">1</button>
+      <button type="button" class="button" onclick="number(2)">2</button>
+      <button type="button" class="button" onclick="number(3)">3</button>
+      <br />
+      <button type="button" class="button" onclick="number(4)">4</button>
+      <button type="button" class="button" onclick="number(5)">5</button>
+      <button type="button" class="button" onclick="number(6)">6</button>
+      <br />
+      <button type="button" class="button" onclick="number(7)">7</button>
+      <button type="button" class="button" onclick="number(8)">8</button>
+      <button type="button" class="button" onclick="number(9)">9</button>
+      <br />
+      <input type="button" class="button" value="+" onclick="add()" />
+      <button type="button" class="button" onclick="number(0)">0</button>
+      <input type="button" class="button" value="-" onclick="subtract()" />
+      <br />
+      <input type="button" class="button" value="x" onclick="multiply()" />
+      <button type="button" id="switcheroo" class="button" onclick="switcher()">
+        2nd #
+      </button>
+      <input type="button" class="button" value="/" onclick="divide()" />
+      <br />
+      <input
+        type="button"
+        class="button bigger"
+        value="CLEAR"
+        onclick="backspace()"
+      />
+    </center>
+  </body>
+
+  <script>
+    var order = "num1";
+    let sign;
+    function backspace() {
+      document.getElementById(order).value =
+        document.getElementById(order).value -
+        document.getElementById(order).value[-1];
+    }
+    function switcher() {
+      if (order === "num1") {
+        order = "num2";
+        document.getElementById("switcheroo").innerHTML = "1st #";
+      } else if (order === "num2") {
+        order = "num1";
+        document.getElementById("switcheroo").innerHTML = "2nd #";
+      }
+    }
+
+    function number(numeral) {
+      document.getElementById(order).value =
+        document.getElementById(order).value + numeral;
+    }
+
+    function add() {
+      var n1 = document.getElementById("num1").value;
+      var n2 = document.getElementById("num2").value;
+
+      var result = parseFloat(n1) + parseFloat(n2);
+      document.getElementById("answer").innerHTML = result;
+      sign = "+";
+    }
+    function subtract() {
+      var n1 = document.getElementById("num1").value;
+      var n2 = document.getElementById("num2").value;
+
+      var result = parseFloat(n1) - parseFloat(n2);
+      document.getElementById("answer").innerHTML = result;
+      sign = "-";
+    }
+    function multiply() {
+      var n1 = document.getElementById("num1").value;
+      var n2 = document.getElementById("num2").value;
+
+      var result = parseFloat(n1) * parseFloat(n2);
+      document.getElementById("answer").innerHTML = result;
+      sign = "*";
+    }
+    function divide() {
+      var n1 = document.getElementById("num1").value;
+      var n2 = document.getElementById("num2").value;
+
+      var result = parseFloat(n1) / parseFloat(n2);
+      document.getElementById("answer").innerHTML = result;
+      sign = "/";
+    }
+  </script>
+</html>

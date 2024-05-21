@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+td {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: #addcff;
+  border-radius: 20px;
+}
+
+button {
+  border: 1px solid black;
+  padding: 43px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: #addcff;
+  border-radius: 20px;
+}
+
+a {
+  color: white;
+  font-family: Calibri;
+}
+
+iframe {
+  border: 0px;
+}
+
+th {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: #2e3439;
+  border-radius: 20px;
+  font-family: Calibri;
+}
+
+p {
+  color: white;
+  font-family: Calibri;
+}
+
+h1 {
+  color: white;
+  font-family: Calibri;
+}
+
+table {
+  border: none;
+}
+
+.cool {
+  font-family: rainbow;
+  size
+}
+
+@font-face {
+  font-family: rainbow;
+  src: url(Rainbow.ttf);
+}

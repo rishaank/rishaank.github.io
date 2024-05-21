@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Cut the Steak Restaurant</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body style="background-color: black; margin: 0; height: 100%; overflow: hidden">
+  <!-- bottom bar -->
+  <div class="bar">
+    <div class="rectangleBG"></div>
+    <div class="plate" id="plate"></div>
+    <div class="pan" id="pan"></div>
+    <!--info-->
+    <div class="timer" style="left: 77%; top: 85%; text-align: center;" id="customer_timer">Time Left:</div>
+    <div class="timer" style="left: 77%; top: 91%; text-align: center;" id="cook_timer">Cooking Left:</div>
+    <!-- Pan 1 Cook -->
+
+    <input type="button" class="button" value="Cook" style="top: 95%;
+      left: 48%;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      width: 210px;" onclick="pan1Cook()"><input />
+    <!-- Pan 1 Transfer -->
+    <input type="button" class="button pl verticalText" value="Transfer" id="vert" style="
+      top: 82%;
+      left: 45.7%;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+      width: 202px;
+      height: 110px;
+      word-wrap: break-word;
+      max-width: 32px;
+      max-height: 110px;
+      background-color: #3fd467;" onclick="transferPlate1()"><input />
+    <!-- Clear Pan 1 -->
+    <input type="button" class="button pl verticalText" value="Clear Pan 1" id="pan" style="
+      top: 82%;
+      left: 61.84%;
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+      width: 202px;
+      height: 110px;
+      word-wrap: break-word;
+      max-width: 32px;
+      max-height: 110px;
+      background-color: #ff0000;" onclick="clearPan1()"><input />
+    <!-- Start/Reset -->
+    <input type="button" class="button pl verticalText" value="Reset" id="vert" style="
+      top: 0%;
+      left: 98%;
+      width: 140px;
+      height: 225px;
+      word-wrap: break-word;
+      max-width: 32px;
+      max-height: 225px;
+      background-color: #8093F1;" onclick="resetGame()"><input />
+    <!-- Serve Plate -->
+    <input type="button" class="button" value="Serve" style="top: 96%;
+      left: 19%;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      background-color: #3fd467;
+      width: 135px;" onclick="serve()"><input />
+  </div>
+  <img class="bigImage" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" />
+  <!-- top bar -->
+  <div class="bar container">
+    <h1>Ingredients:</h1>
+    <h2>Order:</h2>
+    <h3>Recipes:</h3>
+    <!-- ingredient buttons -->
+    <div class="bar">
+      <!--row 1-->
+      <input type="button" class="button" style="border-top-left-radius: 8px;" value="Steak"
+        onclick="addIngredient('Steak')" />
+      <input type="button" class="button" style="
+        left: 38.5%;
+        background-color: #ff9999;
+        width: 95px;" onclick="addIngredient('Chicken')" value="Chicken" />
+      <input type="button" class="button" style="
+        left: 44%;
+        background-color: #ffc6ad;
+        width: 95px;" onclick="addIngredient('Pork')" value="Pork" />
+      <input type="button" class="button" style="
+        left: 49.5%;
+        background-color: #ff5050;
+        width: 95px;" onclick="addIngredient('Mutton')" value="Mutton" />
+      <input type="button" class="button" style="
+        left: 55%;
+        background-color: #ff7065;
+        width: 95px;
+        border-top-right-radius: 8px;" onclick="addIngredient('Patty')" value="Burger Patty" />
+      <!--row 2-->
+      <input type="button" class="button" style="
+        top: 9%;
+        left: 33%;
+        background-color: #d1e8a0;
+        width: 95px;" onclick="addIngredient('Lettuce')" value="Lettuce" />
+      <input type="button" class="button" style="
+        top: 9%;
+        left: 38.5%;
+        background-color: #e82a3d;
+        width: 95px;" onclick="addIngredient('Tomato')" value="Tomato" />
+      <input type="button" class="button" style="
+        top: 9%;
+        left: 44%;
+        background-color: #909e56;
+        width: 95px;" onclick="addIngredient('Spinach')" value="Spinach" />
+      <input type="button" class="button" style="
+        top: 9%;
+        left: 49.5%;
+        background-color: #c3ef99;
+        width: 95px;" onclick="addIngredient('Cucumber')" value="Cucumber" />
+      <input type="button" class="button" style="
+        top: 9%;
+        left: 55%;
+        background-color: #008932;
+        width: 95px;" onclick="addIngredient('Broccoli')" value="Broccoli" />
+      <!--row 3-->
+      <input type="button" class="button" style="
+        top: 13%;
+        left: 33%;
+        background-color: #bbbbbb;
+        width: 95px;" onclick="addIngredient('Salt')" value="Salt" />
+      <input type="button" class="button" style="
+        top: 13%;
+        left: 38.5%;
+        background-color: #626262;
+        width: 95px;" onclick="addIngredient('Pepper')" value="Pepper" />
+      <input type="button" class="button" style="
+        top: 13%;
+        left: 44%;
+        background-color: #c82b2b;
+        width: 95px;" onclick="addIngredient('Chili')" value="Chili Powder" />
+      <input type="button" class="button" style="
+        top: 13%;
+        left: 49.5%;
+        background-color: #787b43;
+        width: 95px;" onclick="addIngredient('Cumin')" value="Cumin" />
+      <input type="button" class="button" style="
+        top: 13%;
+        left: 55%;
+        background-color: #b32020;
+        width: 95px;" onclick="addIngredient('Paprika')" value="Paprika" />
+      <!--row 4-->
+      <input type="button" class="button" style="
+        top: 17%;
+        left: 33%;
+        background-color: #ffef2c;
+        width: 95px;" onclick="addIngredient('Cheese')" value="Cheese" />
+      <input type="button" class="button" style="
+        top: 17%;
+        left: 38.5%;
+        background-color: #f9c168;
+        width: 95px;" onclick="addIngredient('Bread')" value="Bread" />
+      <input type="button" class="button" style="
+        top: 17%;
+        left: 44%;
+        background-color: #e1d700;
+        width: 95px;" onclick="addIngredient('Potato')" value="Potato" />
+      <input type="button" class="button" style="
+        top: 17%;
+        left: 49.5%;
+        background-color: #eee863;
+        width: 95px;" onclick="addIngredient('Pasta')" value="Pasta" />
+      <input type="button" class="button" style="
+        top: 17%;
+        left: 55%;
+        background-color: #c69006;
+        width: 95px;" onclick="addIngredient('Stock')" value="Soup Stock" />
+      <!--row 5-->
+      <input type="button" class="button" style="
+        top: 21%;
+        left: 33%;
+        border-bottom-left-radius: 8px;
+        background-color: #ff91a4;
+        width: 95px;" onclick="addIngredient('Salmon')" value="Salmon" />
+      <input type="button" class="button" style="
+        top: 21%;
+        left: 38.5%;
+        background-color: #ab0c3c;
+        width: 95px;" onclick="addIngredient('Tuna')" value="Tuna" />
+      <input type="button" class="button" style="
+        top: 21%;
+        left: 44%;
+        background-color: #209b04;
+        width: 95px;" onclick="addIngredient('Basil')" value="Basil" />
+      <input type="button" class="button" style="
+        top: 21%;
+        left: 49.5%;
+        background-color: #43b927;
+        width: 95px;" onclick="addIngredient('Bok Choy')" value="Bok Choy" />
+      <input type="button" class="button" style="
+        top: 21%;
+        left: 55%;
+        border-bottom-right-radius: 8px;
+        background-color: #feb548;
+        width: 95px;" onclick="addIngredient('B. Peppers')" value="Bell Peppers" />
+    </div>
+    <!-- recipes -->
+    <div class="topAlignTable" style="left: 64%;">
+      <table border="1" cellpadding="9" cellspacing="1" class="table">
+        <tr>
+          <th>Item</th>
+          <th>Recipe</th>
+        </tr>
+        <tr>
+          <td>The Steak</td>
+          <td>Steak, Salt, Pepper</td>
+        </tr>
+        <tr>
+          <td>Burger</td>
+          <td>Patty, Bread</td>
+        </tr>
+        <tr>
+          <td>Deluxe Burger</td>
+          <td>Patty, Lettuce, Tomato, Cheese, Bread</td>
+        </tr>
+        <tr>
+          <td>Salad</td>
+          <td>Lettuce, Tomato, Cucumber, Spinach</td>
+        </tr>
+        <tr>
+          <td>Stir Fry</td>
+          <td>Chicken, Broccoli, Salt, Pepper, Cumin</td>
+        </tr>
+        <tr>
+          <td>Mongolian Chicken</td>
+          <td>Chicken, Cucumber, Bell Peppers, Salt, Cumin</td>
+        </tr>
+        <tr>
+          <td>Mac & Cheese w/ Broccoli</td>
+          <td>Pasta, Cheese, Pepper, Broccoli</td>
+        </tr>
+        <tr>
+          <td>Vegan Steak</td>
+          <td>Steak, Steak, Spinach</td>
+        </tr>
+        <tr>
+          <td>Basil Chicken</td>
+          <td>Chicken, Basil, Bell Peppers, Chili Powder</td>
+        </tr>
+      </table>
+    </div>
+    <!-- top BG -->
+    <div class="rectangleBGtop"></div>
+    <!-- customer order -->
+    <div class="customerorder" id="order"></div>
+  </div>
+  <!-- customer body -->
+  <div class="bar">
+    <div class="customerbody"></div>
+    <div class="customerhead"></div>
+    <div class="customerheadRed" id="customerheadRed"></div>
+
+  </div>
+  <!-- lose screen -->
+  <div id="popUp"
+    style="position: fixed; background-color: rgba(0, 0, 0, 0.5); z-index: 999; width:100vw; height:100vh; top: 0; left: 0;">
+    <div
+      style="background-color: #2a2a2a; height: 50%; width: 50%; position: absolute; top: 25%; left: 25%; border-radius: 20px;">
+      <h1 style="left: 50%; transform: translate(-50%, 0%); color: white; font-size: 50px;">Game Over</h1>
+      <h1 style="left: 50%; transform: translate(-50%, 0%); color: white; font-size: 20px; top: 41%;">The Customer is Mad!
+      </h1>
+      <button class="button" style="
+        position: absolute;
+        width: 200px;
+        height: 70px;
+        border-radius: 15px;
+        top: 75.5%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background-color: #EE6C4D;" onclick="resetGame()">Reset</button>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let panContent = [];
+  let isCookTimerRunning = false;
+  let isCustomerTimerRunning = false;
+  var popUp = document.getElementById("popUp");
+  popUp.style.display = "none"; //block to stay
+  var popUpHead = document.getElementById("customerheadRed");
+  popUpHead.style.display = "none"; //block to stay
+
+  function addIngredient(ingredient) {
+    if (panContent.length < 10) {
+      panContent.push(ingredient);
+      pan = document.getElementById("pan");
+      pan.innerHTML = panContent;
+    }
+  }
+
+  function pan1Cook() {
+    if (isCookTimerRunning === true) {
+      isCookTimerRunning = false;
+      cookCount = 0;
+      clearInterval(timer);
+    }
+    if (document.getElementById("pan").innerHTML === "") {
+      alert("Can't cook without ingredients")
+      clearInterval(timer);
+    }
+    let cookCount = 15;
+    isCookTimerRunning = true;
+    const timer = setInterval(function () {
+      cookCount--;
+      document.getElementById("cook_timer").innerHTML = "Cook Time Left: " + cookCount;
+      if (cookCount === 0) {
+        alert("Done Cooking");
+        clearInterval(timer);
+        isCookTimerRunning = false;
+      }
+    }, 1000);
+  }
+
+  function resetGame() {
+    location.href = "index.html";
+    location.reload();
+  }
+
+  function customerTimer() {
+    let customerCount = 45;
+    isCustomerTimerRunning = true;
+    const timer1 = setInterval(function () {
+      customerCount--;
+      document.getElementById("customer_timer").innerHTML = "Customer Patience Left: " + customerCount;
+      if (customerCount === 0) {
+        isCustomerTimerRunning = false;
+        popUp.style.display = "block";
+      }
+      if (customerCount === 10) {
+        popUpHead.style.display = "block";
+      }
+    }, 1000);
+  }
+
+  function newOrder() {
+    let letters = "012345678";
+    let foodItems = ["Steak", "Burger", "Deluxe Burger", "Salad", "Stir Fry", "Mongolian Chicken", "Mac & Cheese w/ Broccoli", "Vegan Steak", "Basil Chicken"]
+    let randomNum =
+      (letters[(Math.floor(Math.random() * 16))]);
+    if (randomNum === undefined) {
+      newOrder();
+    }
+    document.getElementById("order").innerHTML = foodItems[randomNum];
+    if (document.getElementById("order").innerHTML === "undefined") {
+      newOrder();
+    }
+
+    if (isCustomerTimerRunning === true) {
+      isCustomerTimerRunning = false;
+      customerCount = 0;
+      clearInterval(timer1);
+      customerTimer();
+    }
+
+    customerTimer();
+  }
+
+  function transferPlate1() {
+    if (isCookTimerRunning === true) {
+      alert("Cannot transfer before food is cooked!");
+      return;
+    }
+    else if (document.getElementById("pan").innerHTML === "Steak,Salt,Pepper") {
+      document.getElementById("plate").innerHTML = "Steak";
+    }
+    else if (document.getElementById("pan").innerHTML === "Patty,Bread") {
+      document.getElementById("plate").innerHTML = "Burger";
+    }
+    else if (document.getElementById("pan").innerHTML === "Patty,Lettuce,Tomato,Cheese,Bread") {
+      document.getElementById("plate").innerHTML = "Deluxe Burger"
+    }
+    else if (document.getElementById("pan").innerHTML === "Lettuce,Tomato,Cucumber,Spinach") {
+      document.getElementById("plate").innerHTML = "Salad";
+    }
+    else if (document.getElementById("pan").innerHTML === "Chicken,Broccoli,Salt,Pepper,Cumin") {
+      document.getElementById("plate").innerHTML = "Stir Fry";
+    }
+    else if (document.getElementById("pan").innerHTML === "Chicken,Cucumber,B. Peppers,Salt,Cumin") {
+      document.getElementById("plate").innerHTML = "Mongolian Chicken";
+    }
+    else if (document.getElementById("pan").innerHTML === "Pasta,Cheese,Pepper,Broccoli") {
+      document.getElementById("plate").innerHTML = "Mac & Cheese w/ Broccoli";
+    }
+    else if (document.getElementById("pan").innerHTML === "Steak,Steak,Spinach") {
+      document.getElementById("plate").innerHTML = "Vegan Steak";
+    }
+    else if (document.getElementById("pan").innerHTML === "Chicken,Basil,B. Peppers,Chili") {
+      document.getElementById("plate").innerHTML = "Basil Chicken";
+    }
+    else {
+      alert("No Matching Combinations! Items will be deleted.")
+
+    }
+    document.getElementById("pan").innerHTML = "";
+    clearPan1();
+  }
+
+  function clearPan1() {
+    if (isCookTimerRunning === true) {
+      alert("Cannot clear pan before food is cooked (sorry man)");
+    }
+    document.getElementById("pan").innerHTML = "";
+    panContent = [];
+  }
+
+  function serve() {
+    if (document.getElementById("plate").innerHTML === document.getElementById("order").innerHTML) {
+      location.reload();
+    }
+  }
+  newOrder();
+
+</script>
