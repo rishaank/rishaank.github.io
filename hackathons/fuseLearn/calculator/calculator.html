@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+
+<body>
+  <img class="bgIMG" src="../images/mountainBG.jpg">
+  <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
+  <div class="blurBox">
+    <div class="title horizontalCenter">Calculator</div>
+
+    <div class="horizontalLayout">
+      <!-- Left Panel -->
+      <div>
+        <div class="historyList">
+          <ol id="historyList" class="historyList"></ol>
+        </div>
+      </div>
+
+      <!-- Main Panel -->
+      <div>
+        <div class="miniTextbox" id="miniTextbox"></div>
+        <div class="horizontalLayout" style="margin: 0; column-gap: 5px;">
+          <button class="special" style="width: 70px; margin-bottom: 10px;" onclick="signSwitch()">+/-</button>
+          <div class="textbox" id="textbox">0</div>
+          <button class="special" style="width: 70px; margin-bottom: 10px;" onclick="backspace()">⌫</button>
+        </div>
+
+        <div class="horizontalLayout">
+          <button onclick="appendNumber(1)">1</button>
+          <button onclick="appendNumber(2)">2</button>
+          <button onclick="appendNumber(3)">3</button>
+        </div>
+        <div class="horizontalLayout">
+          <button onclick="appendNumber(4)">4</button>
+          <button onclick="appendNumber(5)">5</button>
+          <button onclick="appendNumber(6)">6</button>
+        </div>
+        <div class="horizontalLayout">
+          <button onclick="appendNumber(7)">7</button>
+          <button onclick="appendNumber(8)">8</button>
+          <button onclick="appendNumber(9)">9</button>
+        </div>
+        <div class="horizontalLayout">
+          <button class="special" onclick="decimal()">.</button>
+          <button onclick="appendNumber(0)">0</button>
+          <button class="special" onclick="calculate()">=</button>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div style="margin-top: 170px;">
+        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+          <button class="special" onclick="clearCalculator()">CE</button>
+          <button class="special" onclick="add()">+</button>
+          <button class="special" onclick="subtract()">-</button>
+        </div>
+        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+          <button class="special" onclick="divide()">÷</button>
+          <button class="special" onclick="multiply()">x</button>
+          <button class="special" onclick="exponent()">^</button>
+        </div>
+        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+          <button class="special">fakeButton</button>
+          <button class="special">fakeButton</button>
+          <button class="special">fakeButton</button>
+        </div>
+        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+          <button class="special">fakeButton</button>
+          <button class="special">fakeButton</button>
+          <button class="special">fakeButton</button>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-family: Helvetica; color: white;">Icons from https://icons8.com/</p>
+  </div>
+  <script src="calculator.js"></script>
+</body>
+
+</html>

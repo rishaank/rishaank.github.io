@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link rel="stylesheet" type="text/css" href="notepad.css">
+</head>
+
+<body>
+    <img class="bgIMG" src="../images/mountainBG.jpg">
+    <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
+    <div class="blurBox onTop"
+        style="width: 100vw; height: 100vh; left: 0; top: 0; margin: 0; border-radius: 0; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);">
+        <img class="onTop back" src="../images/back.png" onclick="location.href='../home/fuseLearn.html'">
+
+        <div class="title horizontalCenter" style="width: 68.75vw;">Notepad</div>
+
+        <textarea class="textbox" id="textbox"></textarea>
+
+        <div class="detailPane">
+            <button class="textOnly" id="saveButton" onclick="save()">Save</button>
+            <p id="charCount">character ___ of ___ characters</p>
+            <p id="wordCount">word ___ of ___ words</p>
+            <p id="sentenceCount">sentence ___ of ___ sentences</p>
+            <p>Autosaving on</p>
+        </div>
+
+        <p style="font-family: Helvetica; color: white;">Icons from https://icons8.com/</p>
+    </div>
+
+    <script src="notepad.js"></script>
+</body>
+
+</html>

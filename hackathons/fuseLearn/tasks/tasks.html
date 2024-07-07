@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="tasks.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+</head>
+
+<body>
+    <img class="bgIMG" src="../images/mountainBG.jpg">
+    <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
+    <div class="blurBox">
+        <div class="title" style="margin-bottom: 0;">Tasks</div>
+        <div class="subTitle" style="margin-top: 0;">Double click a task to mark it as completed</div>
+
+        <input type="text" id="todo-entry-box" />
+
+        <div class="horizontalLayout" style="width: calc(100vw - 900px);">
+            <button class="add" id="add-button">Add</button>
+            <button class="clearCompleted" id="clear-completed-button">Clear Completed</button>
+            <button class="empty" id="empty-button">Empty List</button>
+        </div>
+        <br />
+        <div style="width: 100%;" class="todo-wrapper">
+            <ol id="todo-list"></ol>
+        </div>
+
+        <p style="font-family: Helvetica; color: white;">Icons from https://icons8.com/</p>
+    </div>
+
+    <script src="tasks.js"></script>
+</body>

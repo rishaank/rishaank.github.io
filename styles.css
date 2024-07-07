@@ -1,243 +1,333 @@
-@font-face {
-    font-family: Poppins;
-    src: url('fonts/Poppins-Regular.ttf');
+:root {
+  --scrollbarTrack: rgb(25, 27, 38);
+  --horizontalLayoutBG: rgb(35, 37, 53);
+  --titleInfoBG: rgb(49, 52, 74);
+  --buttonGithubBG: #333;
+  --buttonGithubHoverBG: #5e43f3ff;
+  --buttonReplitBG: #0e1525;
+  --buttonReplitHoverOutline: #f26207;
+  --buttonRunBG: rgb(49, 52, 74);
+  --buttonRunHoverBG: #5e43f3ff;
+  --generalTextColor: white;
+  --barLinkColor: white;
+  --archiveVignetteColor: #5e43f3ff;
+  --scrollbarThumb: #555;
 }
 
 @font-face {
-    font-family: Poppins-Medium;
-    src: url('fonts/Poppins-Medium.ttf');
+  font-family: Poppins;
+  src: url("fonts/Poppins-Regular.ttf");
 }
 
 @font-face {
-    font-family: Poppins-Bold;
-    src: url('fonts/Poppins-Bold.ttf');
+  font-family: Poppins-Medium;
+  src: url("fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("fonts/Poppins-Bold.ttf");
 }
 
 body {
-    background-color: rgb(25, 27, 38);
-    margin: 0;
+  background-color: var(--scrollbarTrack);
+  margin: 0;
+  animation: blurLoad 1s ease 0s 1 normal backwards;
 }
 
 .bar {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-image: url('images/Banner.png');
-    background-size: cover;
-    overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-image: url("images/Banner.png");
+  background-size: cover;
+  overflow: hidden;
 }
 
 .barLink {
-    color: white;
-    border-radius: 15px;
-    display: flex;
-    text-align: center;
-    padding: 20px 16px;
-    font-family: Calibri;
-    font-weight: lighter;
-    text-decoration: none;
+  color: var(--barLinkColor);
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  padding: 20px 16px;
+  font-family: Calibri;
+  font-weight: lighter;
+  text-decoration: none;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 .barList .barLink:hover {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .horizontalLayout {
-    background-color: rgb(35, 37, 53);
-    height: calc(100vh - 160px);
-    display: flex;
-    justify-content: center;
-    position: relative;
-    align-items: flex-start;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-radius: 25px;
+  background-color: var(--horizontalLayoutBG);
+  height: calc(100vh - 160px);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: flex-start;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 25px;
 }
 
 .verticalLayout {
-    height: calc(100vh - 160px);
-    width: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+  height: calc(100vh - 160px);
+  width: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .projectLayout {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .project {
-    height: 300px;
-    width: 300px;
-    border-radius: 25px;
+  height: 300px;
+  width: 300px;
+  border-radius: 25px;
 }
 
 .title {
-    color: white;
-    margin: 0;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 55px;
+  color: var(--generalTextColor);
+  margin: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 55px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 .titleInfo {
-    color: white;
-    background-color: rgb(49, 52, 74);
-    margin: auto;
-    padding: 30px;
-    text-align: center;
-    border-radius: 25px;
-    font-family: Poppins;
-    font-size: 55px;
+  color: var(--generalTextColor);
+  background-color: var(--titleInfoBG);
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  border-radius: 25px;
+  font-family: Poppins;
+  font-size: 55px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 .bodyText {
-    color: white;
-    background-color:rgb(49, 52, 74);
-    margin: auto;
-    padding: 30px;
-    text-align: center;
-    border-radius: 25px;
-    font-family: Poppins;
-    font-size: 25px;
-    font-weight: lighter;
+  color: var(--generalTextColor);
+  background-color: var(--titleInfoBG);
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  border-radius: 25px;
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: lighter;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 img.mainImg {
-    width: calc(100vh - 160px);
-    height: calc(100vh - 160px);
-    border-radius: 25px;
+  width: calc(100vh - 160px);
+  height: calc(100vh - 160px);
+  border-radius: 25px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-.github-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
+.button-container {
+  display: flex;
+  column-gap: 125px;
 }
 
-img.github {
-    height: 40px;
-    width: 40px;
-    padding-right: 10px;
+img.buttonIMG {
+  height: 40px;
+  width: 40px;
+  padding-right: 10px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button.github {
-    background-color: #333;
-    color: white;
-    height: 60px;
-    width: 200px;
-    margin: 10px 0;
-    padding: 0px;
+  background-color: var(--buttonGithubBG);
+  color: var(--generalTextColor);
+  height: 60px;
+  width: 200px;
+  margin: 10px 0;
+  padding: 0px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button.github:hover {
-    background-color: #5e43f3ff;
-    box-shadow: #5e43f3ff;
+  cursor: pointer;
+  background-color: var(--buttonGithubHoverBG);
+  box-shadow: 0 0 10px var(--buttonGithubHoverBG);
+}
+
+button.replit {
+  background-color: var(--buttonReplitBG);
+  color: var(--generalTextColor);
+  height: 60px;
+  width: 200px;
+  margin: 10px 0;
+  padding: 0px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+button.replit:hover {
+  cursor: pointer;
+  outline: var(--buttonReplitHoverOutline) groove 10px;
+  box-shadow: 0 0 10px var(--buttonReplitHoverOutline);
+}
+
+button.run {
+  background-color: var(--buttonRunBG);
+  color: var(--generalTextColor);
+  height: 60px;
+  width: 200px;
+  margin: 10px 0;
+  padding: 0px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+button.run:hover {
+  cursor: pointer;
+  background-color: var(--buttonRunHoverBG);
+  box-shadow: 0 0 10px var(--buttonRunHoverBG);
+}
+
+button.hackathon {
+  background-color: var(--buttonRunBG);
+  color: var(--generalTextColor);
+  height: 60px;
+  width: 200px;
+  margin: 10px 0;
+  padding: 0px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+button.hackathon:hover {
+  cursor: pointer;
+  background-color: var(--buttonRunHoverBG);
+  box-shadow: 0 0 10px var(--buttonRunHoverBG);
 }
 
 img.bottomVignette {
-    align-self: flex-end;
-    position: absolute;
-    opacity: 70%;
+  align-self: flex-end;
+  position: absolute;
+  opacity: 70%;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 img.projectsVignette {
-    height: 150px;
-    width: 300px;
+  height: 150px;
+  width: 300px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 .archiveVignette {
-    height: 150px;
-    width: calc(100vh - 160px);
-    position: absolute;
-    margin: 0px;
-    padding: 0px;
-    bottom: 0px;
-    border-radius: 25px;
+  height: 150px;
+  width: calc(100vh - 160px);
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  bottom: 0px;
+  border-radius: 25px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 p.archiveVignette {
-    color: #5e43f3ff;
-    line-height: 150px;
-    align-self: center;
-    font-family: Poppins;
-    font-size: xxx-large;
-    font-weight: bold;
+  color: var(--archiveVignetteColor);
+  line-height: 150px;
+  align-self: center;
+  font-family: Poppins;
+  font-size: xxx-large;
+  font-weight: bold;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 h3.overlay {
-    color: white;
-    margin-bottom: 75px;
-    align-self: flex-end;
-    text-align: center;
-    position: absolute;
-    font-family: Poppins;
-    font-size: 37px;
-    font-weight: bold;
+  color: var(--generalTextColor);
+  margin-bottom: 75px;
+  align-self: flex-end;
+  text-align: center;
+  position: absolute;
+  font-family: Poppins;
+  font-size: 37px;
+  font-weight: bold;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button {
-    display: flex;
-    align-items: center;
-    align-self: center;
-    text-align: center;
-    justify-content: center;
-    background-color: white;
-    box-shadow: white;
-    border: 0;
-    position: absolute;
-    color: black;
-    padding: 2px 2px;
-    margin-top: 220px;
-    width: 120px;
-    height: 50px;
-    border-radius: 30px;
-    font-size: 17px;
-    transition-duration: 0.4s;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--generalTextColor);
+  border: 0;
+  color: black;
+  padding: 2px 2px;
+  width: 120px;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 17px;
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button:hover {
-    background-color: #5e43f3ff;
-    color: white;
-    box-shadow: #5e43f3ff;
+  cursor: pointer;
+  background-color: var(--buttonGithubHoverBG);
+  color: var(--generalTextColor);
+  box-shadow: 0 0 10px var(--buttonGithubHoverBG);
+  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
+}
+
+@keyframes riseLoad {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes blurLoad {
+  from {
+    filter: sepia(5%) blur(5px);
+  }
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
-    border-radius: 30px;
+  width: 12px;
+  border-radius: 30px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgb(25, 27, 38);
-    border-radius: 30px;
+  background-color: var(--scrollbarTrack);
+  border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 30px;
+  background: var(--scrollbarThumb);
+  border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #5e43f3ff;
-    border-radius: 30px;
+  background-color: var(--buttonGithubHoverBG);
+  border-radius: 30px;
 }
 
 ::-moz-selection {
-    background: #5e43f3ff;
+  background: var(--buttonGithubHoverBG);
 }
 
 ::selection {
-    background: #5e43f3ff;
+  background: var(--buttonGithubHoverBG);
 }
