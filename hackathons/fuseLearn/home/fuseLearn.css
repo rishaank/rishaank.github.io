@@ -2,6 +2,10 @@
   --blueBG: #4375b0;
   --vibrantBlueBG: #0077ff;
   --darkBG: #191e25;
+  --greenBG: #77dd77;
+  --yellowBG: #fdfd96;
+  --darkYellowBG: #bebe0a;
+  --redBG: #ff6961;
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
 }
@@ -16,8 +20,11 @@ body {
 }
 
 p {
+  color: white;
+  margin: 7px 0;
+  text-align: center;
   font-family: Helvetica;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  font-size: 17px;
 }
 
 img.bgIMG {
@@ -29,28 +36,34 @@ img.bgIMG {
   z-index: 1;
 }
 
+img.buttonIMG {
+  width: 6vw;
+  height: 6vw;
+  margin-bottom: 20px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
 div.blurBox {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
   background-color: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   align-self: center;
   align-content: center;
-  justify-content: center;
 }
 
 .title {
   color: white;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
   text-align: center;
   font-family: Helvetica;
   font-weight: bold;
-  font-size: 55px;
+  font-size: calc(2vw + 3vh);
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
@@ -58,56 +71,80 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--darkBG);
-  color: white;
-  border: 0;
-  width: 130px;
-  height: 50px;
+  width: 8vw;
+  height: 6vh;
+  margin: 0;
+  padding: 0;
+  border: none;
   border-radius: 30px;
   font-family: Helvetica;
-  font-size: 20px;
-  transition: all 0.3s;
+  font-size: calc(0.625vw + 1.1vh);
+  background-color: var(--darkBG);
+  color: white;
   cursor: pointer;
+  transition: all 0.3s;
   z-index: 4;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button:hover {
   background-color: var(--blueBG);
-  color: white;
   box-shadow: 0 0 10px var(--blueBG);
   transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
 button.bigCentered {
-  font-size: 25px;
-  height: 200px;
-  width: 200px;
+  width: calc((calc(68.75vh) - 200px) / 2);
+  height: calc((calc(68.75vh) - 200px) / 2);
   margin: 20px;
+  font-size: calc(0.7vw + 1.5vh);
+  flex-direction: column-reverse;
 }
 
-p {
-  color: white;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: center;
-  font-family: Helvetica;
-  font-size: 17px;
+button.start {
+  background-color: var(--greenBG);
+}
+
+button.start:hover {
+  background-color: white;
+  color: var(--greenBG);
+  box-shadow: 0 0 10px var(--greenBG);
+}
+
+button.stop {
+  background-color: var(--yellowBG);
+  color: black;
+}
+
+button.stop:hover {
+  background-color: white;
+  color: var(--darkYellowBG);
+  box-shadow: 0 0 10px var(--darkYellowBG);
+}
+
+button.reset {
+  background-color: var(--redBG);
+}
+
+button.reset:hover {
+  background-color: white;
+  color: var(--redBG);
+  box-shadow: 0 0 10px var(--redBG);
 }
 
 .onTop {
   position: absolute;
-  z-index: 100;
   top: 0;
+  z-index: 100;
 }
 
 div.horizontalLayout {
   display: flex;
   column-gap: 20px;
   align-items: center;
+  margin: 5px;
   width: auto;
   height: auto;
-  margin: 5px;
 }
 
 div.horizontalCenter {
@@ -116,36 +153,36 @@ div.horizontalCenter {
 }
 
 button.horizontalCenter {
-  left: 50%;
-  transform: translate(-50%, 0);
   width: 130px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 div.verticalLayout {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   align-self: center;
   align-content: center;
+  position: relative;
+  margin: 100px;
   width: auto;
   height: 100%;
-  margin: 100px;
 }
 
 div.timerCircle {
-  border-radius: 100%;
-  margin: auto;
-  width: 200px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  height: calc(28.75vh - 80px);
+  width: calc(28.75vh - 80px);
+  border-radius: 50%;
+  color: white;
   font-family: Helvetica;
   font-size: 30px;
-  color: white;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
@@ -179,5 +216,4 @@ div.timerCircle {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--vibrantBlueBG);
-  border-radius: 30px;
 }

@@ -5,19 +5,18 @@ var timerStartBtn = document.getElementById("timerStart");
 var timerStopBtn = document.getElementById("timerStop");
 var timerResetBtn = document.getElementById("timerReset");
 
-var workTime = 1500;
-var breakTime = 300;
+var workTime = 1500; // 25 minutes
+var breakTime = 300; // 5 minutes
 var timerSeconds = workTime;
 var timerRunning = false;
 var breakRunning = false;
 var timerInterval;
-var initialSize = 200;
 
-var workSize = initialSize / workTime - 1;
-var breakSize = initialSize / breakTime - 1;
+function getInitialDiameter() {
+  return parseFloat(getComputedStyle(timerCircle.parentElement).width);
+}
 
-timerCircle.style.width = initialSize + "px";
-timerCircle.style.height = initialSize + "px";
+var initialDiameter = getInitialDiameter();
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -42,17 +41,13 @@ function timerStart() {
     timerInterval = setInterval(function () {
       if (timerSeconds > 0) {
         timerSeconds--;
-        timerCircle.style.width =
-          parseFloat(timerCircle.style.width) - workSize + "px";
-        timerCircle.style.height =
-          parseFloat(timerCircle.style.height) - workSize + "px";
+        updateCircleSize(workTime);
         updateTimerDisplay();
       } else {
         alert("Time for a 5 minute break!");
         clearIntervals();
         timerSeconds = breakTime;
-        timerCircle.style.width = initialSize + "px";
-        timerCircle.style.height = initialSize + "px";
+        resetCircleSize();
         breakTimer();
       }
     }, 1000);
@@ -66,10 +61,7 @@ function breakTimer() {
     timerInterval = setInterval(function () {
       if (timerSeconds > 0) {
         timerSeconds--;
-        timerCircle.style.width =
-          parseFloat(timerCircle.style.width) - breakSize + "px";
-        timerCircle.style.height =
-          parseFloat(timerCircle.style.height) - breakSize + "px";
+        updateCircleSize(breakTime);
         updateTimerDisplay();
       } else {
         alert("Back to work!");
@@ -87,10 +79,33 @@ function timerStop() {
 function timerReset() {
   clearIntervals();
   timerSeconds = workTime;
-  timerCircle.style.width = initialSize + "px";
-  timerCircle.style.height = initialSize + "px";
+  resetCircleSize();
   timerDetail.innerHTML = "Time to Work!";
   updateTimerDisplay();
 }
 
+function resetCircleSize() {
+  timerCircle.style.width = initialDiameter + "px";
+  timerCircle.style.height = initialDiameter + "px";
+}
+
+function updateCircleSize(totalTime) {
+  var currentDiameter = parseFloat(getComputedStyle(timerCircle).width);
+  var decrement = initialDiameter / totalTime;
+  var newDiameter = currentDiameter - decrement;
+  timerCircle.style.width = newDiameter + "px";
+  timerCircle.style.height = newDiameter + "px";
+}
+
+function resizeCircle() {
+  initialDiameter = getInitialDiameter();
+  var elapsed = workTime - timerSeconds;
+  var newDiameter = initialDiameter * (1 - elapsed / workTime);
+  timerCircle.style.width = newDiameter + "px";
+  timerCircle.style.height = newDiameter + "px";
+}
+
+window.addEventListener("resize", resizeCircle);
+
 updateTimerDisplay();
+resetCircleSize();

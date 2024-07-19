@@ -1,19 +1,28 @@
 var toDoList = document.getElementById("todo-list");
 var toDoEntryBox = document.getElementById("todo-entry-box");
+var detailEntryBox = document.getElementById("detail-entry-box");
 var addButton = document.getElementById("add-button");
 var clearButton = document.getElementById("clear-completed-button");
 var emptyButton = document.getElementById("empty-button");
+var infoDiv = document.getElementById("info");
 
 addButton.addEventListener("click", addToDoItem);
 clearButton.addEventListener("click", clearCompletedToDoItems);
 emptyButton.addEventListener("click", emptyList);
 
 function addToDoItem() {
+  var detailText = detailEntryBox.value;
   var itemText = toDoEntryBox.value;
+
+  if (itemText && detailText) {
+    itemText = itemText + " | " + detailText;
+  }
+
   if (itemText) {
     newToDoItem(itemText, false, "prepend");
     saveList();
     toDoEntryBox.value = "";
+    detailEntryBox.value = "";
   } else {
     alert("Please enter a valid input");
   }
@@ -67,6 +76,7 @@ function saveList() {
     toDos.push(toDoInfo);
   }
   localStorage.setItem("toDos", JSON.stringify(toDos));
+  infoToggle();
 }
 
 function loadList() {
@@ -77,6 +87,15 @@ function loadList() {
       var toDo = toDos[i];
       newToDoItem(toDo.task, toDo.completed, "append");
     }
+  }
+  infoToggle();
+}
+
+function infoToggle() {
+  if (toDoList.children.length === 0) {
+    infoDiv.style.display = "block";
+  } else {
+    infoDiv.style.display = "none";
   }
 }
 

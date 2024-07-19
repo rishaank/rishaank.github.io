@@ -13,38 +13,52 @@
     <div class="blurBox onTop" style="width: 68.75vw; height: 68.75vh; right: 0; top: 0;">
         <div class="title horizontalCenter" style="width: 68.75vw;">fuseLearn Hub</div>
         <div class="horizontalLayout">
-            <button class="bigCentered" onclick="location.href='../tasks/tasks.html'">Tasks</button>
-            <button class="bigCentered" onclick="location.href='../notepad/notepad.html'">Notepad</button>
-            <button class="bigCentered" onclick="location.href='../calculator/calculator.html'">Calculator</button>
+            <button class="bigCentered" onclick="location.href='../tasks/tasks.html'">Tasks
+                <img class="buttonIMG" src="../images/tasks.png"></img>
+            </button>
+            <button class="bigCentered" onclick="location.href='../notepad/notepad.html'">Notepad
+                <img class="buttonIMG" src="../images/notepad.png"></img>
+            </button>
+            <button class="bigCentered" onclick="location.href='../calculator/calculator.html'">Calculator
+                <img class="buttonIMG" src="../images/calculator.png"></img>
+            </button>
         </div>
         <div class="horizontalLayout">
-            <button class="bigCentered">[Coming Soon] Flashcard Maker</button>
-            <button class="bigCentered">[Coming Soon] Citation Generator</button>
+            <button class="bigCentered" onclick="alert('Coding in progress...')">Flashcard Maker
+                <img class="buttonIMG" src="../images/flashcards.png"></img>
+            </button>
+            <button class="bigCentered" onclick="alert('Coding in progress...')">Citation Generator
+                <img class="buttonIMG" src="../images/citations.png"></img>
+            </button>
+            <button class="bigCentered" onclick="alert('Coding in progress...')">Launcher
+                <img class="buttonIMG" src="../images/tools.png"></img>
+            </button>
         </div>
     </div>
 
-    <div class="blurBox onTop" style="height: 28.75vh; width: 68.75vw; right: 0; top: calc(71.5vh - 20px);">
+    <div class="blurBox onTop"
+        style="height: calc(28.75vh - 50px); width: 68.75vw; right: 0; top: calc(71.5vh - 20px);">
         <div class="horizontalLayout">
             <div class="timerCircle" style="border: 8px solid var(--vibrantBlueBG);">
                 <div class="timerCircle" style="background-color: var(--blueBG); position: absolute;" id="timerCircle">
                 </div>
-                <p id="timerText" style="font-size: 40px; z-index: 3;">25:00</p>
-                <p id="timerDetail" style="font-size: 20px; z-index: 3;">Time to Work!</p>
+                <p id="timerText" style="font-size: calc(1.25vw + 2.2vh); z-index: 3;">25:00</p>
+                <p id="timerDetail" style="font-size: calc(0.625vw + 1.1vh); z-index: 3;">Time to Work!</p>
             </div>
 
             <div class="verticalLayout" style="margin: 0; margin-left: 100px;">
                 <div class="title horizontalCenter" style="margin: auto;">
                     Pomodoro Timer</div>
                 <div class="horizontalLayout" style="margin: auto; justify-content: space-evenly;">
-                    <button id="timerStart" onclick="timerStart()">Start</button>
-                    <button id="timerStop" onclick="timerStop()">Stop</button>
-                    <button id="timerReset" onclick="timerReset()">Reset</button>
+                    <button class="start" id="timerStart" onclick="timerStart()">Start</button>
+                    <button class="stop" id="timerStop" onclick="timerStop()">Stop</button>
+                    <button class="reset" id="timerReset" onclick="timerReset()">Reset</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="blurBox onTop" style="height: calc(100vh - 20px); width: 28.75vw; left: 0; top: 0;">
+    <div class="blurBox onTop" style="height: calc(100vh - 70px); width: 28.75vw; left: 0; top: 0;">
         <iframe id=WKMFFZLMLH loading="eager"
             src="https://embed.pickaxeproject.com/axe?id=AI_Educator_16HYS&mode=embed_gold&host=beta&theme=custom&opacity=0&image=hide&description=hide&font_header=Real+Head+Pro&size_header=30&font_body=Real+Head+Pro&size_body=16&font_labels=Real+Head+Pro&size_labels=14&font_button=Real+Head+Pro&size_button=16&c_fb=08090B&c_ff=0B0909&c_fbd=FFFFFF&c_rb=4375B0&c_bb=4375B0&c_bt=121111&c_t=FFFFFF&s_ffo=100&s_rbo=100&s_bbo=100&s_f=minimalist&s_b=filled&s_t=2&s_to=1&s_r=2"
             width="100%" height="90%"
@@ -52,6 +66,12 @@
             onMouseOut="this.style.boxShadow='none'; this.style.transform = 'translateY(0px)';"
             style="border:1px solid rgba(0, 0, 0, 0);transition:.3s;border-radius:4px;" frameBorder="0"></iframe>
         <p>Note: This is a free demo, try not to use it much and waste my credits :)</p>
+    </div>
+
+    <div class="blurBox onTop"
+        style="height: 40px; width: 98.75vw; left: 0; bottom: 0; margin-top: auto; flex-direction: row; column-gap: 20px;">
+        <p style="font-family: Helvetica; color: white;">Icons from https://icons8.com/</p>
+        <p style="font-family: Helvetica; color: white;">Coded by Rishaan K</p>
     </div>
 
     <script src="fuseLearn.js"></script>

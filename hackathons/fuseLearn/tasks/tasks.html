@@ -15,20 +15,31 @@
         <div class="title" style="margin-bottom: 0;">Tasks</div>
         <div class="subTitle" style="margin-top: 0;">Double click a task to mark it as completed</div>
 
-        <input type="text" id="todo-entry-box" />
+        <div class="horizontalLayout" style="column-gap: 20px">
+            <input type="text" placeholder="Type in your task's name" id="todo-entry-box" />
+            <input type="text" placeholder="Type in your task's details (optional)" id="detail-entry-box" />
+        </div>
 
-        <div class="horizontalLayout" style="width: calc(100vw - 900px);">
+        <div class="horizontalLayout" style="column-gap: 50px">
             <button class="add" id="add-button">Add</button>
             <button class="clearCompleted" id="clear-completed-button">Clear Completed</button>
             <button class="empty" id="empty-button">Empty List</button>
         </div>
+
         <br />
-        <div style="width: 100%;" class="todo-wrapper">
-            <ol id="todo-list"></ol>
+
+        <ol id="todo-list">
+        </ol>
+
+        <div class="info" id="info">
+            <img class="info" src="../images/info.png">
+            <p>You have no more tasks</p>
         </div>
 
-        <p style="font-family: Helvetica; color: white;">Icons from https://icons8.com/</p>
+        <p>Icons from https://icons8.com/</p>
     </div>
 
     <script src="tasks.js"></script>
 </body>
+
+</html>

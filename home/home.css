@@ -1,0 +1,118 @@
+:root {
+  --buttonHoverBG: #5e43f3ff;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: DMSerifDisplay;
+  src: url("../fonts/DMSerifDisplay-Regular.ttf");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-image: url("../images/bg.jpg");
+}
+
+div.blurBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  height: 98vh;
+  background-color: rgba(255, 0, 0, 0);
+  backdrop-filter: blur(30px);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: blurLoad 1s ease 0s 1 normal backwards;
+}
+
+.mainTitle {
+  color: white;
+  cursor: default;
+  text-align: center;
+  font-family: DMSerifDisplay;
+  font-size: calc(2vh + 2vw);
+  transition: 0.3s;
+  animation: riseLoad 2s ease 0s 1 normal backwards;
+}
+
+.mainTitle:hover {
+  color: var(--buttonHoverBG);
+  text-shadow: 0 0 10px var(--buttonHoverBG);
+  transform: translateY(-10px);
+}
+
+.bullet {
+  color: white;
+  cursor: default;
+  text-align: center;
+  font-family: DMSerifDisplay;
+  font-size: calc(0.8vh + 0.8vw);
+  transition: 0.3s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+.bullet:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px var(--buttonHoverBG);
+  cursor: pointer;
+}
+
+div.horizontalLayout {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  column-gap: 20px;
+}
+
+@keyframes riseLoad {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+@keyframes blurLoad {
+  from {
+    filter: sepia(5%) blur(100px);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbarTrack);
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbarThumb);
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--buttonGithubHoverBG);
+  border-radius: 30px;
+}
+
+::-moz-selection {
+  background: var(--buttonGithubHoverBG);
+}
+
+::selection {
+  background: var(--buttonGithubHoverBG);
+}
