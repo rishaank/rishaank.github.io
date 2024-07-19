@@ -207,6 +207,7 @@ img.projectIMG {
   width: calc(6vw + 9vh);
   height: calc(6vw + 9vh);
   border-radius: 25px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 img.buttonIMG {

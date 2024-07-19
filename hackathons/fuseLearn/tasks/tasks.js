@@ -36,7 +36,8 @@ function newToDoItem(_itemText, completed, type) {
     toDoItem.classList.add("completed");
   }
 
-  toDoItem.addEventListener("dblclick", toggleToDoItemState);
+  toDoItem.addEventListener("click", toggleToDoItemState);
+  toDoItem.addEventListener("dblclick", deleteTask);
 
   if (type === "append") {
     toDoList.appendChild(toDoItem);
@@ -62,6 +63,11 @@ function emptyList() {
 
 function toggleToDoItemState() {
   this.classList.toggle("completed");
+  saveList();
+}
+
+function deleteTask() {
+  this.remove();
   saveList();
 }
 

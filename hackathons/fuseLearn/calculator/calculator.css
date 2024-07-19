@@ -13,7 +13,6 @@ body {
   margin: 0;
   overflow: hidden;
   background-color: var(--blueBG);
-  animation: blurLoad 1s ease 0s 1 normal backwards;
 }
 
 p {
@@ -181,12 +180,6 @@ ol li {
   from {
     opacity: 0;
     transform: translateY(30px);
-  }
-}
-
-@keyframes blurLoad {
-  from {
-    filter: sepia(5%) blur(5px);
   }
 }
 
