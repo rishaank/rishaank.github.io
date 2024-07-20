@@ -25,7 +25,6 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  margin: 0;
   overflow-x: hidden;
   background-image: url("images/bg.jpg");
 }
@@ -37,7 +36,8 @@ div.blurBox {
   align-items: center;
   width: 98vw;
   min-height: 98vh;
-  padding-bottom: 60px;
+  margin-top: auto;
+  padding: 40px 0 40px 0;
   background-color: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
@@ -50,7 +50,6 @@ div.mainTitle {
   text-align: center;
   font-family: DMSerifDisplay;
   font-size: calc(2vh + 2vw);
-  margin-top: 600px;
   transition: 0.3s;
   animation: riseLoad 4s ease 0s 1 normal backwards;
 }
@@ -137,9 +136,12 @@ div.projectLayout {
 }
 
 div.projectContainer {
-  height: 52vh;
-  overflow: hidden;
-  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
 }
 
 button {
