@@ -69,6 +69,16 @@ div.bullet:hover {
   cursor: pointer;
 }
 
+div.blankBullet {
+  color: white;
+  cursor: default;
+  text-align: center;
+  font-family: DMSerifDisplay;
+  font-size: calc(0.8vh + 0.8vw);
+  transition: 0.3s;
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
+}
+
 div.horizontalLayout {
   display: flex;
   justify-content: center;

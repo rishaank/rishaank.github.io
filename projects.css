@@ -84,7 +84,6 @@ div.footer {
   text-align: center;
   font-family: Poppins;
   font-size: calc(0.5vh + 0.5vw);
-  transition: 0.3s;
   animation: riseLoad 2s ease 0s 1 normal backwards;
 }
 
@@ -94,8 +93,7 @@ div.projectTitle {
   text-align: center;
   font-family: Poppins;
   font-size: calc(1.5vh + 1.5vw);
-  transition: 0.3s;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 2s ease 0s 1 normal backwards;
 }
 
 div.projectDetail {
@@ -105,8 +103,7 @@ div.projectDetail {
   font-family: Poppins;
   font-size: calc(0.8vh + 0.8vw);
   margin: 10px;
-  transition: 0.3s;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 3s ease 0s 1 normal backwards;
 }
 
 div.postDetail {
@@ -117,8 +114,7 @@ div.postDetail {
   font-family: Poppins;
   font-size: calc(0.8vh + 0.8vw);
   margin: 10px;
-  transition: 0.3s;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 6s ease 0s 1 normal backwards;
 }
 
 div.horizontalLayout {
@@ -153,7 +149,6 @@ div.projectContainer {
   gap: 20px;
   padding: 20px;
   max-width: 100%;
-  transition: 0.3s;
   animation: riseLoad 1.7s ease 0s 1 normal backwards;
 }
 
@@ -185,7 +180,7 @@ button:hover {
 button.github {
   background-color: var(--buttonGithubBG);
   color: white;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 5s ease 0s 1 normal backwards;
 }
 
 button.github:hover {
@@ -197,7 +192,7 @@ button.github:hover {
 button.replit {
   background-color: var(--buttonReplitBG);
   color: white;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 4s ease 0s 1 normal backwards;
 }
 
 button.replit:hover {
@@ -209,7 +204,7 @@ button.replit:hover {
 button.basic {
   background-color: var(--buttonBG);
   color: white;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 5s ease 0s 1 normal backwards;
 }
 
 button.basic:hover {
@@ -222,7 +217,14 @@ img.projectIMG {
   width: calc(6vw + 9vh);
   height: calc(6vw + 9vh);
   border-radius: 25px;
+  transition: 0.3s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.projectIMG:hover {
+  width: calc(7vw + 10vh);
+  height: calc(7vw + 10vh);
+  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
 img.buttonIMG {
