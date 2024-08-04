@@ -37,33 +37,33 @@ div.blurBox {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.mainTitle {
+div.mainTitle {
   color: white;
   cursor: default;
   text-align: center;
   font-family: DMSerifDisplay;
   font-size: calc(2vh + 2vw);
   transition: 0.3s;
-  animation: riseLoad 2s ease 0s 1 normal backwards;
+  animation: riseLoad 1.7s ease 0s 1 normal backwards;
 }
 
-.mainTitle:hover {
+div.mainTitle:hover {
   color: var(--buttonHoverBG);
   text-shadow: 0 0 10px var(--buttonHoverBG);
   transform: translateY(-10px);
 }
 
-.bullet {
+div.bullet {
   color: white;
   cursor: default;
   text-align: center;
   font-family: DMSerifDisplay;
   font-size: calc(0.8vh + 0.8vw);
   transition: 0.3s;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
 }
 
-.bullet:hover {
+div.bullet:hover {
   text-decoration: underline;
   text-shadow: 0 0 10px var(--buttonHoverBG);
   cursor: pointer;
@@ -74,6 +74,12 @@ div.horizontalLayout {
   justify-content: center;
   width: 100vw;
   column-gap: 20px;
+}
+
+div.hidden {
+  color: darkslateblue;
+  font-weight: bolder;
+  opacity: 0;
 }
 
 @keyframes riseLoad {

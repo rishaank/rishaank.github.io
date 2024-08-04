@@ -122,7 +122,7 @@ button.empty:hover {
   transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
-.title {
+div.title {
   color: white;
   margin-top: 60px;
   text-align: center;
@@ -132,7 +132,7 @@ button.empty:hover {
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-.subTitle {
+div.subTitle {
   color: white;
   margin-bottom: 60px;
   text-align: center;
@@ -200,7 +200,7 @@ ol li {
 div.info {
   width: 50vw;
   height: 45vh;
-  padding: 20px 0 5px 0;
+  padding: 15px 0 0 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
