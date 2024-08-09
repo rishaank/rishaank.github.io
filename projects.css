@@ -23,8 +23,8 @@ body {
   background-color: black;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 98vw;
+  height: 98vh;
   overflow-x: hidden;
   background-image: url("images/bg.jpg");
 }
@@ -34,9 +34,10 @@ div.blurBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 99vw;
-  min-height: 98vh;
+  width: 97vw;
+  min-height: 97vh;
   margin-top: auto;
+  padding-bottom: 20px;
   background-color: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
@@ -78,8 +79,6 @@ div.bullet:hover {
 }
 
 div.footer {
-  position: absolute;
-  bottom: 0;
   color: white;
   text-align: center;
   font-family: Poppins;
@@ -148,7 +147,7 @@ div.projectContainer {
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  max-width: 100%;
+  width: 100%;
   animation: riseLoad 1.7s ease 0s 1 normal backwards;
 }
 
@@ -156,10 +155,13 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: fit-content;
   width: 12vw;
-  height: 7vh;
+  min-height: fit-content;
+  height: 9vh;
+  box-sizing: border-box;
   margin: 10px 0;
-  padding: 10px;
+  padding: 12px;
   background-color: var(--generalTextColor);
   border: 0;
   border-radius: 30px;

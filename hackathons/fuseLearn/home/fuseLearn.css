@@ -56,9 +56,8 @@ div.blurBox {
   align-content: center;
 }
 
-.title {
+div.title {
   color: white;
-  margin: 30px 0;
   text-align: center;
   font-family: Helvetica;
   font-weight: bold;
@@ -81,7 +80,7 @@ button {
   background-color: var(--darkBG);
   color: white;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: 0.3s;
   z-index: 4;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
@@ -170,19 +169,29 @@ div.verticalLayout {
   height: 100%;
 }
 
-div.timerCircle {
+div.timerCircleOutline {
+  border: 8px solid var(--vibrantBlueBG);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  height: calc(28.75vh - 80px);
-  width: calc(28.75vh - 80px);
+  height: calc(14.32vh + 8vw - 80px);
+  width: calc(14.32vh + 8vw - 80px);
   border-radius: 50%;
-  color: white;
-  font-family: Helvetica;
-  font-size: 30px;
   animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.timerCircle {
+  position: absolute;
+  background: linear-gradient(
+    180deg,
+    rgba(97, 170, 255, 1) 0%,
+    rgba(67, 117, 176, 1) 75%
+  );
+  height: calc(14.32vh + 8vw - 80px);
+  width: calc(14.32vh + 8vw - 80px);
+  border-radius: 50%;
+  animation: riseLoad 0s ease 0s 1 normal backwards;
 }
 
 @keyframes riseLoad {

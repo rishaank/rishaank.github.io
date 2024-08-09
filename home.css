@@ -29,8 +29,8 @@ div.blurBox {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 98vw;
-  height: 98vh;
+  width: 97vw;
+  height: 97vh;
   background-color: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
@@ -90,6 +90,7 @@ div.hidden {
   color: darkslateblue;
   font-weight: bolder;
   opacity: 0;
+  -webkit-text-stroke: 0.001px var(--buttonHoverBG);
 }
 
 @keyframes riseLoad {
