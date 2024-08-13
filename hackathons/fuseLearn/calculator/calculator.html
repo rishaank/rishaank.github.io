@@ -12,7 +12,18 @@
   <img class="bgIMG" src="../images/mountainBG.jpg">
   <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
   <div class="blurBox">
-    <div class="title horizontalCenter">Calculator</div>
+    <div class="horizontalLayout" style="column-gap: 0;">
+      <div class="title">C</div>
+      <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">a</div>
+      <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">l</div>
+      <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">c</div>
+      <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">u</div>
+      <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">l</div>
+      <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">a</div>
+      <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">t</div>
+      <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">o</div>
+      <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">r</div>
+    </div>
 
     <div class="horizontalLayout">
       <!-- Left Panel -->
@@ -25,28 +36,29 @@
       <!-- Main Panel -->
       <div>
         <div class="miniTextbox" id="miniTextbox"></div>
-        <div class="horizontalLayout" style="margin: 0; column-gap: 5px;">
+        <div class="horizontalLayout"
+          style="margin: 0; column-gap: 5px; animation: riseLoad 2s ease 0s 1 normal backwards;">
           <button class="special" style="width: 70px; margin-bottom: 10px;" onclick="signSwitch()">+/-</button>
           <div class="textbox" id="textbox">0</div>
           <button class="special" style="width: 70px; margin-bottom: 10px;" onclick="backspace()">⌫</button>
         </div>
 
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="animation: riseLoad 3s ease 0s 1 normal backwards;">
           <button onclick="appendNumber(1)">1</button>
           <button onclick="appendNumber(2)">2</button>
           <button onclick="appendNumber(3)">3</button>
         </div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="animation: riseLoad 4s ease 0s 1 normal backwards;">
           <button onclick="appendNumber(4)">4</button>
           <button onclick="appendNumber(5)">5</button>
           <button onclick="appendNumber(6)">6</button>
         </div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="animation: riseLoad 5s ease 0s 1 normal backwards;">
           <button onclick="appendNumber(7)">7</button>
           <button onclick="appendNumber(8)">8</button>
           <button onclick="appendNumber(9)">9</button>
         </div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="animation: riseLoad 5s ease 0s 1 normal backwards;">
           <button class="special" onclick="decimal()">.</button>
           <button onclick="appendNumber(0)">0</button>
           <button class="special" onclick="calculate()">=</button>
@@ -55,25 +67,29 @@
 
       <!-- Right Panel -->
       <div style="margin-top: 170px;">
-        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+        <div class="horizontalLayout"
+          style="margin-left: 0; padding-left: 0; animation: riseLoad 3s ease 0s 1 normal backwards;">
           <button class="special" onclick="clearCalculator()">CE</button>
           <button class="special" onclick="add()">+</button>
           <button class="special" onclick="subtract()">-</button>
         </div>
-        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
+        <div class="horizontalLayout"
+          style="margin-left: 0; padding-left: 0; animation: riseLoad 4s ease 0s 1 normal backwards;">
           <button class="special" onclick="divide()">÷</button>
           <button class="special" onclick="multiply()">x</button>
           <button class="special" onclick="exponent()">^</button>
         </div>
-        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
-          <button class="special">fakeButton</button>
-          <button class="special">fakeButton</button>
-          <button class="special">fakeButton</button>
+        <div class="horizontalLayout"
+          style="margin-left: 0; padding-left: 0; animation: riseLoad 5s ease 0s 1 normal backwards;">
+          <button class="special">[empty]</button>
+          <button class="special">[empty]</button>
+          <button class="special">[empty]</button>
         </div>
-        <div style="margin-left: 0; padding-left: 0;" class="horizontalLayout">
-          <button class="special">fakeButton</button>
-          <button class="special">fakeButton</button>
-          <button class="special">fakeButton</button>
+        <div class="horizontalLayout"
+          style="margin-left: 0; padding-left: 0; animation: riseLoad 5s ease 0s 1 normal backwards;">
+          <button class="special">[empty]</button>
+          <button class="special">[empty]</button>
+          <button class="special">[empty]</button>
         </div>
       </div>
     </div>

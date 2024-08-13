@@ -10,16 +10,23 @@
 
 <body>
     <img class="bgIMG" src="../images/mountainBG.jpg">
-    <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
+    <img class="back" style="animation: riseLoad 2s ease 0s 1 normal backwards;" src="../images/back.png" alt="Back"
+        onclick="location.href='../home/fuseLearn.html'">
     <div class="blurBox onTop"
         style="width: 100vw; height: 100vh; left: 0; top: 0; margin: 0; border-radius: 0; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);">
-        <img class="onTop back" src="../images/back.png" onclick="location.href='../home/fuseLearn.html'">
+        <div class="horizontalLayout" style="column-gap: 0; margin: 0;">
+            <div class="title">N</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">o</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">t</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">e</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">p</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">d</div>
+        </div>
 
-        <div class="title horizontalCenter" style="width: 68.75vw;">Notepad</div>
+        <textarea class="textbox" style="animation: riseLoad 2s ease 0s 1 normal backwards;" id="textbox"></textarea>
 
-        <textarea class="textbox" id="textbox"></textarea>
-
-        <div class="detailPane">
+        <div class="detailPane" style="animation: riseLoad 2s ease 0s 1 normal backwards;">
             <button class="textOnly" id="saveButton" onclick="save()">Save</button>
             <p id="charCount">character ___ of ___ characters</p>
             <p id="wordCount">word ___ of ___ words</p>
@@ -27,7 +34,7 @@
             <p>Autosaving on</p>
         </div>
 
-        <p>Icons from https://icons8.com/</p>
+        <p style="animation: riseLoad 3s ease 0s 1 normal backwards;">Icons from https://icons8.com/</p>
     </div>
 
     <script src="notepad.js"></script>

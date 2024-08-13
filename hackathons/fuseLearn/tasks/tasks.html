@@ -10,17 +10,25 @@
 
 <body>
     <img class="bgIMG" src="../images/mountainBG.jpg">
-    <img class="back" src="../images/back.png" alt="Back" onclick="location.href='../home/fuseLearn.html'">
+    <img class="back" style="animation: riseLoad 2s ease 0s 1 normal backwards;" src="../images/back.png" alt="Back"
+        onclick="location.href='../home/fuseLearn.html'">
     <div class="blurBox">
-        <div class="title" style="margin-bottom: 0;">Tasks</div>
-        <div class="subTitle" style="margin-top: 0;">Click a task to toggle completion, double click to delete it.</div>
+        <div class="horizontalLayout" style="column-gap: 0;">
+            <div class="title">T</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">s</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">k</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">s</div>
+        </div>
+        <div class="subTitle" style="margin-top: 0; animation: riseLoad 1.5s ease 0s 1 normal backwards;">Click a task
+            to toggle completion, double click to delete it.</div>
 
-        <div class="horizontalLayout" style="column-gap: 20px">
+        <div class="horizontalLayout" style="column-gap: 20px; animation: riseLoad 2s ease 0s 1 normal backwards;">
             <input type="text" placeholder="Type in your task's name" id="todo-entry-box" />
             <input type="text" placeholder="Type in your task's details (optional)" id="detail-entry-box" />
         </div>
 
-        <div class="horizontalLayout" style="column-gap: 50px">
+        <div class="horizontalLayout" style="column-gap: 50px; animation: riseLoad 3s ease 0s 1 normal backwards;">
             <button class="add" id="add-button">Add</button>
             <button class="clearCompleted" id="clear-completed-button">Clear Completed</button>
             <button class="empty" id="empty-button">Empty List</button>

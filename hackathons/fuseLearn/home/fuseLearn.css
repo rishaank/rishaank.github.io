@@ -1,6 +1,11 @@
 :root {
   --blueBG: #4375b0;
   --vibrantBlueBG: #0077ff;
+  --blueGradientBG: linear-gradient(
+    180deg,
+    rgba(97, 170, 255, 1) 0%,
+    rgba(67, 117, 176, 1) 75%
+  );
   --darkBG: #191e25;
   --greenBG: #77dd77;
   --yellowBG: #fdfd96;
@@ -15,15 +20,15 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  background-color: var(--blueBG);
+  background: var(--blueBG);
 }
 
 p {
   color: white;
-  margin: 7px 0;
+  margin: 0;
   text-align: center;
   font-family: Helvetica;
-  font-size: 17px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 img.bgIMG {
@@ -33,6 +38,7 @@ img.bgIMG {
   top: 0;
   left: 0;
   z-index: 1;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 img.buttonIMG {
@@ -48,12 +54,13 @@ div.blurBox {
   align-items: center;
   justify-content: center;
   margin: 10px;
-  background-color: rgba(255, 0, 0, 0);
+  background: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   align-self: center;
   align-content: center;
+  animation: fadeIn 0.5s ease 0s 1 normal backwards;
 }
 
 div.title {
@@ -77,7 +84,7 @@ button {
   border-radius: 30px;
   font-family: Helvetica;
   font-size: calc(0.625vw + 1.1vh);
-  background-color: var(--darkBG);
+  background: var(--darkBG);
   color: white;
   cursor: pointer;
   transition: 0.3s;
@@ -86,7 +93,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--blueBG);
+  background: var(--blueGradientBG);
   box-shadow: 0 0 10px var(--blueBG);
   transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
@@ -100,32 +107,32 @@ button.bigCentered {
 }
 
 button.start {
-  background-color: var(--greenBG);
+  background: var(--greenBG);
 }
 
 button.start:hover {
-  background-color: white;
+  background: white;
   color: var(--greenBG);
   box-shadow: 0 0 10px var(--greenBG);
 }
 
 button.stop {
-  background-color: var(--yellowBG);
+  background: var(--yellowBG);
   color: black;
 }
 
 button.stop:hover {
-  background-color: white;
+  background: white;
   color: var(--darkYellowBG);
   box-shadow: 0 0 10px var(--darkYellowBG);
 }
 
 button.reset {
-  background-color: var(--redBG);
+  background: var(--redBG);
 }
 
 button.reset:hover {
-  background-color: white;
+  background: white;
   color: var(--redBG);
   box-shadow: 0 0 10px var(--redBG);
 }
@@ -183,11 +190,7 @@ div.timerCircleOutline {
 
 div.timerCircle {
   position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(97, 170, 255, 1) 0%,
-    rgba(67, 117, 176, 1) 75%
-  );
+  background: var(--blueGradientBG);
   height: calc(14.32vh + 8vw - 80px);
   width: calc(14.32vh + 8vw - 80px);
   border-radius: 50%;
@@ -201,13 +204,23 @@ div.timerCircle {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 10;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   border-radius: 30px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--scrollbarTrack);
+  background: var(--scrollbarTrack);
   border-radius: 30px;
 }
 
@@ -217,5 +230,5 @@ div.timerCircle {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--vibrantBlueBG);
+  background: var(--vibrantBlueBG);
 }
