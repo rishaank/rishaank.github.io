@@ -1,10 +1,28 @@
 :root {
   --blueBG: #4375b0;
   --vibrantBlueBG: #0077ff;
-  --darkBG: #191e25;
+  --darkGradientBG: linear-gradient(
+    180deg,
+    rgba(44, 51, 61, 1) 0%,
+    rgba(25, 30, 37, 1) 75%
+  );
+  --greenGradientBG: linear-gradient(
+    180deg,
+    rgba(119, 221, 119, 1) 0%,
+    rgba(80, 150, 80, 1) 75%
+  );
   --greenBG: #77dd77;
-  --yellowBG: #fdfd96;
+  --yellowGradientBG: linear-gradient(
+    180deg,
+    rgba(253, 253, 150, 1) 0%,
+    rgba(174, 174, 103, 1) 75%
+  );
   --darkYellowBG: #bebe0a;
+  --redGradientBG: linear-gradient(
+    180deg,
+    rgba(255, 105, 97, 1) 0%,
+    rgba(171, 71, 66, 1) 75%
+  );
   --redBG: #ff6961;
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
@@ -78,48 +96,49 @@ button {
   border-radius: 30px;
   font-family: Helvetica;
   font-size: calc(0.625vw + 1.1vh);
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
+  color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition-duration: 0.4s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
+button:hover {
+  background: var(--blueGradientBG);
+  box-shadow: 0 0 10px var(--blueBG);
+  transform: perspective(200px) rotateY(10deg) rotateX(10deg);
+}
+
 button.add {
-  background: var(--greenBG);
-  color: white;
+  background: var(--greenGradientBG);
 }
 
 button.add:hover {
   background: white;
   color: var(--greenBG);
   box-shadow: 0 0 10px var(--greenBG);
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
 button.clearCompleted {
-  background: var(--yellowBG);
+  background: var(--yellowGradientBG);
   color: black;
-  font-size: 15px;
 }
 
 button.clearCompleted:hover {
   background: white;
   color: var(--darkYellowBG);
   box-shadow: 0 0 10px var(--darkYellowBG);
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
 button.empty {
-  background: var(--redBG);
-  color: white;
+  background: var(--redGradientBG);
 }
 
 button.empty:hover {
   background: white;
   color: var(--redBG);
   box-shadow: 0 0 10px var(--redBG);
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
 }
 
 div.title {
@@ -138,7 +157,7 @@ div.subTitle {
   text-align: center;
   font-family: Helvetica;
   font-size: calc(0.625vw + 1.1vh);
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
 }
 
 div.horizontalLayout {
@@ -161,7 +180,7 @@ input {
   text-align: center;
   border: none;
   border-radius: 40px;
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   font-family: Helvetica;
   font-size: 20px;
@@ -174,7 +193,7 @@ ol {
   height: 45vh;
   padding: 20px 5px 5px 40px;
   border-radius: 30px;
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
   overflow-y: auto;

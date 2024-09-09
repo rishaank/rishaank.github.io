@@ -1,7 +1,16 @@
 :root {
   --blueBG: #4375b0;
+  --blueGradientBG: linear-gradient(
+    180deg,
+    rgba(97, 170, 255, 1) 0%,
+    rgba(67, 117, 176, 1) 75%
+  );
   --vibrantBlueBG: #0077ff;
-  --darkBG: #191e25;
+  --darkGradientBG: linear-gradient(
+    180deg,
+    rgba(44, 51, 61, 1) 0%,
+    rgba(25, 30, 37, 1) 75%
+  );
   --turquoiseBG: rgb(0, 176, 196);
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
@@ -68,7 +77,7 @@ div.miniTextbox {
   border-radius: 30px;
   font-family: Helvetica;
   font-size: calc(1vw + 1.5vh);
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
   color: white;
   overflow-y: hidden;
   text-overflow: ellipsis;
@@ -91,24 +100,23 @@ button {
   width: 9vw;
   height: 9vh;
   margin: 0;
-  padding: 0;
+  padding: 2px;
   border: none;
   border-radius: 30px;
   font-family: Helvetica;
-  font-size: calc(1vw + 1.5vh);
-  background: var(--darkBG);
+  font-size: calc(0.625vw + 1.1vh);
+  background: var(--darkGradientBG);
   color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition-duration: 0.4s;
-  z-index: 4;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button:hover {
-  background: white;
-  color: black;
-  box-shadow: 0 0 10px black;
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
+  background: var(--blueGradientBG);
+  box-shadow: 0 0 10px var(--blueBG);
+  transform: perspective(200px) rotateY(10deg) rotateX(10deg);
 }
 
 button.special {
@@ -120,15 +128,23 @@ button.special:hover {
   box-shadow: 0 0 10px var(--turquoiseBG);
 }
 
-.title {
+div.title {
   color: white;
   margin-top: 60px;
-  margin-bottom: 60px;
   text-align: center;
   font-family: Helvetica;
   font-weight: bold;
   font-size: calc(2vw + 3vh);
   animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.subTitle {
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh);
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
 }
 
 div.horizontalLayout {
@@ -146,14 +162,15 @@ div.horizontalCenter {
   margin-right: auto;
 }
 
-.historyList {
+div.historyList {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
   height: 56vh;
   padding: 0;
   border-radius: 30px;
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
   text-align: center;
   overflow-y: auto;
   animation: riseLoad 1s ease 0s 1 normal backwards;

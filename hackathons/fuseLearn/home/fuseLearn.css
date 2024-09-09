@@ -1,18 +1,44 @@
 :root {
   --blueBG: #4375b0;
-  --vibrantBlueBG: #0077ff;
   --blueGradientBG: linear-gradient(
     180deg,
     rgba(97, 170, 255, 1) 0%,
     rgba(67, 117, 176, 1) 75%
   );
-  --darkBG: #191e25;
+  --vibrantBlueBG: #0077ff;
+  --darkGradientBG: linear-gradient(
+    180deg,
+    rgba(44, 51, 61, 1) 0%,
+    rgba(25, 30, 37, 1) 75%
+  );
+  --greenGradientBG: linear-gradient(
+    180deg,
+    rgba(119, 221, 119, 1) 0%,
+    rgba(80, 150, 80, 1) 75%
+  );
   --greenBG: #77dd77;
-  --yellowBG: #fdfd96;
+  --yellowGradientBG: linear-gradient(
+    180deg,
+    rgba(253, 253, 150, 1) 0%,
+    rgba(174, 174, 103, 1) 75%
+  );
   --darkYellowBG: #bebe0a;
+  --redGradientBG: linear-gradient(
+    180deg,
+    rgba(255, 105, 97, 1) 0%,
+    rgba(171, 71, 66, 1) 75%
+  );
   --redBG: #ff6961;
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
+}
+
+/* desktop */
+@media only screen and (min-width: 768px) {
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
 }
 
 html,
@@ -79,23 +105,23 @@ button {
   width: 8vw;
   height: 6vh;
   margin: 0;
-  padding: 0;
+  padding: 2px;
   border: none;
   border-radius: 30px;
   font-family: Helvetica;
   font-size: calc(0.625vw + 1.1vh);
-  background: var(--darkBG);
+  background: var(--darkGradientBG);
   color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: 0.3s;
-  z-index: 4;
+  transition-duration: 0.4s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 button:hover {
   background: var(--blueGradientBG);
   box-shadow: 0 0 10px var(--blueBG);
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
+  transform: perspective(200px) rotateY(10deg) rotateX(10deg);
 }
 
 button.bigCentered {
@@ -106,8 +132,12 @@ button.bigCentered {
   flex-direction: column-reverse;
 }
 
+button.bigCentered:hover {
+  transform: perspective(200px) rotateY(3deg) rotateX(3deg);
+}
+
 button.start {
-  background: var(--greenBG);
+  background: var(--greenGradientBG);
 }
 
 button.start:hover {
@@ -117,7 +147,7 @@ button.start:hover {
 }
 
 button.stop {
-  background: var(--yellowBG);
+  background: var(--yellowGradientBG);
   color: black;
 }
 
@@ -128,7 +158,7 @@ button.stop:hover {
 }
 
 button.reset {
-  background: var(--redBG);
+  background: var(--redGradientBG);
 }
 
 button.reset:hover {
