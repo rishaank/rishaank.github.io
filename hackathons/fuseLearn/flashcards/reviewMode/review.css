@@ -52,7 +52,7 @@ p {
 
 p.incorrect {
   display: none;
-  margin-bottom: calc(32vh - (1.425vw + 1.9vh) - (4.392vw + 8.351vh));
+  margin-bottom: 30px;
   font-size: calc(1.425vw + 1.9vh);
   -webkit-filter: (0 0 10px var(--redBG));
   filter: drop-shadow(0 0 10px var(--redBG));

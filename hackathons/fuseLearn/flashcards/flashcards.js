@@ -4,6 +4,7 @@ var answerEntryBox = document.getElementById("answer-entry-box");
 var addButton = document.getElementById("add-button");
 var clearButton = document.getElementById("clear-hidden-button");
 var emptyButton = document.getElementById("empty-button");
+var reviewButton = document.getElementById("review-button");
 var infoDiv = document.getElementById("info");
 
 var questionList = [];
@@ -12,6 +13,7 @@ var answerList = [];
 addButton.addEventListener("click", addCardItem);
 clearButton.addEventListener("click", clearHiddenCardItems);
 emptyButton.addEventListener("click", emptyList);
+reviewButton.addEventListener("click", review);
 
 function addCardItem() {
   var answerText = answerEntryBox.value;
@@ -133,4 +135,11 @@ function infoToggle() {
   }
 }
 
+function review() {
+  if (cardList.children.length < 4) {
+    alert("You need atleast 4 cards to enter review mode.");
+  } else {
+    window.location.href = "./reviewMode/review.html";
+  }
+}
 loadList();

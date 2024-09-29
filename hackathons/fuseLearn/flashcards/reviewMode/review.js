@@ -19,25 +19,24 @@ var correctText = document.getElementById("correct-text");
 var correctScore = document.getElementById("correct-score");
 var incorrectScore = document.getElementById("incorrect-score");
 
+var incorrectCardText = document.getElementById("incorrect-card-text");
+
 var currentQuestionNumber;
 
 function loadLists() {
   var savedQuestions = localStorage.getItem("cardQuestions");
-  if (!savedQuestions || JSON.parse(savedQuestions).length < 4) {
-    questionList = [];
-    alert("Less than 4 questions, redirecting to Flashcard Maker");
-    window.location.href = "../flashcards.html";
-  } else {
-    questionList = JSON.parse(savedQuestions);
-  }
+  questionList = JSON.parse(savedQuestions);
 
   var savedAnswers = localStorage.getItem("cardAnswers");
-  if (!savedAnswers || JSON.parse(savedAnswers).length < 4) {
-    answerList = [];
-    alert("Less than 4 answers, redirecting to Flashcard Maker");
-    window.location.href = "../flashcards.html";
-  } else {
-    answerList = JSON.parse(savedAnswers);
+  answerList = JSON.parse(savedAnswers);
+
+  if (
+    questionList &&
+    answerList &&
+    questionList.length >= 4 &&
+    answerList.length >= 4
+  ) {
+    refreshQA(1);
   }
 }
 
@@ -55,26 +54,23 @@ function refreshQA(questionNumber) {
   currentQuestionNumber = questionNumber;
   questionNumber -= 1;
   questionText.innerText = questionList[questionNumber];
+  incorrectCardText.innerText =
+    questionList[questionNumber] + " | " + answerList[questionNumber];
 
   const buttonAnswers = [];
   const correctButtonIndex = randomNumber(0, 3);
 
   buttonAnswers[correctButtonIndex] = answerList[questionNumber];
 
+  const incorrectAnswersPool = [...answerList];
+  incorrectAnswersPool.splice(questionNumber, 1);
+
   for (let i = 0; i < 4; i++) {
     if (i === correctButtonIndex) {
       continue;
     }
-
-    let incorrectAnswer = answerList[randomNumber(0, answerList.length - 1)];
-    while (
-      buttonAnswers.includes(incorrectAnswer) ||
-      incorrectAnswer === buttonAnswers[correctButtonIndex]
-    ) {
-      incorrectAnswer = answerList[randomNumber(0, answerList.length - 1)];
-    }
-
-    buttonAnswers[i] = incorrectAnswer;
+    const randomIndex = randomNumber(0, incorrectAnswersPool.length - 1);
+    buttonAnswers[i] = incorrectAnswersPool.splice(randomIndex, 1)[0];
   }
 
   answerButton1.innerText = buttonAnswers[0];
@@ -130,10 +126,12 @@ function incorrectToggle(toggle) {
     incorrectSign.style.display = "none";
     incorrectText.style.display = "none";
     nextQuestionButton.style.display = "none";
+    incorrectCardText.style.display = "none";
   } else {
     incorrectSign.style.display = "block";
     incorrectText.style.display = "block";
     nextQuestionButton.style.display = "block";
+    incorrectCardText.style.display = "block";
   }
 
   correctSign.style.display = "none";
@@ -153,6 +151,7 @@ function correctToggle(toggle) {
 
   incorrectSign.style.display = "none";
   incorrectText.style.display = "none";
+  incorrectCardText.style.display = "none";
 }
 
 function nextQuestion() {
@@ -163,4 +162,3 @@ function nextQuestion() {
 }
 
 loadLists();
-refreshQA(randomNumber(1, questionList.length));
