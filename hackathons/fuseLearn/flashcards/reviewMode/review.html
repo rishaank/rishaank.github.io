@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Review</title>
+    <link rel="stylesheet" type="text/css" href="review.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="manifest" href="../../images/site.webmanifest">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <img class="bgIMG" src="../../images/mountainBG.jpg">
+    <img class="back" style="animation: riseLoad 2s ease 0s 1 normal backwards;" src="../../images/back.png" alt="Back"
+        onclick="location.href='../flashcards.html'">
+    <div class="blurBox">
+        <div class="horizontalLayout" style="column-gap: 0;">
+            <div class="title">F</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">l</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">s</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">h</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">c</div>
+            <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">r</div>
+            <div class="title" style="animation: riseLoad 5.25s ease 0s 1 normal backwards; margin-right: 15px;">
+                d</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">R</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">e</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">v</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">i</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">e</div>
+            <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">w</div>
+        </div>
+        <div class="subTitle">Cards are chosen randomly, try to get them right!</div>
+        <div class="questionBG">
+            <div class="horizontalLayout">
+                <div class="subTitle" style="margin: 30px 10px 0 0;"> Correct: </div>
+                <div class="subTitle" style="margin: 30px 0 0 0;" id="correct-score"> 0</div>
+            </div>
+            <div class=" horizontalLayout">
+                <div class="subTitle" style="margin: 30px 10px 0 0;"> Incorrect: </div>
+                <div class="subTitle" style="margin: 30px 0 0 0;" id="incorrect-score"> 0</div>
+            </div>
+            <div class="title question" id="question-text"> Question</div>
+            <div class="horizontalLayout answerLayout" style="margin-top: auto;">
+                <button class="answer1" id="answer-button-1">Answer 1</button>
+                <button class="answer2" id="answer-button-2">Answer 2</button>
+            </div>
+            <div class="horizontalLayout answerLayout" style="margin-bottom: auto;">
+                <button class="answer3" id="answer-button-3">Answer 3</button>
+                <button class="answer4" id="answer-button-4">Answer 4</button>
+            </div>
+
+            <img class="incorrect" id="incorrect-sign" src="../../images/x.png">
+            <p class="incorrect" id="incorrect-text">Incorrect</p>
+
+            <img class="correct" id="correct-sign" src="../../images/check.png">
+            <p class="correct" id="correct-text">Correct</p>
+
+            <button class="nextQuestion" id="next-question-button">Next Question</button>
+        </div>
+    </div>
+    </div>
+    <p>Icons from https://icons8.com/</p>
+    </div>
+
+    <script src="review.js"></script>
+</body>
+
+</html>

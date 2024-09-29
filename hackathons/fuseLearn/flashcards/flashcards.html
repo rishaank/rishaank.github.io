@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Maker</title>
+    <link rel="stylesheet" type="text/css" href="flashcards.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <img class="bgIMG" src="../images/mountainBG.jpg">
+    <img class="back" style="animation: riseLoad 2s ease 0s 1 normal backwards;" src="../images/back.png" alt="Back"
+        onclick="location.href='../home/fuseLearn.html'">
+    <div class="blurBox">
+        <div class="horizontalLayout" style="column-gap: 0;">
+            <div class="title">F</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">l</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">s</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">h</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">c</div>
+            <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">r</div>
+            <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">d</div>
+            <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">s</div>
+        </div>
+        <div class="subTitle">Click a card
+            to toggle visibility, double click to delete it.</div>
+
+        <div class="horizontalLayout" style="column-gap: 20px; animation: riseLoad 2s ease 0s 1 normal backwards;">
+            <input type="text" placeholder="Type in your card's question" id="question-entry-box" />
+            <input type="text" placeholder="Type in your card's answer" id="answer-entry-box" />
+        </div>
+
+        <div class="horizontalLayout" style="column-gap: 50px; animation: riseLoad 3s ease 0s 1 normal backwards;">
+            <button class="add" id="add-button">Add Card</button>
+            <button class="clearHidden" id="clear-hidden-button">Clear Hidden</button>
+            <button class="empty" id="empty-button">Delete Cards</button>
+            <button class="review" onclick="location.href='./reviewMode/review.html'">Review</button>
+        </div>
+
+        <br />
+
+        <ol id="card-list">
+        </ol>
+
+        <div class="info" id="info">
+            <img class="info" src="../images/info.png">
+            <p style="font-size: calc(0.625vw + 1.1vh);">Empty Deck</p>
+        </div>
+
+        <p>Icons from https://icons8.com/</p>
+    </div>
+
+    <script src="flashcards.js"></script>
+</body>
+
+</html>

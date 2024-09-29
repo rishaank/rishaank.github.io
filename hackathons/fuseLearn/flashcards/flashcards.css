@@ -1,10 +1,5 @@
 :root {
   --blueBG: #4375b0;
-  --blueGradientBG: linear-gradient(
-    180deg,
-    rgba(97, 170, 255, 1) 0%,
-    rgba(67, 117, 176, 1) 75%
-  );
   --vibrantBlueBG: #0077ff;
   --darkGradientBG: linear-gradient(
     180deg,
@@ -29,6 +24,12 @@
     rgba(171, 71, 66, 1) 75%
   );
   --redBG: #ff6961;
+  --turquoiseGradientBG: linear-gradient(
+    180deg,
+    rgba(0, 176, 196, 1) 0%,
+    rgba(6, 120, 133, 1) 75%
+  );
+  --turquoiseBG: rgb(0, 176, 196);
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
 }
@@ -46,7 +47,7 @@ p {
   margin: 0;
   text-align: center;
   font-family: Helvetica;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 5s ease 0s 1 normal backwards;
 }
 
 img.bgIMG {
@@ -56,13 +57,23 @@ img.bgIMG {
   top: 0;
   left: 0;
   z-index: 1;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-img.buttonIMG {
-  width: 6vw;
-  height: 6vw;
+img.info {
+  width: calc(4.392vw + 8.351vh);
+  height: calc(4.392vw + 8.351vh);
   margin-bottom: 20px;
+  animation: riseLoad 3s ease 0s 1 normal backwards;
+}
+
+img.back {
+  width: 3.5vw;
+  height: 3.5vw;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  cursor: pointer;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
@@ -71,23 +82,12 @@ div.blurBox {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
   background: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  align-self: center;
-  align-content: center;
-  animation: fadeIn 0.5s ease 0s 1 normal backwards;
-}
-
-div.title {
-  color: white;
-  text-align: center;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: calc(2vw + 3vh);
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  z-index: 3;
 }
 
 button {
@@ -116,123 +116,139 @@ button:hover {
   transform: perspective(200px) rotateY(10deg) rotateX(10deg);
 }
 
-button.bigCentered {
-  width: calc((calc(68.75vh) - 200px) / 2);
-  height: calc((calc(68.75vh) - 200px) / 2);
-  margin: 20px;
-  font-size: calc(0.7vw + 1.5vh);
-  flex-direction: column-reverse;
-}
-
-button.bigCentered:hover {
-  transform: perspective(200px) rotateY(3deg) rotateX(3deg);
-}
-
-button.start {
+button.add {
   background: var(--greenGradientBG);
 }
 
-button.start:hover {
+button.add:hover {
   background: white;
   color: var(--greenBG);
   box-shadow: 0 0 10px var(--greenBG);
 }
 
-button.stop {
+button.clearHidden {
   background: var(--yellowGradientBG);
   color: black;
 }
 
-button.stop:hover {
+button.clearHidden:hover {
   background: white;
   color: var(--darkYellowBG);
   box-shadow: 0 0 10px var(--darkYellowBG);
 }
 
-button.reset {
+button.empty {
   background: var(--redGradientBG);
 }
 
-button.reset:hover {
+button.empty:hover {
   background: white;
   color: var(--redBG);
   box-shadow: 0 0 10px var(--redBG);
 }
 
-.onTop {
-  position: absolute;
-  top: 0;
-  z-index: 100;
+button.review {
+  background: var(--turquoiseGradientBG);
+}
+
+button.review:hover {
+  background: white;
+  color: var(--turquoiseBG);
+  box-shadow: 0 0 10px var(--turquoiseBG);
+}
+
+div.title {
+  color: white;
+  margin-top: 60px;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: calc(2vw + 3vh);
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.subTitle {
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh);
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
 }
 
 div.horizontalLayout {
   display: flex;
-  column-gap: 20px;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 5px;
-  width: auto;
-  height: auto;
-}
-
-div.horizontalCenter {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button.horizontalCenter {
-  width: 130px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-div.verticalLayout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   align-self: center;
   align-content: center;
   position: relative;
-  margin: 100px;
   width: auto;
-  height: 100%;
+  height: auto;
+  margin: 0;
 }
 
-div.timerCircleOutline {
-  border: 8px solid var(--vibrantBlueBG);
+input {
+  width: calc(25vw - 30px);
+  height: 6vh;
+  margin-bottom: 30px;
+  padding: 0 20px;
+  text-align: center;
+  border: none;
+  border-radius: 40px;
+  background: var(--darkGradientBG);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: Helvetica;
+  font-size: 20px;
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+ol {
+  width: 50vw;
+  height: 45vh;
+  padding: 20px 5px 5px 40px;
+  border-radius: 30px;
+  background: var(--darkGradientBG);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow-x: hidden;
+  overflow-y: auto;
+  animation: riseLoad 4s ease 0s 1 normal backwards;
+  list-style-type: decimal;
+}
+
+ol li {
+  color: white;
+  padding: 5px;
+  font-family: Helvetica;
+  font-size: 20px;
+  animation: riseLoad 3s ease 0s 1 normal backwards;
+  list-style: decimal inside;
+}
+
+.hidden {
+  text-decoration: line-through;
+  color: gray;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.info {
+  width: 50vw;
+  height: 45vh;
+  padding: 15px 0 0 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(14.32vh + 8vw - 80px);
-  width: calc(14.32vh + 8vw - 80px);
-  border-radius: 50%;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
-}
-
-div.timerCircle {
-  position: absolute;
-  background: var(--blueGradientBG);
-  height: calc(14.32vh + 8vw - 80px);
-  width: calc(14.32vh + 8vw - 80px);
-  border-radius: 50%;
-  animation: riseLoad 0s ease 0s 1 normal backwards;
+  text-align: center;
+  position: fixed;
+  top: calc(56vh + 30px);
 }
 
 @keyframes riseLoad {
   from {
     opacity: 0;
     transform: translateY(30px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 10;
-  }
-
-  to {
-    opacity: 100;
   }
 }
 
