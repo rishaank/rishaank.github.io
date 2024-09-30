@@ -28,7 +28,7 @@ function addCardItem() {
     questionEntryBox.value = "";
     answerEntryBox.value = "";
   } else {
-    alert("Please enter a valid question and answer");
+    alert("Please enter a valid question and answer.");
   }
 }
 

@@ -24,7 +24,7 @@ function addToDoItem() {
     toDoEntryBox.value = "";
     detailEntryBox.value = "";
   } else {
-    alert("Please enter a valid input");
+    alert("Please enter a valid input.");
   }
 }
 

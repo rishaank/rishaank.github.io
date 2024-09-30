@@ -3,6 +3,8 @@ var saveButton = document.getElementById("saveButton");
 var charCount = document.getElementById("charCount");
 var wordCount = document.getElementById("wordCount");
 var sentenceCount = document.getElementById("sentenceCount");
+const urlParams = new URLSearchParams(window.location.search);
+const fileName = urlParams.get("file");
 
 function save() {
   saveButton.innerHTML = "Saving";
@@ -19,7 +21,7 @@ function save() {
     saveButton.innerHTML = "Saving...";
   }, 750);
 
-  localStorage.setItem("Notes", textbox.value);
+  localStorage.setItem(fileName, textbox.value);
 
   setTimeout(() => {
     saveButton.innerHTML = "Saved!";
@@ -31,10 +33,8 @@ function save() {
 }
 
 function load() {
-  var savedNotes = localStorage.getItem("Notes");
-
-  if (savedNotes) {
-    textbox.value = savedNotes;
+  if (fileName) {
+    textbox.value = localStorage.getItem(fileName);
   }
 }
 
