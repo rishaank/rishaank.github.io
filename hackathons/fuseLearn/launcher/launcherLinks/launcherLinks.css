@@ -144,28 +144,6 @@ div.horizontalLayout {
   height: auto;
 }
 
-.popUp {
-  position: relative;
-  display: inline-block;
-}
-
-.popUp .popUpText {
-  display: block;
-  position: absolute;
-  width: calc((68.75vh - 200px) / 2);
-  background: var(--darkGradientBG);
-  color: white;
-  font-family: Helvetica;
-  font-size: calc(0.625vw + 1.1vh - 10px);
-  text-align: center;
-  border-radius: 30px;
-  padding: 10px 0 10px 0;
-  z-index: 1;
-  bottom: 110%;
-  transition-duration: 0.4s;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
-}
-
 @keyframes riseLoad {
   from {
     opacity: 0;
