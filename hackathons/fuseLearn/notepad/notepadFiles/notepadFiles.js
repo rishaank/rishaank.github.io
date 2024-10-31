@@ -1,24 +1,24 @@
-var fileList = document.getElementById("file-list");
-var timeList = document.getElementById("time-list");
-var fileNameEntryBox = document.getElementById("file-name-entry-box");
-var createButton = document.getElementById("create-button");
-var deleteButton = document.getElementById("delete-button");
-var infoDiv = document.getElementById("info");
+const fileList = document.getElementById("file-list");
+const timeList = document.getElementById("time-list");
+const fileNameEntryBox = document.getElementById("file-name-entry-box");
+const createButton = document.getElementById("create-button");
+const deleteButton = document.getElementById("delete-button");
+const infoDiv = document.getElementById("info");
 
 createButton.addEventListener("click", addFile);
 deleteButton.addEventListener("click", deleteFile);
 
 function addFile() {
-  var fileName = fileNameEntryBox.value.trim();
+  let fileName = fileNameEntryBox.value.trim();
   if (!fileName) {
     alert("Please enter a valid input.");
     return;
   }
 
-  var fileItems = Array.from(fileList.children);
+  let fileItems = Array.from(fileList.children);
 
-  for (var i = 0; i < fileItems.length; i++) {
-    var fileItem = fileItems[i];
+  for (let i = 0; i < fileItems.length; i++) {
+    let fileItem = fileItems[i];
     if (fileItem.innerText === fileName) {
       alert(
         "A file with that name already exists. Please choose a different name."
@@ -27,15 +27,15 @@ function addFile() {
     }
   }
 
-  var currentDate = new Date();
-  var hours = currentDate.getHours();
-  var minutes = currentDate.getMinutes();
+  let currentDate = new Date();
+  let hours = currentDate.getHours();
+  let minutes = currentDate.getMinutes();
 
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
 
-  var dateTime =
+  let dateTime =
     currentDate.getMonth() +
     1 +
     "/" +
@@ -53,8 +53,8 @@ function addFile() {
 }
 
 function newFile(_itemText, _dateTime, type) {
-  var fileItem = document.createElement("li");
-  var timeItem = document.createElement("li");
+  let fileItem = document.createElement("li");
+  let timeItem = document.createElement("li");
   fileItem.innerText = _itemText;
   timeItem.innerText = _dateTime;
 
@@ -73,8 +73,8 @@ function deleteFile() {
   let deleteFile = prompt("Please enter the file name to be deleted.");
 
   if (deleteFile) {
-    var fileItems = Array.from(fileList.children);
-    var fileIndex = -1;
+    let fileItems = Array.from(fileList.children);
+    let fileIndex = -1;
 
     for (let i = 0; i < fileItems.length; i++) {
       if (fileItems[i].innerText === deleteFile) {
@@ -94,11 +94,11 @@ function deleteFile() {
 }
 
 function saveList() {
-  var files = [];
-  for (var i = 0; i < fileList.children.length; i++) {
-    var fileItem = fileList.children[i];
-    var timeItem = timeList.children[i];
-    var fileInfo = {
+  let files = [];
+  for (let i = 0; i < fileList.children.length; i++) {
+    let fileItem = fileList.children[i];
+    let timeItem = timeList.children[i];
+    let fileInfo = {
       name: fileItem.innerText,
       time: timeItem.innerText,
     };
@@ -109,11 +109,11 @@ function saveList() {
 }
 
 function loadList() {
-  var savedFiles = localStorage.getItem("files");
+  let savedFiles = localStorage.getItem("files");
   if (savedFiles) {
-    var files = JSON.parse(savedFiles);
-    for (var i = 0; i < files.length; i++) {
-      var file = files[i];
+    let files = JSON.parse(savedFiles);
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
       newFile(file.name, file.time, "append");
     }
   }

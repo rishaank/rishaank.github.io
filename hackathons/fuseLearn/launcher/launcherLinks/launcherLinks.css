@@ -11,24 +11,7 @@
     rgba(44, 51, 61, 1) 0%,
     rgba(25, 30, 37, 1) 75%
   );
-  --greenGradientBG: linear-gradient(
-    180deg,
-    rgba(119, 221, 119, 1) 0%,
-    rgba(80, 150, 80, 1) 75%
-  );
-  --greenBG: #77dd77;
-  --yellowGradientBG: linear-gradient(
-    180deg,
-    rgba(253, 253, 150, 1) 0%,
-    rgba(174, 174, 103, 1) 75%
-  );
-  --darkYellowBG: #bebe0a;
-  --redGradientBG: linear-gradient(
-    180deg,
-    rgba(255, 105, 97, 1) 0%,
-    rgba(171, 71, 66, 1) 75%
-  );
-  --redBG: #ff6961;
+  --turquoiseBG: rgb(0, 176, 196);
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
 }
@@ -37,7 +20,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--blueBG);
 }
 
@@ -56,7 +39,17 @@ img.bgIMG {
   top: 0;
   left: 0;
   z-index: 1;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.back {
+  width: 3.5vw;
+  height: 3.5vw;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 4;
+  cursor: pointer;
+  animation: riseLoad 2s ease 0s 1 normal backwards;
 }
 
 img.buttonIMG {
@@ -70,15 +63,12 @@ div.blurBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
   background: rgba(255, 0, 0, 0);
   backdrop-filter: blur(30px);
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  align-self: center;
-  align-content: center;
-  animation: fadeIn 0.5s ease 0s 1 normal backwards;
+  z-index: 3;
 }
 
 div.title {
@@ -87,6 +77,24 @@ div.title {
   font-family: Helvetica;
   font-weight: bold;
   font-size: calc(2vw + 3vh);
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.subTitle {
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh);
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
+}
+
+div.heading {
+  color: white;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: calc(1vw + 2vh);
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
@@ -119,7 +127,6 @@ button:hover {
 button.bigCentered {
   width: calc((68.75vh - 200px) / 2);
   height: calc((68.75vh - 200px) / 2);
-  margin: 20px;
   font-size: calc(0.7vw + 1.5vh);
   flex-direction: column-reverse;
 }
@@ -128,111 +135,41 @@ button.bigCentered:hover {
   transform: perspective(200px) rotateY(3deg) rotateX(3deg);
 }
 
-button.start {
-  background: var(--greenGradientBG);
-}
-
-button.start:hover {
-  background: white;
-  color: var(--greenBG);
-  box-shadow: 0 0 10px var(--greenBG);
-}
-
-button.stop {
-  background: var(--yellowGradientBG);
-  color: black;
-}
-
-button.stop:hover {
-  background: white;
-  color: var(--darkYellowBG);
-  box-shadow: 0 0 10px var(--darkYellowBG);
-}
-
-button.reset {
-  background: var(--redGradientBG);
-}
-
-button.reset:hover {
-  background: white;
-  color: var(--redBG);
-  box-shadow: 0 0 10px var(--redBG);
-}
-
-.onTop {
-  position: absolute;
-  top: 0;
-  z-index: 100;
-}
-
 div.horizontalLayout {
   display: flex;
-  column-gap: 20px;
+  column-gap: 60px;
   align-items: center;
-  margin: 5px;
+  margin: 30px 0 30px 0;
   width: auto;
   height: auto;
 }
 
-div.horizontalCenter {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button.horizontalCenter {
-  width: 130px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-div.verticalLayout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  align-content: center;
+.popUp {
   position: relative;
-  margin: 100px;
-  width: auto;
-  height: 100%;
+  display: inline-block;
 }
 
-div.timerCircleOutline {
-  border: 8px solid var(--vibrantBlueBG);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: calc(14.32vh + 8vw - 80px);
-  width: calc(14.32vh + 8vw - 80px);
-  border-radius: 50%;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
-}
-
-div.timerCircle {
+.popUp .popUpText {
+  display: block;
   position: absolute;
-  background: var(--blueGradientBG);
-  height: calc(14.32vh + 8vw - 80px);
-  width: calc(14.32vh + 8vw - 80px);
-  border-radius: 50%;
-  animation: riseLoad 0s ease 0s 1 normal backwards;
+  width: calc((68.75vh - 200px) / 2);
+  background: var(--darkGradientBG);
+  color: white;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh - 10px);
+  text-align: center;
+  border-radius: 30px;
+  padding: 10px 0 10px 0;
+  z-index: 1;
+  bottom: 110%;
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 @keyframes riseLoad {
   from {
     opacity: 0;
     transform: translateY(30px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 10;
-  }
-
-  to {
-    opacity: 100;
   }
 }
 

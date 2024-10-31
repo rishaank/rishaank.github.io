@@ -1,23 +1,16 @@
 :root {
   --blueBG: #4375b0;
+  --blueGradientBG: linear-gradient(
+    180deg,
+    rgba(97, 170, 255, 1) 0%,
+    rgba(67, 117, 176, 1) 75%
+  );
   --vibrantBlueBG: #0077ff;
   --darkGradientBG: linear-gradient(
     180deg,
     rgba(44, 51, 61, 1) 0%,
     rgba(25, 30, 37, 1) 75%
   );
-  --greenGradientBG: linear-gradient(
-    180deg,
-    rgba(119, 221, 119, 1) 0%,
-    rgba(80, 150, 80, 1) 75%
-  );
-  --greenBG: #77dd77;
-  --redGradientBG: linear-gradient(
-    180deg,
-    rgba(255, 105, 97, 1) 0%,
-    rgba(171, 71, 66, 1) 75%
-  );
-  --redBG: #ff6961;
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
 }
@@ -45,12 +38,6 @@ img.bgIMG {
   top: 0;
   left: 0;
   z-index: 1;
-}
-
-img.info {
-  width: calc(4.392vw + 8.351vh);
-  height: calc(4.392vw + 8.351vh);
-  margin: calc(2.196vw + 4.176vh + 16px) 0 20px 0;
 }
 
 img.back {
@@ -103,29 +90,9 @@ button:hover {
   transform: perspective(200px) rotateY(10deg) rotateX(10deg);
 }
 
-button.create {
-  background: var(--greenGradientBG);
-}
-
-button.create:hover {
-  background: white;
-  color: var(--greenBG);
-  box-shadow: 0 0 10px var(--greenBG);
-}
-
-button.delete {
-  background: var(--redGradientBG);
-}
-
-button.delete:hover {
-  background: white;
-  color: var(--redBG);
-  box-shadow: 0 0 10px var(--redBG);
-}
-
 div.title {
   color: white;
-  margin-top: 60px;
+  margin: 60px 0 30px 0;
   text-align: center;
   font-family: Helvetica;
   font-weight: bold;
@@ -155,8 +122,9 @@ div.horizontalLayout {
 }
 
 input {
-  width: calc(34vw - 40px);
+  width: 100%;
   height: 6vh;
+  margin-bottom: 30px;
   padding: 0 20px;
   text-align: center;
   border: none;
@@ -169,40 +137,39 @@ input {
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-ol {
-  width: calc(25vw - 28px);
-  height: 45vh;
-  border-radius: 30px;
-  background: var(--darkGradientBG);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  overflow-x: hidden;
-  overflow-y: auto;
-  animation: riseLoad 4s ease 0s 1 normal backwards;
-  list-style-type: "\1F4C4";
-}
-
-ol li {
-  color: white;
-  padding: 5px;
-  margin-left: 15px;
+label.dropdownLabel {
   font-family: Helvetica;
-  font-size: 30px;
-  animation: riseLoad 3s ease 0s 1 normal backwards;
+  font-size: calc(1vw + 1.5vh);
+  margin-bottom: 20px;
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-div.info {
-  width: 52vw;
-  height: 43.25vh;
-  border-radius: 30px;
-  background: var(--darkGradientBG);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 15px;
+select {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  animation: riseLoad 3s ease 0s 1 normal backwards;
+  height: 6vh;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh);
+  color: white;
+  background: var(--darkGradientBG);
+  background-color: var(--scrollbarTrack);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+select:hover {
+  background: var(--blueGradientBG);
+  background-color: var(--scrollbarTrack);
+  box-shadow: 0 0 10px var(--blueBG);
+  transform: perspective(550px) rotateY(10deg) rotateX(10deg);
 }
 
 @keyframes riseLoad {

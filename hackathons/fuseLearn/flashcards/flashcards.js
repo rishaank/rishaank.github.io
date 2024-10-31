@@ -1,14 +1,14 @@
-var cardList = document.getElementById("card-list");
-var questionEntryBox = document.getElementById("question-entry-box");
-var answerEntryBox = document.getElementById("answer-entry-box");
-var addButton = document.getElementById("add-button");
-var clearButton = document.getElementById("clear-hidden-button");
-var emptyButton = document.getElementById("empty-button");
-var reviewButton = document.getElementById("review-button");
-var infoDiv = document.getElementById("info");
+const cardList = document.getElementById("card-list");
+const questionEntryBox = document.getElementById("question-entry-box");
+const answerEntryBox = document.getElementById("answer-entry-box");
+const addButton = document.getElementById("add-button");
+const clearButton = document.getElementById("clear-hidden-button");
+const emptyButton = document.getElementById("empty-button");
+const reviewButton = document.getElementById("review-button");
+const infoDiv = document.getElementById("info");
 
-var questionList = [];
-var answerList = [];
+let questionList = [];
+let answerList = [];
 
 addButton.addEventListener("click", addCardItem);
 clearButton.addEventListener("click", clearHiddenCardItems);
@@ -16,11 +16,11 @@ emptyButton.addEventListener("click", emptyList);
 reviewButton.addEventListener("click", review);
 
 function addCardItem() {
-  var answerText = answerEntryBox.value;
-  var questionText = questionEntryBox.value;
+  const answerText = answerEntryBox.value;
+  const questionText = questionEntryBox.value;
 
   if (questionText && answerText) {
-    cardText = questionText + " | " + answerText;
+    const cardText = `${questionText} | ${answerText}`;
     newCardItem(cardText, false, "prepend");
     questionList.unshift(questionText);
     answerList.unshift(answerText);
@@ -33,7 +33,7 @@ function addCardItem() {
 }
 
 function newCardItem(_cardText, hidden, type) {
-  var cardItem = document.createElement("li");
+  const cardItem = document.createElement("li");
   cardItem.innerText = _cardText;
 
   if (hidden) {
@@ -52,12 +52,12 @@ function newCardItem(_cardText, hidden, type) {
 }
 
 function clearHiddenCardItems() {
-  var hiddenCards = Array.from(cardList.getElementsByClassName("hidden"));
+  const hiddenCards = Array.from(cardList.getElementsByClassName("hidden"));
   hiddenCards.forEach((cardItem) => {
     cardItem.remove();
-    const cardText = cardItem.innerText.split(" | ");
-    questionList.splice(questionList.indexOf(cardText[0]), 1);
-    answerList.splice(answerList.indexOf(cardText[1]), 1);
+    const [questionText, answerText] = cardItem.innerText.split(" | ");
+    questionList.splice(questionList.indexOf(questionText), 1);
+    answerList.splice(answerList.indexOf(answerText), 1);
   });
   saveList();
 }
@@ -77,23 +77,18 @@ function toggleCardVisibility() {
 }
 
 function deleteCard() {
-  const cardText = this.innerText.split(" | ");
+  const [questionText, answerText] = this.innerText.split(" | ");
   cardList.removeChild(this);
-  questionList.splice(questionList.indexOf(cardText[0]), 1);
-  answerList.splice(answerList.indexOf(cardText[1]), 1);
+  questionList.splice(questionList.indexOf(questionText), 1);
+  answerList.splice(answerList.indexOf(answerText), 1);
   saveList();
 }
 
 function saveList() {
-  var cards = [];
-  for (var i = 0; i < cardList.children.length; i++) {
-    var cardItem = cardList.children[i];
-    var cardInfo = {
-      card: cardItem.innerText,
-      hidden: cardItem.classList.contains("hidden"),
-    };
-    cards.push(cardInfo);
-  }
+  const cards = Array.from(cardList.children).map((cardItem) => ({
+    card: cardItem.innerText,
+    hidden: cardItem.classList.contains("hidden"),
+  }));
   localStorage.setItem("cards", JSON.stringify(cards));
   localStorage.setItem("cardQuestions", JSON.stringify(questionList));
   localStorage.setItem("cardAnswers", JSON.stringify(answerList));
@@ -101,45 +96,28 @@ function saveList() {
 }
 
 function loadList() {
-  var savedCards = localStorage.getItem("cards");
+  const savedCards = localStorage.getItem("cards");
   if (savedCards) {
-    var cards = JSON.parse(savedCards);
-    for (var i = 0; i < cards.length; i++) {
-      var card = cards[i];
-      newCardItem(card.card, card.hidden, "append");
-    }
+    const cards = JSON.parse(savedCards);
+    cards.forEach((card) => newCardItem(card.card, card.hidden, "append"));
   }
 
-  var savedQuestions = localStorage.getItem("cardQuestions");
-  if (savedQuestions) {
-    questionList = JSON.parse(savedQuestions);
-  } else {
-    questionList = [];
-  }
-
-  var savedAnswers = localStorage.getItem("cardAnswers");
-  if (savedAnswers) {
-    answerList = JSON.parse(savedAnswers);
-  } else {
-    answerList = [];
-  }
+  questionList = JSON.parse(localStorage.getItem("cardQuestions")) || [];
+  answerList = JSON.parse(localStorage.getItem("cardAnswers")) || [];
 
   infoToggle();
 }
 
 function infoToggle() {
-  if (cardList.children.length === 0) {
-    infoDiv.style.display = "block";
-  } else {
-    infoDiv.style.display = "none";
-  }
+  infoDiv.style.display = cardList.children.length === 0 ? "block" : "none";
 }
 
 function review() {
   if (cardList.children.length < 4) {
-    alert("You need atleast 4 cards to enter review mode.");
+    alert("You need at least 4 cards to enter review mode.");
   } else {
     window.location.href = "./reviewMode/review.html";
   }
 }
+
 loadList();

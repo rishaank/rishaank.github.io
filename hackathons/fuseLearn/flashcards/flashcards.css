@@ -62,7 +62,7 @@ img.bgIMG {
 img.info {
   width: calc(4.392vw + 8.351vh);
   height: calc(4.392vw + 8.351vh);
-  margin-bottom: 20px;
+  margin-bottom: -20px 0 20px 0;
   animation: riseLoad 3s ease 0s 1 normal backwards;
 }
 

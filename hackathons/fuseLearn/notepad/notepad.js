@@ -1,8 +1,8 @@
-var textbox = document.getElementById("textbox");
-var saveButton = document.getElementById("saveButton");
-var charCount = document.getElementById("charCount");
-var wordCount = document.getElementById("wordCount");
-var sentenceCount = document.getElementById("sentenceCount");
+const textbox = document.getElementById("textbox");
+const saveButton = document.getElementById("saveButton");
+const charCount = document.getElementById("charCount");
+const wordCount = document.getElementById("wordCount");
+const sentenceCount = document.getElementById("sentenceCount");
 const urlParams = new URLSearchParams(window.location.search);
 const fileName = urlParams.get("file");
 

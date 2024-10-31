@@ -1,33 +1,33 @@
-var questionList = [];
-var answerList = [];
+let questionList = [];
+let answerList = [];
 
-var questionText = document.getElementById("question-text");
-var answerButton1 = document.getElementById("answer-button-1");
-var answerButton2 = document.getElementById("answer-button-2");
-var answerButton3 = document.getElementById("answer-button-3");
-var answerButton4 = document.getElementById("answer-button-4");
+const questionText = document.getElementById("question-text");
+const answerButton1 = document.getElementById("answer-button-1");
+const answerButton2 = document.getElementById("answer-button-2");
+const answerButton3 = document.getElementById("answer-button-3");
+const answerButton4 = document.getElementById("answer-button-4");
 
-var nextQuestionButton = document.getElementById("next-question-button");
+const nextQuestionButton = document.getElementById("next-question-button");
 nextQuestionButton.addEventListener("click", nextQuestion);
 
-var incorrectSign = document.getElementById("incorrect-sign");
-var incorrectText = document.getElementById("incorrect-text");
+const incorrectSign = document.getElementById("incorrect-sign");
+const incorrectText = document.getElementById("incorrect-text");
 
-var correctSign = document.getElementById("correct-sign");
-var correctText = document.getElementById("correct-text");
+const correctSign = document.getElementById("correct-sign");
+const correctText = document.getElementById("correct-text");
 
-var correctScore = document.getElementById("correct-score");
-var incorrectScore = document.getElementById("incorrect-score");
+const correctScore = document.getElementById("correct-score");
+const incorrectScore = document.getElementById("incorrect-score");
 
-var incorrectCardText = document.getElementById("incorrect-card-text");
+const incorrectCardText = document.getElementById("incorrect-card-text");
 
-var currentQuestionNumber;
+let currentQuestionNumber;
 
 function loadLists() {
-  var savedQuestions = localStorage.getItem("cardQuestions");
+  const savedQuestions = localStorage.getItem("cardQuestions");
   questionList = JSON.parse(savedQuestions);
 
-  var savedAnswers = localStorage.getItem("cardAnswers");
+  const savedAnswers = localStorage.getItem("cardAnswers");
   answerList = JSON.parse(savedAnswers);
 
   if (

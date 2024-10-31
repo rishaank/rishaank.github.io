@@ -1,22 +1,22 @@
-var timerCircle = document.getElementById("timerCircle");
-var timerText = document.getElementById("timerText");
-var timerDetail = document.getElementById("timerDetail");
-var timerStartBtn = document.getElementById("timerStart");
-var timerStopBtn = document.getElementById("timerStop");
-var timerResetBtn = document.getElementById("timerReset");
+const timerCircle = document.getElementById("timerCircle");
+const timerText = document.getElementById("timerText");
+const timerDetail = document.getElementById("timerDetail");
+const timerStartBtn = document.getElementById("timerStart");
+const timerStopBtn = document.getElementById("timerStop");
+const timerResetBtn = document.getElementById("timerReset");
 
-var workTime = 1500; // 25 minutes
-var breakTime = 300; // 5 minutes
-var timerSeconds = workTime;
-var timerRunning = false;
-var breakRunning = false;
-var timerInterval;
+const workTime = 1500; // 25 minutes
+const breakTime = 300; // 5 minutes
+let timerSeconds = workTime;
+let timerRunning = false;
+let breakRunning = false;
+let timerInterval;
 
 function getInitialDiameter() {
   return parseFloat(getComputedStyle(timerCircle.parentElement).width);
 }
 
-var initialDiameter = getInitialDiameter();
+let initialDiameter = getInitialDiameter();
 
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -90,17 +90,17 @@ function resetCircleSize() {
 }
 
 function updateCircleSize(totalTime) {
-  var currentDiameter = parseFloat(getComputedStyle(timerCircle).width);
-  var decrement = initialDiameter / totalTime;
-  var newDiameter = currentDiameter - decrement;
+  let currentDiameter = parseFloat(getComputedStyle(timerCircle).width);
+  let decrement = initialDiameter / totalTime;
+  let newDiameter = currentDiameter - decrement;
   timerCircle.style.width = newDiameter + "px";
   timerCircle.style.height = newDiameter + "px";
 }
 
 function resizeCircle() {
   initialDiameter = getInitialDiameter();
-  var elapsed = workTime - timerSeconds;
-  var newDiameter = initialDiameter * (1 - elapsed / workTime);
+  let elapsed = workTime - timerSeconds;
+  let newDiameter = initialDiameter * (1 - elapsed / workTime);
   timerCircle.style.width = newDiameter + "px";
   timerCircle.style.height = newDiameter + "px";
 }

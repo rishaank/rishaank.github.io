@@ -1,20 +1,20 @@
-let textboxElement = document.getElementById("textbox");
-let miniTextboxElement = document.getElementById("miniTextbox");
+const textboxElement = document.getElementById("textbox");
+const miniTextboxElement = document.getElementById("miniTextbox");
 let num1 = 0;
 let num2 = null;
 let sign = "";
 
-let historyList = document.getElementById("historyList");
+const historyList = document.getElementById("historyList");
 
 function addHistoryItem() {
-  let itemText = `${num1} ${getSignSymbol(sign)} ${num2} = ${
+  const itemText = `${num1} ${getSignSymbol(sign)} ${num2} = ${
     textboxElement.innerHTML
   }`;
   newHistoryItem(itemText);
 }
 
 function newHistoryItem(itemText) {
-  let historyItem = document.createElement("li");
+  const historyItem = document.createElement("li");
   historyItem.innerText = itemText;
   historyList.insertBefore(historyItem, historyList.firstChild);
 }
@@ -65,11 +65,10 @@ document.addEventListener("keydown", function (event) {
 });
 
 function appendNumber(number) {
-  if (textboxElement.innerHTML == 0) {
-    textboxElement.innerHTML = number;
-  } else {
-    textboxElement.innerHTML += number;
-  }
+  textboxElement.innerHTML =
+    textboxElement.innerHTML === "0"
+      ? number
+      : textboxElement.innerHTML + number;
 }
 
 function decimal() {
@@ -80,7 +79,7 @@ function decimal() {
 
 function replaceLastOperator(newOperator) {
   miniTextboxElement.innerHTML =
-    miniTextboxElement.innerHTML.slice(0, -3) + ` ${newOperator} `;
+    miniTextboxElement.innerHTML.slice(0, -3) + newOperator;
 }
 
 function add() {
@@ -190,7 +189,7 @@ function clearCalculator() {
   sign = "";
   num1 = 0;
   num2 = null;
-  historyList.innerHTML = ""; // Clear history
+  historyList.innerHTML = "";
 }
 
 function signSwitch() {
@@ -202,17 +201,9 @@ function signSwitch() {
 }
 
 function backspace() {
-  if (textboxElement.innerHTML === "0" || textboxElement.innerHTML === "-0") {
-    return;
-  }
-
-  textboxElement.innerHTML = textboxElement.innerHTML.slice(0, -1);
-
-  if (textboxElement.innerHTML === "") {
-    textboxElement.innerHTML = "0";
-  }
-
-  if (textboxElement.innerHTML === "-") {
+  if (textboxElement.innerHTML.length > 1) {
+    textboxElement.innerHTML = textboxElement.innerHTML.slice(0, -1);
+  } else {
     textboxElement.innerHTML = "0";
   }
 }

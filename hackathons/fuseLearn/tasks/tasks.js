@@ -1,18 +1,18 @@
-var toDoList = document.getElementById("todo-list");
-var toDoEntryBox = document.getElementById("todo-entry-box");
-var detailEntryBox = document.getElementById("detail-entry-box");
-var addButton = document.getElementById("add-button");
-var clearButton = document.getElementById("clear-completed-button");
-var emptyButton = document.getElementById("empty-button");
-var infoDiv = document.getElementById("info");
+const toDoList = document.getElementById("todo-list");
+const toDoEntryBox = document.getElementById("todo-entry-box");
+const detailEntryBox = document.getElementById("detail-entry-box");
+const addButton = document.getElementById("add-button");
+const clearButton = document.getElementById("clear-completed-button");
+const emptyButton = document.getElementById("empty-button");
+const infoDiv = document.getElementById("info");
 
 addButton.addEventListener("click", addToDoItem);
 clearButton.addEventListener("click", clearCompletedToDoItems);
 emptyButton.addEventListener("click", emptyList);
 
 function addToDoItem() {
-  var detailText = detailEntryBox.value;
-  var itemText = toDoEntryBox.value;
+  let detailText = detailEntryBox.value;
+  let itemText = toDoEntryBox.value;
 
   if (itemText && detailText) {
     itemText = itemText + " | " + detailText;
@@ -29,7 +29,7 @@ function addToDoItem() {
 }
 
 function newToDoItem(_itemText, completed, type) {
-  var toDoItem = document.createElement("li");
+  let toDoItem = document.createElement("li");
   toDoItem.innerText = _itemText;
 
   if (completed) {
@@ -47,7 +47,7 @@ function newToDoItem(_itemText, completed, type) {
 }
 
 function clearCompletedToDoItems() {
-  var completedItems = toDoList.getElementsByClassName("completed");
+  let completedItems = toDoList.getElementsByClassName("completed");
   while (completedItems.length > 0) {
     completedItems.item(0).remove();
   }
@@ -72,10 +72,10 @@ function deleteTask() {
 }
 
 function saveList() {
-  var toDos = [];
-  for (var i = 0; i < toDoList.children.length; i++) {
-    var toDoItem = toDoList.children[i];
-    var toDoInfo = {
+  let toDos = [];
+  for (let i = 0; i < toDoList.children.length; i++) {
+    let toDoItem = toDoList.children[i];
+    let toDoInfo = {
       task: toDoItem.innerText,
       completed: toDoItem.classList.contains("completed"),
     };
@@ -86,11 +86,11 @@ function saveList() {
 }
 
 function loadList() {
-  var savedToDos = localStorage.getItem("toDos");
+  let savedToDos = localStorage.getItem("toDos");
   if (savedToDos) {
-    var toDos = JSON.parse(savedToDos);
-    for (var i = 0; i < toDos.length; i++) {
-      var toDo = toDos[i];
+    let toDos = JSON.parse(savedToDos);
+    for (let i = 0; i < toDos.length; i++) {
+      let toDo = toDos[i];
       newToDoItem(toDo.task, toDo.completed, "append");
     }
   }

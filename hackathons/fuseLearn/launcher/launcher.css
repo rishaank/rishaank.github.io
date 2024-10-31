@@ -1,7 +1,17 @@
 :root {
   --blueBG: #4375b0;
+  --blueGradientBG: linear-gradient(
+    180deg,
+    rgba(97, 170, 255, 1) 0%,
+    rgba(67, 117, 176, 1) 75%
+  );
   --vibrantBlueBG: #0077ff;
-  --darkBG: #191e25;
+  --darkGradientBG: linear-gradient(
+    180deg,
+    rgba(44, 51, 61, 1) 0%,
+    rgba(25, 30, 37, 1) 75%
+  );
+  --turquoiseBG: rgb(0, 176, 196);
   --scrollbarTrack: rgb(25, 27, 38);
   --scrollbarThumb: #555;
 }
@@ -22,7 +32,7 @@ p {
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-.bgIMG {
+img.bgIMG {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -31,18 +41,18 @@ p {
   z-index: 1;
 }
 
-.back {
-  width: 50px;
-  height: 50px;
+img.back {
+  width: 3.5vw;
+  height: 3.5vw;
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 4;
   cursor: pointer;
-  animation: riseLoad 1s ease 0s 1 normal backwards;
+  animation: riseLoad 2s ease 0s 1 normal backwards;
 }
 
-.blurBox {
+div.blurBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,66 +65,51 @@ p {
   z-index: 3;
 }
 
-button.textOnly {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 130px;
-  height: 50px;
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 30px;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 20px;
-  background: transparent;
+div.title {
   color: white;
-  cursor: pointer;
-}
-
-button.textOnly:hover {
-  text-decoration: underline;
-}
-
-.title {
-  color: white;
-  margin: 60px 0;
   text-align: center;
   font-family: Helvetica;
   font-weight: bold;
-  font-size: 55px;
+  font-size: calc(2vw + 3vh);
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-.horizontalCenter {
-  margin-left: auto;
-  margin-right: auto;
+div.subTitle {
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: calc(0.625vw + 1.1vh);
+  animation: riseLoad 1.5s ease 0s 1 normal backwards;
 }
 
-.horizontalLayout {
+div.heading {
+  color: white;
+  margin: 20px;
+  text-align: left;
+  font-family: Helvetica;
+  font-weight: bold;
+  font-size: calc(1vw + 2vh);
+  cursor: pointer;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.heading::first-letter {
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+div.heading:hover::first-letter {
+  opacity: 1;
+}
+
+div.horizontalLayout {
   display: flex;
-  justify-content: space-evenly;
+  column-gap: 20px;
   align-items: center;
-  align-self: center;
-  align-content: center;
-  position: relative;
+  margin: 5px;
   width: auto;
   height: auto;
-  margin: 100px;
-}
-
-.verticalLayout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  align-content: center;
-  position: relative;
-  width: auto;
-  height: 100%;
-  margin: 100px;
 }
 
 @keyframes riseLoad {

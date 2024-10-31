@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation Creator</title>
+    <link rel="stylesheet" type="text/css" href="citations.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="mask-icon" href="../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <img class="bgIMG" src="../images/mountainBG.jpg">
+    <img class="back" style="animation: riseLoad 2s ease 0s 1 normal backwards;" src="../images/back.png" alt="Back"
+        onclick="location.href='../home/fuseLearn.html'">
+    <div class="blurBox">
+        <div class="horizontalLayout" style="column-gap: 0;">
+            <div class="title">C</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">i</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">t</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">t</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">i</div>
+            <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">o</div>
+            <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards; margin-right: 15px;">
+                n</div>
+            <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">C</div>
+            <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">r</div>
+            <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">e</div>
+            <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">a</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">t</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">o</div>
+            <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">r</div>
+        </div>
+
+        <label class="dropdownLabel" for="citation-type">Choose a type of citation:</label>
+        <select name="type" id="citation-type-selection-box">
+            <option value="MLA">MLA</option>
+            <option value="APA">APA</option>
+            <option value="ChicagoNotes">Chicago (Notes and Bibliography)</option>
+            <option value="ChicagoAuthor">Chicago (Author-Date)</option>
+            <option value="Harvard">Harvard</option>
+            <option value="IEEE">IEEE</option>
+        </select>
+
+        <div class="horizontalLayout"
+            style="width: calc(50vw - 60px); column-gap: 20px; animation: riseLoad 2s ease 0s 1 normal backwards;">
+            <input type="text" placeholder="Author's First Name" id="author-first-name-entry-box" />
+            <input type="text" placeholder=" Author's Last Name" id="author-last-name-entry-box" />
+        </div>
+
+        <div class="horizontalLayout"
+            style="width: calc(50vw - 60px); column-gap: 20px; animation: riseLoad 3s ease 0s 1 normal backwards;">
+            <input type="text" placeholder="Book Title" id="book-title-entry-box" />
+            <input type="text" placeholder="Book edition (optional)" id="edition-entry-box" />
+        </div>
+
+        <div class="horizontalLayout"
+            style="width: calc(50vw - 60px); column-gap: 20px; animation: riseLoad 4s ease 0s 1 normal backwards;">
+            <input type="text" placeholder="Publisher" id="publisher-entry-box" />
+            <input type="text" placeholder="Publication Year" id="publication-year-entry-box" />
+            <input type="text" placeholder="Publication Place" id="publication-place-entry-box" />
+        </div>
+
+        <button style="animation: riseLoad 4.25s ease 0s 1 normal backwards;" id="generate-button">Generate</button>
+    </div>
+    <script src="citations.js"></script>
+</body>
+
+</html>

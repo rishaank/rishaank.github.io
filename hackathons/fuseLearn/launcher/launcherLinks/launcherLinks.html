@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launcher</title>
+    <link rel="stylesheet" type="text/css" href="launcherLinks.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16.png">
+    <link rel="manifest" href="../../images/site.webmanifest">
+    <link rel="mask-icon" href="../../images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <img class="bgIMG" src="../../images/mountainBG.jpg">
+    <img class="back" src="../../images/back.png" alt="Back" onclick="location.href='../launcher.html'">
+    <div class="blurBox">
+        <div
+            style="height: 100vh; width: 100vw; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div class="horizontalLayout" style="column-gap: 0;">
+                <div class="title">L</div>
+                <div class="title" style="animation: riseLoad 2s ease 0s 1 normal backwards;">a</div>
+                <div class="title" style="animation: riseLoad 3s ease 0s 1 normal backwards;">u</div>
+                <div class="title" style="animation: riseLoad 4s ease 0s 1 normal backwards;">n</div>
+                <div class="title" style="animation: riseLoad 4.25s ease 0s 1 normal backwards;">c</div>
+                <div class="title" style="animation: riseLoad 4.5s ease 0s 1 normal backwards;">h</div>
+                <div class="title" style="animation: riseLoad 4.75s ease 0s 1 normal backwards;">e</div>
+                <div class="title" style="animation: riseLoad 5s ease 0s 1 normal backwards;">r</div>
+            </div>
+            <div class="subTitle">Access useful external tools*</div>
+
+            <div class="heading" id="General">General Productivity and Collaboration</div>
+            <div class="horizontalLayout">
+                <div class="popUp">
+                    <button class="bigCentered"
+                        onclick="location.href='https://about.google/intl/ALL_us/products/#all-products'">Google
+                        Workspace
+                        <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                            src="../../images/google.png"></img>
+                    </button>
+
+                    <span class="popUpText" id="googlePopUp">Widely-used suite for document, spreadsheet, and
+                        presentation creation.</span>
+                </div>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.office.com/'">Microsoft Office
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/office.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 3s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.notion.so/'">Notion
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/notion.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://evernote.com/'">Evernote
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/evernote.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://trello.com/'">Trello
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/trello.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="Study">Study and
+                Flashcards</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://quizlet.com/'">Quizlet
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/quizlet.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.gimkit.com/'">Gimkit
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/quiz.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 3s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://apps.ankiweb.net/'">Anki
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/anki.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://www.brainscape.com/'">Brainscape
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/brain.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://kahoot.com/'">Kahoot!
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/game-controller.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="Math">Math and Science Resources</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://www.desmos.com/'">Desmos
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/desmos.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.photomath.com/'">Photomath
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/photomath.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 3s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.wolframalpha.com/'">Wolfram Alpha
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/wolfram-alpha.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://phet.colorado.edu/'">Phet Simulations
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/physics.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.geogebra.org/'">GeoGebra
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/geogebra.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.khanacademy.org/'">Khan Academy
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/khan-academy.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="CS">Coding and Computer Science</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://replit.com/'">Replit
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../../../images/replit.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://code.org/'">Code.org
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/code.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 3s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://scratch.mit.edu/'">Scratch
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/scratch.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://www.codecademy.com/'">Code Academy
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/code.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.w3schools.com/'">W3Schools
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/code.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="Research">Research and Writing Tools</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://www.grammarly.com/'">Grammarly
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/grammarly.png"></img>
+                </button>
+                <button class="bigCentered" onclick="location.href='https://elicit.org/'">Elicit
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/AI.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.easybib.com/'">EasyBib
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/bookmark.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.perplexity.ai/'">Perplexity AI
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/AI.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="Learning">Learning and Test Prep</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://www.duolingo.com/'">Duolingo
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/duolingo.png"></img>
+                </button>
+                <button class="bigCentered" onclick="location.href='https://www.memrise.com/'">Memrise
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/language.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.coursera.org/'">Coursera
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/teacher.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://lingvist.com/'">Lingvist
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/AI.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="AI">AI Writing, Language, and Creativity Tools</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://chat.openai.com/'">ChatGPT
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/chatgpt.png"></img>
+                </button>
+                <button class="bigCentered" onclick="location.href='https://www.jasper.ai/'">Jasper
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/video-edit.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.deepl.com/'">DeepL
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/language.png"></img>
+                </button>
+            </div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://languagetool.org/'">LanguageTool
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/text-examine.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://www.wordtune.com/'">Wordtune
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/typewriter.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://speechify.com/'">Speechify
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/speech.png"></img>
+                </button>
+            </div>
+
+            <div class="heading" id="Multimedia">Multimedia and Presentation Tools</div>
+            <div class="horizontalLayout">
+                <button class="bigCentered" onclick="location.href='https://explaineverything.com/'">Explain Everything
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/presentation.png"></img>
+                </button>
+                <button class="bigCentered" onclick="location.href='https://www.synthesia.io/'">Synthesia
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/presentation.png"></img>
+                </button>
+                <button class="bigCentered" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                    onclick="location.href='https://otter.ai/'">Otter.ai
+                    <img class="buttonIMG" style="animation: riseLoad 2s ease 0s 1 normal backwards;"
+                        src="../../images/speech.png"></img>
+                </button>
+            </div>
+
+            <p>Icons from https://icons8.com/</p>
+            <p>*TOOLS LINKED HERE ARE NOT MADE BY RISHAAN, JUST UN-ENDORSED LINKS TO OTHER
+                USEFUL THIRD-PARTY PROGRAMS | SITES MAY REQUIRE ACCOUNTS/SUBSCRIPTIONS</p>
+        </div>
+    </div>
+</body>
+
+</html>
