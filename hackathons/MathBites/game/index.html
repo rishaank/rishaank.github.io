@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>MathBites | Topic</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="manifest" href="../site.webmanifest">
+</head>
+
+<body>
+  <div class="topBar">
+    <img class="bar alignLeft" alt="Exit" title="Exit" src="../images/exit.png"
+      onclick="window.location.href = '../welcome/index.html'">
+    <div class="verticalLayout" alt="Total Time Taken">
+      <img class="bar withText" title="Total Time Taken" src="../images/time.png">
+      <p id="timeText">0</p>
+    </div>
+    <div class="verticalRule"></div>
+    <div class="verticalLayout" alt="Number of Correct Answers">
+      <img class="bar withText" title="Number of Correct Answers" src="../images/check.png">
+      <p id="correctNum" class="correct">0</p>
+    </div>
+    <div class="verticalLayout" alt="Number of Revealed Answers">
+      <img class="bar withText" title="Number of Revealed Answers" src="../images/question.png">
+      <p id="questionNum" class="question">0</p>
+    </div>
+    <div class="verticalLayout" alt="Number of Wrong Answers">
+      <img class="bar withText" title="Number of Wrong Answers" src="../images/x.png">
+      <p id="wrongNum" class="wrong">0</p>
+    </div>
+    <div class="verticalRule"></div>
+    <div class=" verticalLayout" alt="Number of Questions Completed">
+      <img class="bar withText" title="Number of Questions Completed" src="../images/question-answer.png">
+      <p id="completedNum" class="completed">0</p>
+    </div>
+    <img id="showAnswerButton" class="bar alignRight" alt="Show Answer" title="Show Answer" src="../images/show.png"
+      onclick="answerToggle()">
+    <img id="hideAnswerButton" class="bar alignRight overlayHidden" alt="" title="" src="../images/red-line.png"
+      onclick="answerToggle()">
+  </div>
+  <div style="width: 95vw;" class="horizontalLayout">
+    <div>
+      <div id="questionBox" class="questionBox">
+        <img id="personImage" class="person" alt="customer" title="customer" src="../images/people/1.png" />
+        <div id="questionText" class="questionText">Question</div>
+      </div>
+      <div id="answerBox" class="questionBox" style="margin: 1.5vh 0 7vh 0; display: none;">
+        <img class="person" alt="answer" title="answer" src="../images/question-answer.png" />
+        <div id="answerText" class="questionText">Answer</div>
+      </div>
+    </div>
+    <div id="calcBox" class="calcBox horizontalLayout" style="column-gap: 2.5%;">
+      <div class="verticalLayout" style="height: 100%; justify-content: space-around;">
+        <div id="miniTextbox" class="miniTextbox"
+          style="height: calc(var(--buttonHeight) - 7%); font-size: calc(0.5vw + 1vh); border-radius: calc(var(--borderRadius) - 2%);">
+          0
+        </div>
+        <div class="horizontalLayout"
+          style="width: 25vw; column-gap: 4%; animation: riseLoad 2s ease 0s 1 normal backwards;">
+          <button class="calc special" onclick="signSwitch()">+/-</button>
+          <div id="textbox" class="textbox" style="margin-top: 3%;">0</div>
+          <button class="calc special" onclick="backspace()">⌫</button>
+        </div>
+
+        <div class="horizontalLayout"
+          style="width: 97%; column-gap: 4%; animation: riseLoad 3s ease 0s 1 normal backwards;">
+          <button class="calc" onclick="appendNumber(1)">1</button>
+          <button class="calc" onclick="appendNumber(2)">2</button>
+          <button class="calc" onclick="appendNumber(3)">3</button>
+        </div>
+        <div class="horizontalLayout"
+          style="width: 97%; column-gap: 4%; animation: riseLoad 4s ease 0s 1 normal backwards;">
+          <button class="calc" onclick="appendNumber(4)">4</button>
+          <button class="calc" onclick="appendNumber(5)">5</button>
+          <button class="calc" onclick="appendNumber(6)">6</button>
+        </div>
+        <div class="horizontalLayout"
+          style="width: 97%; column-gap: 4%; animation: riseLoad 5s ease 0s 1 normal backwards;">
+          <button class="calc" onclick="appendNumber(7)">7</button>
+          <button class="calc" onclick="appendNumber(8)">8</button>
+          <button class="calc" onclick="appendNumber(9)">9</button>
+        </div>
+        <div class="horizontalLayout"
+          style="width: 97%; column-gap: 4%; animation: riseLoad 5s ease 0s 1 normal backwards;">
+          <button class="special" onclick="decimal()">.</button>
+          <button onclick="appendNumber(0)">0</button>
+        </div>
+      </div>
+      <div class="verticalLayout" style="height: 100%; justify-content: space-around;">
+        <button class="sign special" style="margin-top: 0; animation: riseLoad 3s ease 0s 1 normal backwards;"
+          onclick="clearCalculator()">CE</button>
+        <button class="sign special" style="animation: riseLoad 4s ease 0s 1 normal backwards;"
+          onclick="add()">+</button>
+        <button class="sign special" style="animation: riseLoad 5s ease 0s 1 normal backwards;"
+          onclick="subtract()">-</button>
+        <button class="sign special" style="animation: riseLoad 5s ease 0s 1 normal backwards;"
+          onclick="divide()">÷</button>
+        <button class="sign special" style="animation: riseLoad 5s ease 0s 1 normal backwards;"
+          onclick="multiply()">x</button>
+        <button class="sign special" style="animation: riseLoad 5s ease 0s 1 normal backwards;"
+          onclick="exponent()">^</button>
+        <button class="sign special" style="animation: riseLoad 5s ease 0s 1 normal backwards;"
+          onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+  <button id="submitButton" class="submit" onclick="submit()">Submit
+    <img class="hidden" src="../images/send.png" onclick="submit()">
+  </button>
+  <div class="bottomBar">
+    <p id="topicText" class="topicTitle">Topic</p>
+    <!-- fraction answer mode -->
+    <div id="fractionInput" class="horizontalLayout fractionInput">
+      <div>
+        <input type="number" id="numeratorInput" class="fractionInput" placeholder="1" alt="Numerator" />
+        <hr style="animation: riseLoad 1s ease 0s 1 normal backwards;" />
+        <input type="number" id="denominatorInput" class="fractionInput" placeholder="1" alt="Denominator" />
+      </div>
+    </div>
+    <!-- decimal answer mode -->
+    <div id="decimalInput" class="horizontalLayout decimalInput">
+      <input type="number" id="decimalNumInput" class="fractionInput" placeholder="0.0" alt="Decimal Number" />
+      <div style="bottom: 6vh;" class="subTitle">Please do not ommit a leading zero (say 0.2, not .2) | Round to 1
+        decimal place</div>
+    </div>
+    <img id="showCalcButton" class="bigBar alignRight" alt="Show Calculator" title="Show Calculator"
+      src="../images/calculator.png" onclick="calcToggle()">
+    <img id="hideCalcButton" class="bigBar alignRight overlayHidden" alt="" title="" src="../images/red-line.png"
+      onclick="calcToggle()">
+  </div>
+  <div class="subTitle">Created by Rishaan K | Background Image Designed by <a href="www.freepik.com">Freepik</a> |
+    Icons by <a href="www.icons8.com">Icons8</a></div>
+  <script src="script.js"></script>
+</body>
+
+</html>

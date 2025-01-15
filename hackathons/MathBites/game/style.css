@@ -1,0 +1,413 @@
+@font-face {
+  font-family: Rubik-Regular;
+  src: url("../fonts/Rubik-Regular.ttf");
+}
+
+@font-face {
+  font-family: Rubik-Medium;
+  src: url("../fonts/Rubik-Medium.ttf");
+}
+
+:root {
+  --darkBrownGradientBG: linear-gradient(
+    0deg,
+    rgba(60, 48, 39, 1) 0%,
+    rgba(131, 105, 83, 1) 100%
+  );
+  --brownGradientBG: linear-gradient(
+    0deg,
+    rgba(131, 105, 83, 1) 0%,
+    rgba(182, 153, 116, 1) 100%
+  );
+  --brownBG: #6f4e37;
+  --darkBrownBG: #5f4334;
+  --turquoise: #009d91;
+  --green: #26c47b;
+  --yellow: #fccb2b;
+  --red: #e5262f;
+  --blue: #26aaee;
+  --borderRadius: calc(20px + 4%);
+  --textSize: calc(1vw + 1vh);
+  --buttonWidth: 10vw;
+  --buttonHeight: 6vh;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-image: url(../images/BG.jpg);
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+a {
+  color: white;
+}
+
+p {
+  font-family: Rubik-Regular;
+  font-size: var(--textSize);
+  margin: 0;
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+p.topicTitle {
+  position: absolute;
+  left: 5vw;
+  font-size: calc(var(--textSize) + 40%);
+}
+
+div.horizontalLayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15%;
+}
+
+div.verticalLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.topBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5%;
+  width: 95vw;
+  height: 10vh;
+  margin: 1vh 0 auto 0;
+  background-color: var(--brownBG);
+  border-radius: calc(var(--borderRadius) - 3%);
+  box-shadow: 0 0 10px var(--brownBG);
+  animation: fadeLoad 1s ease 0s 1 normal backwards;
+}
+
+div.questionBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: first baseline;
+  width: 30vw;
+  padding: calc(1vh + 1vw);
+  background-color: var(--brownBG);
+  border-radius: calc(var(--borderRadius) - 3%);
+  box-shadow: 0 0 50px burlywood;
+  transition-duration: 0.4s;
+  animation: fadeLoad 1s ease 0s 1 normal backwards;
+}
+
+div.calcBox {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: end baseline;
+  width: 30vw;
+  padding: calc(1vh + 1vw);
+  background-color: var(--brownBG);
+  border-radius: calc(var(--borderRadius) - 3%);
+  box-shadow: 0 0 10px var(--brownBG);
+  transition-duration: 0.4s;
+  animation: fadeLoad 1s ease 0s 1 normal backwards;
+}
+
+div.bottomBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  height: 25vh;
+  margin: auto 0 5vh 0;
+  background-color: var(--brownBG);
+  border-radius: calc(var(--borderRadius) - 3%);
+  box-shadow: 0 0 10px var(--brownBG);
+  animation: fadeLoad 1s ease 0s 1 normal backwards;
+}
+
+div.subTitle {
+  position: absolute;
+  bottom: 1vh;
+  font-family: Rubik-Regular;
+  font-size: calc(var(--textSize) - 30%);
+  color: white;
+  opacity: 0.5;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+div.verticalRule {
+  border-left: 1.25px solid white;
+  height: 8vh;
+}
+
+div.fractionInput {
+  display: none;
+  column-gap: 7%;
+}
+
+div.decimalInput {
+  display: none;
+  column-gap: 8%;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--buttonWidth);
+  height: var(--buttonHeight);
+  padding: 2.5%;
+  margin-top: 3%;
+  border: none;
+  border-radius: var(--borderRadius);
+  font-family: Rubik-Regular;
+  font-size: calc(var(--textSize) - 30%);
+  background-color: var(--darkBrownBG);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+button:hover {
+  transform: scale(1.1);
+  font-size: calc(var(--textSize) - 50%);
+  border-radius: calc(var(--borderRadius) + 0.5%);
+  color: var(--brownBG);
+  background: white;
+  box-shadow: 0 0 15px var(--brownBG);
+}
+
+button.submit {
+  position: absolute;
+  z-index: 2;
+  bottom: 30vh;
+  column-gap: 10%;
+  background-color: var(--turquoise);
+  border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+  animation: fadeLoad 1s ease 0s 1 normal backwards;
+}
+
+button.submit:hover {
+  transform: scale(1);
+  width: calc(var(--buttonWidth) + 2%);
+  font-size: calc(var(--textSize) - 30%);
+  border-radius: calc(var(--borderRadius) + 0.5%)
+    calc(var(--borderRadius) + 0.5%) 0 0;
+  background: white;
+  color: var(--turquoise);
+  box-shadow: 0 0 15px var(--brownBG);
+}
+
+button.submit:hover :nth-child(1) {
+  width: calc(1vw + 4vh);
+  height: calc(1vw + 4vh);
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+button.calc {
+  width: calc(4vw + 6vh);
+}
+
+button.sign {
+  width: calc(2vw + 4vh);
+  height: calc(var(--buttonHeight) - 1.5vh);
+  margin-top: 0.5vh;
+}
+
+button.special {
+  background: var(--turquoise);
+}
+
+button.special:hover {
+  background: white;
+  color: var(--turquoise);
+}
+
+img.hidden {
+  transform: translateY(2vh) scale(0.8);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+img.overlayHidden {
+  transform: calc(2vw + 4vh) scale(0.8);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 0.4s;
+}
+
+img.bar {
+  width: calc(2vw + 4vh);
+  height: calc(2vw + 4vh);
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.bar:hover {
+  width: calc(3vw + 4vh);
+  height: calc(3vw + 4vh);
+  -webkit-filter: drop-shadow(0 0 15px burlywood);
+  filter: drop-shadow(0 0 7px burlywood);
+}
+
+img.bigBar {
+  width: calc(2.5vw + 4.5vh);
+  height: calc(2.5vw + 4.5vh);
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.bigBar:hover {
+  width: calc(3.5vw + 4.5vh);
+  height: calc(3.5vw + 4.5vh);
+  -webkit-filter: drop-shadow(0 0 15px burlywood);
+  filter: drop-shadow(0 0 7px burlywood);
+}
+
+img.alignLeft {
+  position: absolute;
+  left: 5vw;
+}
+
+img.alignRight {
+  position: absolute;
+  right: 5vw;
+}
+
+img.withText {
+  width: calc(1vw + 4vh);
+  height: calc(1vw + 4vh);
+  transition-duration: 0.4s;
+}
+
+img.withText:hover {
+  width: calc(2vw + 4vh);
+  height: calc(2vw + 4vh);
+}
+
+img.person {
+  width: calc(6vw + 3vh);
+  height: calc(6vw + 3vh);
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+p.correct {
+  color: var(--green);
+}
+
+p.question {
+  color: var(--yellow);
+}
+
+p.wrong {
+  color: var(--red);
+}
+
+p.completed {
+  color: var(--blue);
+}
+
+div.questionText {
+  width: 70%;
+  font-family: Rubik-Regular;
+  font-size: var(--textSize);
+  text-align: center;
+  margin: 0;
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+input.fractionInput {
+  background-color: var(--darkBrownBG);
+  color: white;
+  font-family: Rubik-Regular;
+  font-size: var(--textSize);
+  border-radius: calc(var(--borderRadius) - 5%);
+  width: calc(2vw + 4vh);
+  height: calc(2vw + 4vh);
+  text-align: center;
+  border: none;
+  transition-duration: 0.4s;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+input:hover {
+  box-shadow: 0 0 12px burlywood;
+}
+
+input:focus {
+  width: calc(2.7vw + 4vh);
+  height: calc(2.7vw + 4vh);
+  font-size: calc(var(--textSize) + 40%);
+  border-radius: calc(var(--borderRadius) - 1%);
+  outline: 0;
+  box-shadow: 0 0 12px white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+div.miniTextbox,
+div.textbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  height: var(--buttonHeight);
+  border: none;
+  outline: none;
+  border-radius: var(--borderRadius);
+  font-family: Helvetica;
+  font-size: calc(1vw + 1.5vh);
+  background: var(--darkBrownBG);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+@keyframes riseLoad {
+  from {
+    opacity: 0;
+    transform: translateY(5vh) scale(0.8);
+  }
+}
+
+@keyframes fadeLoad {
+  from {
+    opacity: 0;
+  }
+}
