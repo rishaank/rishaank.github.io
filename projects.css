@@ -8,14 +8,18 @@
   --buttonReplitHoverShadow: #f26207;
 }
 
+html {
+  font-size: 16px;
+}
+
 @font-face {
   font-family: Poppins;
   src: url("fonts/Poppins-Regular.ttf");
 }
 
 @font-face {
-  font-family: DMSerifDisplay;
-  src: url("fonts/DMSerifDisplay-Regular.ttf");
+  font-family: GeneralSans;
+  src: url("fonts/GeneralSans-Variable.ttf");
 }
 
 body {
@@ -38,7 +42,7 @@ div.blurBox {
   min-height: 97vh;
   margin-top: auto;
   padding-bottom: 20px;
-  background-color: rgba(255, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(30px);
   border-radius: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -48,9 +52,9 @@ div.mainTitle {
   color: white;
   cursor: default;
   text-align: center;
-  font-family: DMSerifDisplay;
+  font-family: GeneralSans;
   font-size: calc(2vh + 2vw);
-  margin-top: 20px;
+  margin-top: calc(20vh - 2vh - 2vw - 1.5rem);
   transition: 0.3s;
   animation: riseLoad 1.7s ease 0s 1 normal backwards;
 }
@@ -59,15 +63,16 @@ div.mainTitle:hover {
   color: var(--buttonHoverBG);
   text-shadow: 0 0 10px var(--buttonHoverBG);
   transform: translateY(-10px);
+  font-weight: 600;
 }
 
 div.bullet {
   color: white;
   cursor: default;
   text-align: center;
-  font-family: DMSerifDisplay;
-  font-size: calc(0.8vh + 0.8vw);
-  margin-bottom: 20px;
+  font-family: GeneralSans;
+  font-size: 1.5rem;
+  margin-bottom: calc(20vh - 2vh - 2vw - 1.5rem);
   transition: 0.3s;
   animation: riseLoad 2s ease 0s 1 normal backwards;
 }
@@ -91,7 +96,7 @@ div.projectTitle {
   cursor: default;
   text-align: center;
   font-family: Poppins;
-  font-size: calc(1.5vh + 1.5vw);
+  font-size: 2rem;
   animation: riseLoad 2s ease 0s 1 normal backwards;
 }
 
@@ -100,9 +105,9 @@ div.projectDetail {
   cursor: default;
   text-align: center;
   font-family: Poppins;
-  font-size: calc(0.8vh + 0.8vw);
+  font-size: 1rem;
   margin: 10px;
-  animation: riseLoad 3s ease 0s 1 normal backwards;
+  animation: riseLoad 3s ecalcase 0s 1 normal backwards;
 }
 
 div.postDetail {
@@ -111,7 +116,7 @@ div.postDetail {
   cursor: default;
   text-align: center;
   font-family: Poppins;
-  font-size: calc(0.8vh + 0.8vw);
+  font-size: 1rem;
   margin: 10px;
   animation: riseLoad 6s ease 0s 1 normal backwards;
 }
@@ -134,11 +139,11 @@ div.projectLayout {
   width: 17vw;
   height: 52vh;
   padding: 50px;
-  background-color: rgba(255, 0, 0, 0);
-  align-items: center;
+  background-color: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(30px);
+  align-items: center;
   border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 div.projectContainer {
@@ -241,6 +246,43 @@ img.buttonIMG {
     opacity: 0;
     transform: translateY(50px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mainTitle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.mainTitle:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.mainTitle:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.mainTitle:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.mainTitle:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.mainTitle:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.mainTitle:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.mainTitle:nth-child(8) {
+  animation-delay: 0.7s;
 }
 
 ::-webkit-scrollbar {

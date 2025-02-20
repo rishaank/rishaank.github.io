@@ -3,13 +3,8 @@
 }
 
 @font-face {
-  font-family: Poppins;
-  src: url("/fonts/Poppins-Regular.ttf");
-}
-
-@font-face {
-  font-family: DMSerifDisplay;
-  src: url("fonts/DMSerifDisplay-Regular.ttf");
+  font-family: GeneralSans;
+  src: url("fonts/GeneralSans-Variable.ttf");
 }
 
 body {
@@ -41,7 +36,7 @@ div.mainTitle {
   color: white;
   cursor: default;
   text-align: center;
-  font-family: DMSerifDisplay;
+  font-family: GeneralSans;
   font-size: calc(2vh + 2vw);
   transition: 0.3s;
   animation: riseLoad 1.7s ease 0s 1 normal backwards;
@@ -51,13 +46,14 @@ div.mainTitle:hover {
   color: var(--buttonHoverBG);
   text-shadow: 0 0 10px var(--buttonHoverBG);
   transform: translateY(-10px);
+  font-weight: 600;
 }
 
 div.bullet {
   color: white;
   cursor: default;
   text-align: center;
-  font-family: DMSerifDisplay;
+  font-family: GeneralSans;
   font-size: calc(0.8vh + 0.8vw);
   transition: 0.3s;
   animation: riseLoad 1.5s ease 0s 1 normal backwards;
@@ -73,7 +69,7 @@ div.blankBullet {
   color: white;
   cursor: default;
   text-align: center;
-  font-family: DMSerifDisplay;
+  font-family: GeneralSans;
   font-size: calc(0.8vh + 0.8vw);
   transition: 0.3s;
   animation: riseLoad 1.5s ease 0s 1 normal backwards;
@@ -90,7 +86,7 @@ div.hidden {
   color: darkslateblue;
   font-weight: bolder;
   opacity: 0;
-  -webkit-text-stroke: 0.001px var(--buttonHoverBG);
+  animation: none;
 }
 
 @keyframes riseLoad {
@@ -98,6 +94,39 @@ div.hidden {
     opacity: 0;
     transform: translateY(50px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mainTitle:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.mainTitle:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.mainTitle:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.mainTitle:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.mainTitle:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.mainTitle:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.mainTitle:nth-child(7) {
+  animation-delay: 0.6s;
 }
 
 ::-webkit-scrollbar {
