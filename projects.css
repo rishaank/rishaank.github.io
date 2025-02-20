@@ -56,7 +56,7 @@ div.mainTitle {
   font-size: calc(2vh + 2vw);
   margin-top: calc(20vh - 2vh - 2vw - 1.5rem);
   transition: 0.3s;
-  animation: riseLoad 1.7s ease 0s 1 normal backwards;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.mainTitle:hover {
@@ -74,7 +74,7 @@ div.bullet {
   font-size: 1.5rem;
   margin-bottom: calc(20vh - 2vh - 2vw - 1.5rem);
   transition: 0.3s;
-  animation: riseLoad 2s ease 0s 1 normal backwards;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.bullet:hover {
@@ -84,11 +84,13 @@ div.bullet:hover {
 }
 
 div.footer {
+  position: absolute;
+  bottom: 10px;
   color: white;
   text-align: center;
   font-family: Poppins;
-  font-size: calc(0.5vh + 0.5vw);
-  animation: riseLoad 2s ease 0s 1 normal backwards;
+  font-size: 1rem;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.projectTitle {
@@ -97,7 +99,7 @@ div.projectTitle {
   text-align: center;
   font-family: Poppins;
   font-size: 2rem;
-  animation: riseLoad 2s ease 0s 1 normal backwards;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.projectDetail {
@@ -106,8 +108,8 @@ div.projectDetail {
   text-align: center;
   font-family: Poppins;
   font-size: 1rem;
-  margin: 10px;
-  animation: riseLoad 3s ecalcase 0s 1 normal backwards;
+  margin: 10px 0 20px 0;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.postDetail {
@@ -117,14 +119,13 @@ div.postDetail {
   text-align: center;
   font-family: Poppins;
   font-size: 1rem;
-  margin: 10px;
-  animation: riseLoad 6s ease 0s 1 normal backwards;
+  margin: 20px;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.horizontalLayout {
   display: flex;
   justify-content: center;
-  width: 100vw;
   column-gap: 20px;
 }
 
@@ -136,8 +137,7 @@ div.verticalLayout {
 }
 
 div.projectLayout {
-  width: 17vw;
-  height: 52vh;
+  width: 20vw;
   padding: 50px;
   background-color: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(30px);
@@ -153,71 +153,7 @@ div.projectContainer {
   gap: 20px;
   padding: 20px;
   width: 100%;
-  animation: riseLoad 1.7s ease 0s 1 normal backwards;
-}
-
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: fit-content;
-  width: 12vw;
-  min-height: fit-content;
-  height: 9vh;
-  box-sizing: border-box;
-  margin: 10px 0;
-  padding: 12px;
-  background-color: var(--generalTextColor);
-  border: 0;
-  border-radius: 30px;
-  color: black;
-  font-size: calc(0.8vh + 0.8vw);
-  transition: 0.4s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: var(--buttonGithubHoverBG);
-  color: var(--generalTextColor);
-  box-shadow: 0 0 10px var(--buttonGithubHoverBG);
-  transform: perspective(200px) rotateY(5deg) rotateX(5deg);
-}
-
-button.github {
-  background-color: var(--buttonGithubBG);
-  color: white;
-  animation: riseLoad 5s ease 0s 1 normal backwards;
-}
-
-button.github:hover {
-  cursor: pointer;
-  background-color: var(--buttonHoverBG);
-  box-shadow: 0 0 10px var(--buttonHoverBG);
-}
-
-button.replit {
-  background-color: var(--buttonReplitBG);
-  color: white;
-  animation: riseLoad 4s ease 0s 1 normal backwards;
-}
-
-button.replit:hover {
-  cursor: pointer;
-  background-color: var(--buttonHoverBG);
-  box-shadow: 0 0 10px var(--buttonReplitHoverShadow);
-}
-
-button.basic {
-  background-color: var(--buttonBG);
-  color: white;
-  animation: riseLoad 5s ease 0s 1 normal backwards;
-}
-
-button.basic:hover {
-  cursor: pointer;
-  background-color: var(--buttonHoverBG);
-  box-shadow: 0 0 10px var(--buttonHoverBG);
 }
 
 img.projectIMG {
@@ -235,10 +171,47 @@ img.projectIMG:hover {
 }
 
 img.buttonIMG {
-  width: calc(1vw + 2vh);
+  background-color: var(--buttonBG);
   height: calc(1vw + 2vh);
-  padding-right: 10px;
+  padding: 12px;
+  border-radius: 30px;
+  transition: 0.3s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.buttonIMG:hover {
+  cursor: pointer;
+  background-color: var(--buttonHoverBG);
+  box-shadow: 0 0 10px var(--buttonHoverBG);
+  transform: perspective(100px) rotateY(15deg) rotateX(15deg);
+}
+
+img.github {
+  background-color: var(--buttonGithubBG);
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.github:hover {
+  cursor: pointer;
+  background-color: var(--buttonHoverBG);
+  box-shadow: 0 0 10px var(--buttonHoverBG);
+}
+
+img.replit {
+  background-color: var(--buttonReplitBG);
+  color: white;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
+}
+
+img.replit:hover {
+  cursor: pointer;
+  background-color: var(--buttonHoverBG);
+  box-shadow: 0 0 10px var(--buttonReplitHoverShadow);
+}
+
+a {
+  color: white;
 }
 
 @keyframes riseLoad {
