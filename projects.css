@@ -66,21 +66,31 @@ div.mainTitle:hover {
   font-weight: 600;
 }
 
-div.bullet {
+a.bullet {
   color: white;
   cursor: default;
   text-align: center;
   font-family: GeneralSans;
   font-size: 1.5rem;
+  text-decoration: none;
   margin-bottom: calc(20vh - 2vh - 2vw - 1.5rem);
   transition: 0.3s;
   animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
-div.bullet:hover {
+a.bullet:hover {
   text-decoration: underline;
   text-shadow: 0 0 10px var(--buttonHoverBG);
   cursor: pointer;
+}
+
+div.blankBullet {
+  color: white;
+  cursor: default;
+  text-align: center;
+  font-family: GeneralSans;
+  font-size: 1.5rem;
+  animation: riseLoad 1s ease 0s 1 normal backwards;
 }
 
 div.footer {
