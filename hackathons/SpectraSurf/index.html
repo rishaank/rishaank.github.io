@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpectraSurf</title>
+    <link rel="icon" type="image/x-icon" href="SpectraSurf.png">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="root">
+        <div class="min-h-screen bg-background">
+            <header class="sticky top-0 z-40 glass-card border-b border-border safe-top">
+                <div class="flex items-center justify-center px-4 py-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-zap w-5 h-5 text-primary-foreground">
+                                <path
+                                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                </path>
+                            </svg></div><span class="font-bold text-lg">SpectraSurf</span>
+                    </div>
+                </div>
+                <div class="w-full px-4 py-2">
+                    <div class="h-2 rounded-full overflow-hidden flex bg-muted">
+                        <div id="balance-left" class="bias-left transition-all duration-500 ease-out"
+                            style="width: 33.33%;"></div>
+                        <div id="balance-center" class="bias-center transition-all duration-500 ease-out"
+                            style="width: 33.34%;"></div>
+                        <div id="balance-right" class="bias-right transition-all duration-500 ease-out"
+                            style="width: 33.33%;"></div>
+                    </div>
+                    <div class="flex justify-between mt-1">
+                        <span id="balance-left-label" class="text-[10px] text-political-left font-medium">33%
+                            Left</span>
+                        <span id="balance-center-label" class="text-[10px] text-political-center font-medium">33%
+                            Center</span>
+                        <span id="balance-right-label" class="text-[10px] text-political-right font-medium">33%
+                            Right</span>
+                    </div>
+                </div>
+            </header>
+            <div class="px-4 pb-3">
+                <div class="flex gap-2">
+                    <button id="nav-feed"
+                        class="flex-1 glass-card border border-border rounded-lg py-2 text-sm font-medium bg-muted">Feed</button>
+                    <button id="nav-glossary"
+                        class="flex-1 glass-card border border-border rounded-lg py-2 text-sm font-medium">Glossary</button>
+                </div>
+            </div>
+            <main class="pb-16" id="feed-page">
+                <div class="p-4 space-y-4">
+                    <!-- Articles will be injected here -->
+                    <div id="articles" class="space-y-4"></div>
+
+                    <!-- Infinite scroll sentinel -->
+                    <div id="scroll-sentinel" class="h-10"></div>
+                </div>
+
+                <!-- Card template (cloned in JS) -->
+                <template id="article-template">
+                    <div style="animation-delay: 0s;">
+                        <div
+                            class="glass-card rounded-xl overflow-hidden card-hover cursor-pointer fade-in article-card">
+                            <div class="p-4 pb-0">
+                                <div
+                                    class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-secondary-foreground hover:bg-secondary/80 bg-background/80 backdrop-blur-sm text-xs article-source">
+                                    Source
+                                </div>
+                            </div>
+                            <div class="p-4 pt-3">
+                                <h3 class="font-bold text-lg leading-tight mb-2 line-clamp-2 article-title">Title</h3>
+                                <p class="text-sm text-muted-foreground line-clamp-2 mb-3 article-desc">Description</p>
+
+                                <!-- Keep your existing “Political Lean” UI as a placeholder for now -->
+                                <div class="mb-3">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-xs text-muted-foreground">Political Lean</span>
+                                        <span
+                                            class="text-xs font-medium text-political-center article-lean">Center</span>
+                                    </div>
+                                    <div class="relative h-1.5 bg-muted rounded-full">
+                                        <div class="absolute inset-0 flex rounded-full overflow-hidden">
+                                            <div class="w-1/3 bg-political-left/30"></div>
+                                            <div class="w-1/3 bg-political-center/30"></div>
+                                            <div class="w-1/3 bg-political-right/30"></div>
+                                        </div>
+                                        <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-background shadow-md transition-all duration-300 bg-political-center article-lean-dot"
+                                            style="left: calc(52.5% - 6px);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Loading / error UI -->
+                <div id="feed-status" class="px-4 pb-20">
+                    <div id="feed-loading" class="text-xs text-muted-foreground hidden">Loading…</div>
+                    <div id="feed-error" class="text-xs text-red-500 hidden"></div>
+                </div>
+        </div>
+        </main>
+
+    </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Reputable aggregated feed (Google News RSS) + Political lean + Infinite scroll (GitHub Pages friendly) -->
+    <script type="module">
+        // Uses Google News RSS for reputable aggregation (free).
+        // RSS is blocked by browser CORS, so we fetch via AllOrigins (a free CORS proxy).
+        // Note: on GitHub Pages, this is the quickest fully-static solution. If the proxy rate-limits,
+        // the next step is adding a tiny backend proxy.
+
+        // Focused query (politics + economics/markets). `when:24h` keeps it recent.
+        // You can tweak keywords later.
+        const RSS_URL = "https://news.google.com/rss/search?q=" +
+            encodeURIComponent(
+                "(politics OR election OR congress OR senate OR house OR white house OR supreme court OR campaign OR government OR policy OR economy OR inflation OR gdp OR jobs OR recession OR federal reserve OR interest rates OR markets OR stocks OR bonds OR trade OR budget) when:24h -lego -celebrity -movie -tv -music -sports"
+            ) +
+            "&hl=en-US&gl=US&ceid=US:en";
+        const BATCH_SIZE = 10;
+
+        // --- Political lean mapping (estimated) ---
+        // Score range: -1 (left) ... 0 (center) ... +1 (right)
+        // Start with major outlets; expand as you go.
+        const DOMAIN_LEAN = {
+            "reuters.com": 0.0,
+            "apnews.com": 0.0,
+            "bbc.com": 0.0,
+            "bbc.co.uk": 0.0,
+            "npr.org": -0.3,
+            "nytimes.com": -0.5,
+            "washingtonpost.com": -0.4,
+            "theguardian.com": -0.4,
+            "vox.com": -0.6,
+            "cnn.com": -0.3,
+            "msnbc.com": -0.6,
+            "abcnews.go.com": -0.1,
+            "cbsnews.com": -0.1,
+            "nbcnews.com": -0.1,
+            "usatoday.com": -0.1,
+            "time.com": -0.1,
+            "theatlantic.com": -0.3,
+
+            "wsj.com": 0.2,
+            "economist.com": 0.2,
+            "reason.com": 0.4,
+            "nationalreview.com": 0.6,
+            "foxnews.com": 0.7,
+            "nypost.com": 0.6,
+            "washingtontimes.com": 0.5,
+            "dailywire.com": 0.8,
+        };
+
+        // Google News RSS links often point to news.google.com (redirects), so domain-based mapping
+        // can fail. We therefore primarily map lean by publisher name from the RSS <source> tag.
+        // Keys are normalized (lowercase, punctuation removed).
+        const SOURCE_LEAN = {
+            "reuters": 0.0,
+            "associated press": 0.0,
+            "ap": 0.0,
+            "ap news": 0.0,
+            "bbc": 0.0,
+            "bbc news": 0.0,
+            "npr": -0.3,
+            "the new york times": -0.5,
+            "new york times": -0.5,
+            "the washington post": -0.4,
+            "washington post": -0.4,
+            "the guardian": -0.4,
+            "guardian": -0.4,
+            "vox": -0.6,
+            "cnn": -0.3,
+            "msnbc": -0.6,
+            "abc news": -0.1,
+            "cbs news": -0.1,
+            "nbc news": -0.1,
+            "usa today": -0.1,
+            "time": -0.1,
+            "the atlantic": -0.3,
+
+            "the wall street journal": 0.2,
+            "wall street journal": 0.2,
+            "wsj": 0.2,
+            "the economist": 0.2,
+            "economist": 0.2,
+            "reason": 0.4,
+            "national review": 0.6,
+            "fox news": 0.7,
+            "new york post": 0.6,
+            "ny post": 0.6,
+            "the washington times": 0.5,
+            "washington times": 0.5,
+            "the daily wire": 0.8,
+            "daily wire": 0.8
+        };
+
+        function normalizeSourceName(name) {
+            return safeText(name, "")
+                .toLowerCase()
+                .replace(/&amp;/g, "and")
+                .replace(/[^a-z0-9\s]/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function scoreToLabel(score) {
+            if (score <= -0.25) return "Left";
+            if (score >= 0.25) return "Right";
+            return "Center";
+        }
+
+        function leanFromSourceOrDomain(sourceName, domain) {
+            // 1) Try publisher-name mapping first (works for Google News RSS)
+            const norm = normalizeSourceName(sourceName);
+            if (norm && norm in SOURCE_LEAN) {
+                const score = SOURCE_LEAN[norm];
+                return { score, label: scoreToLabel(score) };
+            }
+
+            // 2) Fall back to domain mapping
+            const d = safeText(domain, "");
+            if (d) {
+                // Exact or suffix match
+                let key = d;
+                if (!(key in DOMAIN_LEAN)) {
+                    const parts = d.split(".");
+                    for (let i = 0; i < parts.length - 1; i++) {
+                        const cand = parts.slice(i).join(".");
+                        if (cand in DOMAIN_LEAN) {
+                            key = cand;
+                            break;
+                        }
+                    }
+                }
+
+                const score = key in DOMAIN_LEAN ? DOMAIN_LEAN[key] : 0;
+                return { score, label: scoreToLabel(score) };
+            }
+
+            // Default unknown to center
+            return { score: 0, label: "Center" };
+        }
+
+        const articlesEl = document.getElementById("articles");
+        const tpl = document.getElementById("article-template");
+        const sentinel = document.getElementById("scroll-sentinel");
+
+        const loadingEl = document.getElementById("feed-loading");
+        const errorEl = document.getElementById("feed-error");
+
+        // Header bias balance elements
+        const balanceLeftEl = document.getElementById("balance-left");
+        const balanceCenterEl = document.getElementById("balance-center");
+        const balanceRightEl = document.getElementById("balance-right");
+        const balanceLeftLabelEl = document.getElementById("balance-left-label");
+        const balanceCenterLabelEl = document.getElementById("balance-center-label");
+        const balanceRightLabelEl = document.getElementById("balance-right-label");
+
+        let isLoading = false;
+        let reachedEnd = false;
+
+        // Parsed RSS items cached in-memory
+        let allItems = [];
+        let cursor = 0;
+
+        function setLoading(v) {
+            loadingEl?.classList.toggle("hidden", !v);
+        }
+
+        function setError(msg) {
+            if (!errorEl) return;
+            if (!msg) {
+                errorEl.textContent = "";
+                errorEl.classList.add("hidden");
+                return;
+            }
+            errorEl.textContent = msg;
+            errorEl.classList.remove("hidden");
+        }
+
+        function safeText(s, fallback = "") {
+            return (s && String(s).trim()) || fallback;
+        }
+
+        function stripHtml(html) {
+            if (!html) return "";
+            const tmp = document.createElement("div");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        }
+
+        function clamp(n, min, max) {
+            return Math.max(min, Math.min(max, n));
+        }
+
+        function urlToDomain(u) {
+            try {
+                const host = new URL(u).hostname.toLowerCase().replace(/^www\./, "");
+                // Google News redirect host isn't the publisher; return empty so we rely on <source> mapping.
+                if (host === "news.google.com") return "";
+                return host;
+            } catch {
+                return "";
+            }
+        }
+
+        function leanFromDomain(domain, sourceName = "") {
+            return leanFromSourceOrDomain(sourceName, domain);
+        }
+
+        function scoreToDotLeft(score) {
+            // Map -1..+1 -> 10%..90% so the dot stays inside
+            const pct = 50 + clamp(score, -1, 1) * 40;
+            return `calc(${pct}% - 6px)`; // dot is 12px
+        }
+
+        function updateHeaderBalance() {
+            // Use ONLY what we've rendered so far, so it updates as you scroll
+            const rendered = allItems.slice(0, cursor);
+
+            let left = 0, center = 0, right = 0;
+            for (const it of rendered) {
+                if (it.lean.label === "Left") left++;
+                else if (it.lean.label === "Right") right++;
+                else center++;
+            }
+
+            const total = rendered.length || 1;
+            const lp = (left / total) * 100;
+            const cp = (center / total) * 100;
+            const rp = (right / total) * 100;
+
+            if (balanceLeftEl) balanceLeftEl.style.width = `${lp}%`;
+            if (balanceCenterEl) balanceCenterEl.style.width = `${cp}%`;
+            if (balanceRightEl) balanceRightEl.style.width = `${rp}%`;
+
+            if (balanceLeftLabelEl) balanceLeftLabelEl.textContent = `${Math.round(lp)}% Left`;
+            if (balanceCenterLabelEl) balanceCenterLabelEl.textContent = `${Math.round(cp)}% Center`;
+            if (balanceRightLabelEl) balanceRightLabelEl.textContent = `${Math.round(rp)}% Right`;
+        }
+
+        function pickImage(item) {
+            const fallback = "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800";
+
+            const domain = safeText(item?.domain, "");
+            if (domain) {
+                return `https://www.google.com/s2/favicons?sz=256&domain_url=${encodeURIComponent(domain)}`;
+            }
+
+            const norm = normalizeSourceName(item?.source || "");
+            const SOURCE_DOMAIN = {
+                "reuters": "reuters.com",
+                "associated press": "apnews.com",
+                "ap": "apnews.com",
+                "ap news": "apnews.com",
+                "bbc": "bbc.com",
+                "bbc news": "bbc.com",
+                "npr": "npr.org",
+                "new york times": "nytimes.com",
+                "the new york times": "nytimes.com",
+                "washington post": "washingtonpost.com",
+                "the washington post": "washingtonpost.com",
+                "the guardian": "theguardian.com",
+                "guardian": "theguardian.com",
+                "cnn": "cnn.com",
+                "msnbc": "msnbc.com",
+                "fox news": "foxnews.com",
+                "wall street journal": "wsj.com",
+                "the wall street journal": "wsj.com",
+                "economist": "economist.com",
+                "the economist": "economist.com",
+                "usa today": "usatoday.com",
+                "time": "time.com"
+            };
+
+            if (norm && SOURCE_DOMAIN[norm]) {
+                const d = SOURCE_DOMAIN[norm];
+                return `https://www.google.com/s2/favicons?sz=256&domain_url=${encodeURIComponent(d)}`;
+            }
+
+            return fallback;
+        }
+
+        function renderItem(item) {
+            const node = tpl.content.cloneNode(true);
+
+            const card = node.querySelector(".article-card");
+            const sourceEl = node.querySelector(".article-source");
+            const titleEl = node.querySelector(".article-title");
+            const descEl = node.querySelector(".article-desc");
+
+            const leanLabelEl = node.querySelector(".article-lean");
+            const leanDotEl = node.querySelector(".article-lean-dot");
+
+            sourceEl.textContent = item.source;
+            titleEl.textContent = item.title;
+            descEl.textContent = item.description;
+
+            // Apply political lean UI
+            leanLabelEl.textContent = item.lean.label;
+            leanLabelEl.classList.remove("text-political-left", "text-political-center", "text-political-right");
+            leanDotEl.classList.remove("bg-political-left", "bg-political-center", "bg-political-right");
+
+            if (item.lean.label === "Left") {
+                leanLabelEl.classList.add("text-political-left");
+                leanDotEl.classList.add("bg-political-left");
+            } else if (item.lean.label === "Right") {
+                leanLabelEl.classList.add("text-political-right");
+                leanDotEl.classList.add("bg-political-right");
+            } else {
+                leanLabelEl.classList.add("text-political-center");
+                leanDotEl.classList.add("bg-political-center");
+            }
+
+            leanDotEl.style.left = scoreToDotLeft(item.lean.score);
+
+            if (item.url) {
+                card.addEventListener("click", () => {
+                    window.open(item.url, "_blank", "noopener,noreferrer");
+                });
+            }
+
+            return node;
+        }
+
+        async function fetchRssOnce() {
+            // AllOrigins raw proxy (returns RSS XML as text)
+            const proxied = `https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`;
+
+            const res = await fetch(proxied);
+            if (!res.ok) throw new Error(`RSS fetch failed (${res.status}).`);
+
+            const xmlText = await res.text();
+            const doc = new DOMParser().parseFromString(xmlText, "text/xml");
+
+            const items = Array.from(doc.querySelectorAll("item"));
+
+            const parsed = items
+                .map((it) => {
+                    const title = safeText(it.querySelector("title")?.textContent, "Untitled");
+                    const link = safeText(it.querySelector("link")?.textContent, "");
+
+                    // Google News RSS includes <source>Publisher</source>
+                    const source = safeText(it.querySelector("source")?.textContent, "News");
+
+                    const description = stripHtml(it.querySelector("description")?.textContent || "");
+
+                    // NOTE: many links are news.google.com redirects; we still store them (they open fine).
+                    const domain = urlToDomain(link);
+                    const lean = leanFromDomain(domain, source);
+
+                    return { title, url: link, source, description, domain, lean };
+                })
+                .filter((x) => x.title && x.url);
+
+            // Deduplicate by (normalized title + normalized source) and also by URL.
+            const seen = new Set();
+            const out = [];
+            for (const a of parsed) {
+                const key = `${a.title.toLowerCase().trim()}|${normalizeSourceName(a.source)}|${a.url}`;
+                if (seen.has(key)) continue;
+                seen.add(key);
+                out.push(a);
+            }
+
+            return out;
+        }
+
+        function appendNextBatch() {
+            if (reachedEnd) return;
+
+            const next = allItems.slice(cursor, cursor + BATCH_SIZE);
+            if (!next.length) {
+                reachedEnd = true;
+                sentinel.textContent = "You're all caught up.";
+                return;
+            }
+
+            const frag = document.createDocumentFragment();
+            for (const it of next) frag.appendChild(renderItem(it));
+            articlesEl.appendChild(frag);
+
+            cursor += next.length;
+            updateHeaderBalance();
+        }
+
+        async function ensureFeedLoaded() {
+            if (allItems.length) return;
+
+            isLoading = true;
+            setError("");
+            setLoading(true);
+
+            try {
+                allItems = await fetchRssOnce();
+                const leftItems = allItems.filter(x => x.lean?.label === "Left");
+                const centerItems = allItems.filter(x => x.lean?.label === "Center");
+                const rightItems = allItems.filter(x => x.lean?.label === "Right");
+
+                const balanced = [];
+                let i = 0;
+                while (i < leftItems.length || i < centerItems.length || i < rightItems.length) {
+                    if (i < leftItems.length) balanced.push(leftItems[i]);
+                    if (i < centerItems.length) balanced.push(centerItems[i]);
+                    if (i < rightItems.length) balanced.push(rightItems[i]);
+                    i++;
+                }
+
+                const seenUrl = new Set();
+                allItems = balanced.filter(a => a?.url && !seenUrl.has(a.url) && (seenUrl.add(a.url), true));
+
+                if (!allItems.length) {
+                    reachedEnd = true;
+                    sentinel.textContent = "No stories found.";
+                    return;
+                }
+
+                // First batch
+                appendNextBatch();
+            } catch (e) {
+                setError(
+                    (e?.message || "Failed to load RSS.") +
+                    " If this persists, the free proxy may be rate-limiting (common on GitHub Pages)."
+                );
+            } finally {
+                setLoading(false);
+                isLoading = false;
+            }
+        }
+
+        async function loadMore() {
+            if (isLoading || reachedEnd) return;
+
+            // If we haven't loaded the RSS yet, load it.
+            if (!allItems.length) {
+                await ensureFeedLoaded();
+                return;
+            }
+
+            appendNextBatch();
+        }
+
+        // Infinite scroll via IntersectionObserver
+        const io = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((e) => e.isIntersecting)) loadMore();
+            },
+            { root: null, rootMargin: "700px 0px", threshold: 0 }
+        );
+
+        io.observe(sentinel);
+
+        // Initial load
+        ensureFeedLoaded();
+    </script>
+    <!-- Glossary modal -->
+    <div id="glossary-modal" class="fixed inset-0 z-50 hidden">
+        <div id="glossary-backdrop" class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-end sm:items-center justify-center p-4">
+            <div class="glass-card border border-border w-full max-w-2xl rounded-2xl overflow-hidden">
+                <div class="flex items-center justify-between px-4 py-3 border-b border-border">
+                    <div>
+                        <div class="font-bold">US Politics &amp; Policy Glossary</div>
+                        <div class="text-xs text-muted-foreground">Civics basics + how we estimate bias</div>
+                    </div>
+                    <button id="glossary-close"
+                        class="glass-card border border-border rounded-lg px-3 py-1.5 text-sm font-medium">Close</button>
+                </div>
+
+                <div class="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
+                    <div class="glass-card rounded-xl border border-border p-4">
+                        <h3 class="font-semibold mb-2">Government basics</h3>
+                        <ul class="text-sm text-muted-foreground list-disc pl-5 space-y-1">
+                            <li><span class="text-foreground font-medium">Congress</span> (House + Senate) writes laws.
+                            </li>
+                            <li><span class="text-foreground font-medium">President + agencies</span> enforce laws; can
+                                sign/veto bills.</li>
+                            <li><span class="text-foreground font-medium">Courts</span> interpret laws; Supreme Court is
+                                highest.</li>
+                            <li><span class="text-foreground font-medium">Checks &amp; balances</span> limit power
+                                across branches.</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card rounded-xl border border-border p-4">
+                        <h3 class="font-semibold mb-2">Policy basics</h3>
+                        <div class="grid gap-3">
+                            <div>
+                                <div class="text-sm font-medium">Budget</div>
+                                <div class="text-sm text-muted-foreground">Congress controls spending and taxes; budgets
+                                    shape priorities.</div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium">Monetary policy</div>
+                                <div class="text-sm text-muted-foreground">The Fed influences inflation/jobs with
+                                    interest rates.</div>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium">Regulation</div>
+                                <div class="text-sm text-muted-foreground">Agencies translate laws into enforceable
+                                    rules (EPA, SEC, etc.).</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl border border-border p-4">
+                        <h3 class="font-semibold mb-2">Bias database (what we use)</h3>
+                        <p class="text-sm text-muted-foreground mb-3">We estimate Left/Center/Right using the publisher
+                            (RSS &lt;source&gt;). It’s a quick signal, not an absolute truth.</p>
+
+                        <div class="mb-3">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-muted-foreground">Counts</span>
+                                <span id="glossary-bias-counts" class="text-xs text-muted-foreground">Left 0 • Center 0
+                                    • Right 0</span>
+                            </div>
+                            <div class="h-2 rounded-full overflow-hidden flex bg-muted">
+                                <div id="glossary-bias-left" class="bias-left transition-all duration-500 ease-out"
+                                    style="width:33.33%"></div>
+                                <div id="glossary-bias-center" class="bias-center transition-all duration-500 ease-out"
+                                    style="width:33.34%"></div>
+                                <div id="glossary-bias-right" class="bias-right transition-all duration-500 ease-out"
+                                    style="width:33.33%"></div>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-muted-foreground mb-2">Publishers (sample)</div>
+                        <div id="glossary-bias-list" class="text-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // --- Glossary modal wiring ---
+        const navFeed = document.getElementById("nav-feed");
+        const navGlossary = document.getElementById("nav-glossary");
+
+        const glossaryModal = document.getElementById("glossary-modal");
+        const glossaryBackdrop = document.getElementById("glossary-backdrop");
+        const glossaryClose = document.getElementById("glossary-close");
+
+        function setNavActive(which) {
+            navFeed?.classList.toggle("bg-muted", which === "feed");
+            navGlossary?.classList.toggle("bg-muted", which === "glossary");
+        }
+
+        function openGlossary() {
+            glossaryModal?.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+            setNavActive("glossary");
+            renderGlossaryBiasDatabase();
+        }
+
+        function closeGlossary() {
+            glossaryModal?.classList.add("hidden");
+            document.body.style.overflow = "";
+            setNavActive("feed");
+        }
+
+        navGlossary?.addEventListener("click", openGlossary);
+        navFeed?.addEventListener("click", closeGlossary);
+        glossaryBackdrop?.addEventListener("click", closeGlossary);
+        glossaryClose?.addEventListener("click", closeGlossary);
+
+        // ESC key closes modal
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !(glossaryModal?.classList.contains("hidden"))) closeGlossary();
+        });
+
+        // --- Glossary: visualize the bias database ---
+        function renderGlossaryBiasDatabase() {
+            const countsEl = document.getElementById("glossary-bias-counts");
+            const leftBar = document.getElementById("glossary-bias-left");
+            const centerBar = document.getElementById("glossary-bias-center");
+            const rightBar = document.getElementById("glossary-bias-right");
+            const listEl = document.getElementById("glossary-bias-list");
+            if (!countsEl || !leftBar || !centerBar || !rightBar || !listEl) return;
+
+            const entries = Object.entries(SOURCE_LEAN).map(([name, score]) => ({ name, score, label: scoreToLabel(score) }));
+            const left = entries.filter((e) => e.label === "Left");
+            const center = entries.filter((e) => e.label === "Center");
+            const right = entries.filter((e) => e.label === "Right");
+
+            const total = entries.length || 1;
+            const lp = (left.length / total) * 100;
+            const cp = (center.length / total) * 100;
+            const rp = (right.length / total) * 100;
+
+            countsEl.textContent = `Left ${left.length} • Center ${center.length} • Right ${right.length}`;
+            leftBar.style.width = `${lp}%`;
+            centerBar.style.width = `${cp}%`;
+            rightBar.style.width = `${rp}%`;
+
+            function pill(text, cls) {
+                return `<span class="inline-flex items-center rounded-full border px-2 py-0.5 text-xs ${cls} mr-2 mb-2">${text}</span>`;
+            }
+
+            const leftHtml = left.slice(0, 30).map((e) => pill(e.name, "text-political-left border-border")).join("");
+            const centerHtml = center.slice(0, 30).map((e) => pill(e.name, "text-political-center border-border")).join("");
+            const rightHtml = right.slice(0, 30).map((e) => pill(e.name, "text-political-right border-border")).join("");
+
+            listEl.innerHTML = `
+            <div class="mb-3"><div class="text-xs text-muted-foreground mb-1">Left-leaning</div>${leftHtml || '<span class="text-xs text-muted-foreground">(none yet)</span>'}</div>
+            <div class="mb-3"><div class="text-xs text-muted-foreground mb-1">Center</div>${centerHtml || '<span class="text-xs text-muted-foreground">(none yet)</span>'}</div>
+            <div><div class="text-xs text-muted-foreground mb-1">Right-leaning</div>${rightHtml || '<span class="text-xs text-muted-foreground">(none yet)</span>'}</div>
+        `;
+        }
+    </script>
+</body>
+
+</html>
