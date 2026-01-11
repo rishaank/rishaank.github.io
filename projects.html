@@ -22,7 +22,7 @@
 
 <body>
   <div class="blurBox">
-    <div class="horizontalLayout">
+    <div class="horizontalLayout" style="flex-direction: row;">
       <div class="mainTitle">P</div>
       <div class="mainTitle">R</div>
       <div class="mainTitle">O</div>
@@ -32,8 +32,8 @@
       <div class="mainTitle">T</div>
       <div class="mainTitle">S</div>
     </div>
-
-    <div class="horizontalLayout">
+    <div class="blankBullet" style="margin: 15px;">ordered oldest to newest</div>
+    <div class="horizontalLayout" style="flex-direction: row;">
       <a class="bullet" href="index.html">home</a>
       <div class="blankBullet">•</div>
       <a class="bullet" href="about.html">about</a>
@@ -45,12 +45,13 @@
         <img class="projectIMG" src="images/steak.png">
         <div class="projectTitle">cut the steak</div>
         <div class="projectDetail">cooking game</div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="flex-direction: row;">
           <img class="buttonIMG replit" src="images/replit.png"
             onclick="window.open('https://replit.com/@JamesGouw/Lets-Cut-the-Steak', '_blank')">
           <img class="buttonIMG" src="images/play.png" onclick="window.open('Replit/Steak/index.html', '_blank')">
         </div>
-        <div class="postDetail">school group project</div>
+        <div class="postDetail">middle school group project</div>
+        <div class="postDetail" style="color: red;">old</div>
       </div>
 
       <!-- fuseLearn -->
@@ -58,7 +59,7 @@
         <img class="projectIMG" src="images/fuseLearn.png">
         <div class="projectTitle">fuseLearn</div>
         <div class="projectDetail">learning hub full of tools</div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="flex-direction: row;">
           <img class="buttonIMG" src="images/link.png"
             onclick="window.open('https://foresthacks.devpost.com', '_blank')">
           <img class="buttonIMG" src="images/play.png"
@@ -72,13 +73,14 @@
         <img class="projectIMG" src="hackathons/MathBites/images/MathBitesTransparent.png">
         <div class="projectTitle">Math Bites</div>
         <div class="projectDetail">engaging cooking game that teaches math</div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="flex-direction: row;">
           <img class="buttonIMG" src="images/link.png"
             onclick="window.open('https://devpost.com/software/mathbites', '_blank')">
           <img class="buttonIMG" src="images/play.png"
             onclick="window.open('hackathons/MathBites/welcome/index.html', '_blank')">
         </div>
         <div class="postDetail">hackathon</div>
+        <div class="postDetail" style="color: yellow;">awarded</div>
       </div>
 
       <!-- SpectraSurf -->
@@ -86,11 +88,10 @@
         <img class="projectIMG" style="overflow: hidden; object-fit: cover; border-radius: 100px;"
           src="hackathons/SpectraSurf/SpectraSurfFavicon.jpeg">
         <div class="projectTitle">SpectraSurf</div>
-        <div class="projectDetail">take informed political action, browse live, reputed, news headlines with bias
-          detection built in. |
-          Mobile Friendly
+        <div class="projectDetail">browse live, reputed, news headlines with bias
+          detection built in
         </div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="flex-direction: row;">
           <script>
             function notReadyMessage() {
               if (confirm("The project is not publicly viewable at the moment, click OK to navigate to the Hackathon Post.")) {
@@ -103,7 +104,8 @@
             onclick="window.open('hackathons/SpectraSurf/index.html', '_blank')">
         </div>
         <div class="postDetail">hackathon</div>
-        <div class="postDetail" style="color: gold;">2nd Place Winner (of 60)</div>
+        <div class="postDetail" style="color: cornflowerblue;">mobile compatible</div>
+        <div class="postDetail" style="color: yellow;">2nd Place Winner (of 60)</div>
       </div>
 
       <!-- misc -->
@@ -111,7 +113,7 @@
         <img class="projectIMG" src="images/more.png">
         <div class="projectTitle">more</div>
         <div class="projectDetail">misc. projects</div>
-        <div class="horizontalLayout">
+        <div class="horizontalLayout" style="flex-direction: row;">
           <img class="buttonIMG replit" src="images/replit.png"
             onclick="window.open('https://replit.com/@RishaanKotian/', '_blank')">
           <img class="buttonIMG replit" src="images/replit.png"
