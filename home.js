@@ -15,8 +15,6 @@ window.setTimeout(() => {
       if (indexList.length == 7) {
         window.setTimeout(() => {
           hiddenBox.classList.add("boxReveal");
-          document.querySelector(".shiftDown").style.paddingTop = "2.5%";
-        }, 200);
       }
     });
   });
