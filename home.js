@@ -30,13 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       hiddenBox.style.opacity = "1";
       hiddenLetter.style.opacity = "1";
 
-      if (hint) {
-        hint.style.opacity = "0";
-      }
-
       revealedIndices.add(index);
 
       if (!didRevealBox && revealedIndices.size === totalLetters) {
+        hint.style.opacity = "0";
         didRevealBox = true;
         window.setTimeout(() => {
           hiddenBox.classList.add("boxReveal");
