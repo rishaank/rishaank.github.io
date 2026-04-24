@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHPM — Social Media Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.cdnfonts.com/css/open-sauce-sans" rel="stylesheet" />
+<style>
+  :root {
+    --brown: #3B2314;
+    --apricot: #D4813A;
+    --sage: #6B8C6B;
+    --parchment: #F5EFE0;
+    --warm-gray: #C4B89A;
+
+    --font-display: "Open Sauce Sans", "Open Sans", system-ui, sans-serif;
+    --font-serif: "Lora", Georgia, serif;
+    --font-caption: "DM Sans", "Helvetica Neue", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-serif);
+    background: var(--parchment);
+    color: var(--brown);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Layout helpers ---------- */
+
+  .section {
+    padding: 80px 48px;
+    position: relative;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section--brown {
+    background: var(--brown);
+    color: var(--parchment);
+  }
+
+  .section--sage {
+    background: var(--sage);
+    color: var(--parchment);
+  }
+
+  .section--apricot {
+    background: var(--apricot);
+    color: var(--parchment);
+  }
+
+  .section--parchment {
+    background: var(--parchment);
+    color: var(--brown);
+  }
+
+  .rule {
+    display: inline-block;
+    width: 48px;
+    height: 2px;
+    background: currentColor;
+    margin-bottom: 14px;
+    opacity: 0.9;
+  }
+
+  .kicker {
+    font-family: var(--font-caption);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+  h1 {
+    font-size: clamp(56px, 9vw, 112px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p { font-family: var(--font-serif); font-size: 17px; line-height: 1.55; }
+
+  .spec {
+    font-family: var(--font-caption);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+  }
+
+  /* ---------- Title ---------- */
+
+  .hero {
+    padding: 120px 48px 90px;
+    background:
+      radial-gradient(ellipse at 85% 20%, rgba(212,129,58,0.15), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(107,140,107,0.18), transparent 55%),
+      var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero h1 { margin: 18px 0 24px; }
+
+  .hero-lede {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    line-height: 1.5;
+    max-width: 540px;
+    color: var(--brown);
+  }
+
+  .hero-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: var(--font-caption);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-meta > div {
+    border-top: 2px solid var(--brown);
+    padding-top: 10px;
+    min-width: 150px;
+  }
+
+  .hero-meta strong { display: block; font-weight: 700; margin-bottom: 2px; }
+
+  .hero-art {
+    aspect-ratio: 4 / 5;
+    background: var(--brown);
+    color: var(--parchment);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-shadow: 0 30px 60px -30px rgba(59,35,20,0.4);
+  }
+
+  .hero-art svg { width: 100%; height: auto; }
+
+  /* ---------- Brand quick reference ---------- */
+
+  .quickref-header { margin-bottom: 40px; }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+
+  .swatch {
+    padding: 100px 18px 18px;
+    border-radius: 4px;
+    font-family: var(--font-caption);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border: 2px solid var(--parchment);
+  }
+
+  .swatch h4 { font-family: var(--font-display); font-size: 17px; margin-bottom: 4px; letter-spacing: -0.01em; }
+  .swatch .hex { opacity: 0.85; }
+
+  .swatch--brown { background: var(--brown); color: var(--parchment); }
+  .swatch--apricot { background: var(--apricot); color: var(--parchment); }
+  .swatch--sage { background: var(--sage); color: var(--parchment); }
+  .swatch--parchment { background: var(--parchment); color: var(--brown); }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .ref-grid h3 { font-family: var(--font-display); color: var(--apricot); margin-bottom: 18px; font-size: 22px; }
+  .ref-grid p + p { margin-top: 12px; }
+
+  .type-sample { margin-top: 6px; }
+  .type-sample .label { display: block; font-family: var(--font-caption); font-size: 11px; opacity: 0.7; margin-bottom: 2px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .type-sample .demo-display { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+  .type-sample .demo-serif { font-family: var(--font-serif); font-size: 17px; }
+  .type-sample .demo-caption { font-family: var(--font-caption); font-size: 13px; letter-spacing: -0.01em; }
+
+  /* ---------- Mockups section ---------- */
+
+  .mockups-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    align-items: end;
+  }
+
+  .mockup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  .mockup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mockup-label {
+    font-family: var(--font-caption);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.75;
+    margin-bottom: 12px;
+  }
+
+  .mockup-notes {
+    margin-top: 20px;
+    font-family: var(--font-serif);
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .mockup-notes strong {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+
+  .caption-example {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: rgba(59,35,20,0.05);
+    border-left: 3px solid var(--sage);
+    font-family: var(--font-serif);
+    font-size: 14px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ---------- Instagram feed post (1:1) ---------- */
+
+  .ig-post {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px -28px rgba(59,35,20,0.35);
+    border: 1px solid rgba(59,35,20,0.1);
+  }
+
+  .ig-head {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    gap: 10px;
+  }
+
+  .ig-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--brown);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--parchment);
+  }
+  .ig-avatar svg { width: 20px; height: 20px; }
+
+  .ig-handle { font-family: var(--font-caption); font-size: 13px; font-weight: 700; color: #111; }
+  .ig-handle span { display: block; font-weight: 400; font-size: 11px; color: #666; }
+
+  .ig-dots { margin-left: auto; color: #111; font-size: 18px; }
+
+  .ig-image {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .ig-footer {
+    padding: 10px 14px 14px;
+    font-family: var(--font-caption);
+    font-size: 12px;
+    color: #111;
+  }
+
+  .ig-actions { display: flex; gap: 14px; margin-bottom: 8px; font-size: 16px; }
+  .ig-likes { font-weight: 700; margin-bottom: 4px; }
+  .ig-cap { color: #111; font-size: 13px; line-height: 1.35; }
+  .ig-cap b { font-weight: 700; }
+
+  /* ---- Post variant: History fact ---- */
+
+  .post-history {
+    background: var(--parchment);
+    color: var(--brown);
+    flex-direction: column;
+    gap: 14px;
+    font-family: var(--font-display);
+  }
+  .post-history .eyebrow {
+    font-family: var(--font-caption);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--apricot);
+    font-weight: 700;
+  }
+  .post-history .headline {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 320px;
+  }
+  .post-history .date-line {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--sage);
+    font-weight: 500;
+  }
+  .post-history .corner {
+    position: absolute;
+    top: 18px; right: 18px;
+    font-family: var(--font-caption);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown);
+    opacity: 0.5;
+  }
+  .post-history::before, .post-history::after {
+    content: "";
+    position: absolute;
+    width: 60px; height: 60px;
+    border: 2px solid var(--sage);
+    opacity: 0.35;
+  }
+  .post-history::before { top: 18px; left: 18px; border-right: 0; border-bottom: 0; }
+  .post-history::after { bottom: 18px; right: 18px; border-left: 0; border-top: 0; }
+
+  /* ---- Post variant: Event ---- */
+
+  .post-event {
+    background: var(--apricot);
+    color: var(--parchment);
+    flex-direction: column;
+  }
+  .post-event .photo-area {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(160deg, rgba(59,35,20,0.1) 0%, rgba(59,35,20,0.55) 75%),
+      radial-gradient(ellipse at 30% 40%, #E89A50 0%, #D4813A 50%, #A8632B 100%);
+  }
+  .post-event .photo-area svg { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 90%; opacity: 0.6; }
+  .post-event .event-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+  .post-event .event-top {
+    font-family: var(--font-caption);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .post-event .event-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 90%;
+  }
+  .post-event .event-date {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .post-event .btn-primary {
+    align-self: flex-start;
+    background: var(--parchment);
+    color: var(--brown);
+    padding: 10px 18px 10px 20px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .post-event .btn-primary svg { width: 14px; height: 14px; }
+
+  /* ---- Post variant: Community / quote ---- */
+
+  .post-quote {
+    background: var(--sage);
+    color: var(--parchment);
+    flex-direction: column;
+    text-align: center;
+  }
+  .post-quote .mark {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 90px;
+    line-height: 0.6;
+    color: var(--parchment);
+    opacity: 0.35;
+    margin-bottom: -12px;
+  }
+  .post-quote blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.35;
+    max-width: 300px;
+    margin: 0 auto 18px;
+  }
+  .post-quote cite {
+    font-style: normal;
+    font-family: var(--font-caption);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .post-quote .bottom-logo {
+    position: absolute;
+    bottom: 20px; left: 50%; transform: translateX(-50%);
+    width: 80px;
+    opacity: 0.55;
+  }
+
+  /* ---------- Instagram story (9:16) ---------- */
+
+  .story-section-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .ig-story {
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.55);
+    position: relative;
+    background: var(--brown);
+    color: var(--parchment);
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .story-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(212,129,58,0.35), transparent 60%),
+      linear-gradient(180deg, #2A1810 0%, #3B2314 55%, #4A2D1C 100%);
+  }
+
+  .story-progress {
+    position: absolute; top: 10px; left: 10px; right: 10px;
+    height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px;
+    overflow: hidden;
+  }
+  .story-progress::after {
+    content: ""; display: block; width: 40%; height: 100%;
+    background: var(--parchment);
+  }
+
+  .story-header {
+    position: absolute; top: 26px; left: 14px; right: 14px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-caption); font-size: 12px;
+  }
+  .story-header .av {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--parchment);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .story-header .av svg { width: 18px; height: 18px; color: var(--brown); }
+
+  .story-content {
+    position: absolute; inset: 0;
+    padding: 90px 28px 80px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    z-index: 2;
+  }
+
+  .story-kicker {
+    font-family: var(--font-caption);
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    background: var(--apricot); color: var(--parchment);
+    padding: 5px 10px; border-radius: 3px;
+    align-self: flex-start; font-weight: 700;
+  }
+
+  .story-main h3 {
+    font-family: var(--font-display);
+    font-size: 42px;
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 14px 0;
+  }
+  .story-main p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    opacity: 0.92;
+    max-width: 90%;
+  }
+
+  .story-cta {
+    background: rgba(245,239,224,0.15);
+    border: 1.5px solid var(--parchment);
+    border-radius: 999px;
+    padding: 10px 18px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(6px);
+  }
+
+  /* ---------- Facebook post ---------- */
+
+  .fb-post {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px -28px rgba(59,35,20,0.35);
+    border: 1px solid rgba(0,0,0,0.08);
+    max-width: 620px;
+  }
+  .fb-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px;
+  }
+  .fb-head .ig-avatar { background: var(--sage); }
+  .fb-copy {
+    padding: 0 16px 14px;
+    font-family: var(--font-caption);
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: #111;
+  }
+  .fb-copy a { color: var(--sage); font-weight: 600; text-decoration: none; }
+  .fb-image {
+    aspect-ratio: 1200 / 630;
+    background: var(--sage);
+    color: var(--parchment);
+    padding: 36px 44px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .fb-image::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(212,129,58,0.35), transparent 50%);
+    pointer-events: none;
+  }
+  .fb-image-kicker {
+    font-family: var(--font-caption);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+  }
+  .fb-image h3 {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 75%;
+    position: relative;
+  }
+  .fb-image-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 16px;
+  }
+  .fb-image-foot .btn {
+    background: var(--apricot);
+    color: var(--parchment);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+  .fb-link-box {
+    background: #F0F2F5;
+    padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 2px;
+    font-family: var(--font-caption);
+  }
+  .fb-link-box .domain { font-size: 12px; color: #606770; text-transform: uppercase; letter-spacing: 0.08em; }
+  .fb-link-box .title { font-size: 17px; font-weight: 700; color: #050505; }
+  .fb-link-box .desc { font-size: 13px; color: #606770; }
+
+  .fb-meta {
+    padding: 10px 16px;
+    display: flex; gap: 14px;
+    font-family: var(--font-caption);
+    font-size: 13px; color: #65676B;
+    border-top: 1px solid #e4e6eb;
+  }
+
+  /* ---------- Facebook cover ---------- */
+
+  .fb-cover {
+    aspect-ratio: 820 / 312;
+    background: var(--brown);
+    color: var(--parchment);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    padding: 40px 52px;
+    display: flex; align-items: center;
+    box-shadow: 0 24px 48px -28px rgba(59,35,20,0.5);
+  }
+  .fb-cover::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 95% 20%, rgba(212,129,58,0.4), transparent 55%),
+      radial-gradient(ellipse at 20% 90%, rgba(107,140,107,0.35), transparent 60%);
+  }
+  .fb-cover-inner {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    gap: 40px;
+  }
+  .fb-cover-text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+  }
+  .fb-cover-text p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+  .fb-cover-emblem {
+    width: 180px;
+    flex-shrink: 0;
+    color: var(--parchment);
+  }
+  .fb-cover-emblem svg { width: 100%; height: auto; }
+
+  /* ---------- Caption templates ---------- */
+
+  .captions-intro { margin-bottom: 48px; max-width: 680px; }
+  .captions-intro p { color: var(--parchment); opacity: 0.9; font-size: 18px; }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .cap-card {
+    background: var(--parchment);
+    color: var(--brown);
+    padding: 28px 26px;
+    border-radius: 4px;
+  }
+  .cap-card h4 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--apricot);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .cap-card .sub {
+    font-family: var(--font-caption);
+    font-size: 12px;
+    color: var(--sage);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .cap-card .template {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--brown);
+  }
+  .cap-card .template em {
+    background: rgba(212,129,58,0.18);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-style: normal;
+    color: var(--brown);
+    font-weight: 500;
+  }
+  .cap-card .tags {
+    margin-top: 18px;
+    font-family: var(--font-caption);
+    font-size: 12px;
+    color: var(--sage);
+    font-weight: 500;
+    word-break: break-word;
+  }
+
+  .hashtag-bank {
+    margin-top: 48px;
+    background: rgba(245,239,224,0.1);
+    border: 1px solid rgba(245,239,224,0.3);
+    padding: 28px 32px;
+    border-radius: 4px;
+  }
+  .hashtag-bank h4 {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tag-list {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag {
+    font-family: var(--font-caption);
+    font-size: 13px;
+    padding: 6px 12px;
+    background: rgba(245,239,224,0.15);
+    border: 1px solid rgba(245,239,224,0.35);
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  /* ---------- Do / Don't ---------- */
+
+  .tone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+  }
+
+  .tone-col h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tone-col--do h3 { color: var(--sage); }
+  .tone-col--dont h3 { color: var(--apricot); }
+
+  .tone-col ul { list-style: none; padding: 0; }
+  .tone-col li {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.5;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(245,239,224,0.18);
+    color: var(--parchment);
+  }
+  .tone-col li:last-child { border-bottom: 0; }
+  .tone-col li::before {
+    display: inline-block;
+    margin-right: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .tone-col--do li::before { content: "✓"; color: var(--sage); }
+  .tone-col--dont li::before { content: "✕"; color: var(--apricot); }
+
+  /* ---------- Final spec table ---------- */
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-caption);
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  .specs-table th, .specs-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(59,35,20,0.15);
+  }
+  .specs-table th {
+    background: var(--brown);
+    color: var(--parchment);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .specs-table tr:nth-child(even) td {
+    background: rgba(59,35,20,0.03);
+  }
+
+  /* ---------- Footer ---------- */
+
+  .footer {
+    padding: 50px 48px;
+    background: var(--brown);
+    color: var(--parchment);
+    text-align: center;
+    font-family: var(--font-caption);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .footer strong { color: var(--apricot); }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 960px) {
+    .section { padding: 60px 28px; }
+    .hero-grid, .mockups-intro, .ref-grid, .tone-grid, .story-section-grid { grid-template-columns: 1fr; }
+    .mockup-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: repeat(2, 1fr); }
+    .hero-art { max-width: 320px; margin: 0 auto; }
+    .fb-cover { padding: 24px 28px; }
+    .fb-cover-text h3 { font-size: 24px; }
+    .fb-cover-emblem { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== HERO / TITLE ============== -->
+<header class="section hero">
+  <div class="wrap">
+    <span class="kicker">Sunnyvale Heritage Park Museum</span>
+    <h1 style="margin-top:18px;">Social Media<br />Guide</h1>
+  </div>
+</header>
+
+<!-- ============== BRAND QUICK REFERENCE ============== -->
+<section class="section section--brown">
+  <div class="wrap">
+    <div class="quickref-header">
+      <span class="rule"></span>
+      <span class="kicker">01 — Brand Quick Reference</span>
+      <h2 style="margin-top:10px;">The building blocks, compressed.</h2>
+    </div>
+
+    <div class="swatches">
+      <div class="swatch swatch--brown">
+        <h4>Orchard Brown</h4>
+        <div class="hex">#3B2314</div>
+        <div class="hex">RGB 59 · 35 · 20</div>
+      </div>
+      <div class="swatch swatch--apricot">
+        <h4>Apricot</h4>
+        <div class="hex">#D4813A</div>
+        <div class="hex">RGB 212 · 129 · 58</div>
+      </div>
+      <div class="swatch swatch--sage">
+        <h4>Sage</h4>
+        <div class="hex">#6B8C6B</div>
+        <div class="hex">RGB 107 · 140 · 107</div>
+      </div>
+      <div class="swatch swatch--parchment">
+        <h4>Parchment</h4>
+        <div class="hex">#F5EFE0</div>
+        <div class="hex">RGB 245 · 239 · 224</div>
+      </div>
+    </div>
+
+    <div class="ref-grid">
+      <div>
+        <h3>Typography</h3>
+        <div class="type-sample">
+          <span class="label">Display / Headings</span>
+          <div class="demo-display">Open Sauce Sans</div>
+        </div>
+        <div class="type-sample" style="margin-top:18px;">
+          <span class="label">Body Copy</span>
+          <div class="demo-serif">Lora — warm, editorial, readable.</div>
+        </div>
+        <div class="type-sample" style="margin-top:18px;">
+          <span class="label">UI / Caption</span>
+          <div class="demo-caption">DM Sans — small text and metadata</div>
+        </div>
+        <p class="spec" style="margin-top:18px;">Always pair Open Sauce headlines with Lora body. Never use three different fonts in one post.</p>
+      </div>
+
+      <div>
+        <h3>Voice</h3>
+        <p style="color:var(--parchment); opacity:0.9;">Friendly. Knowledgeable. Community-centered. Short declarative sentences. Let the history do the heavy lifting — no academic hedging, no corporate formality.</p>
+        <p style="color:var(--parchment); opacity:0.9; margin-top:12px; font-style:italic; border-left:2px solid var(--apricot); padding-left:14px;">
+          "Explore Sunnyvale's story — from orchards to orbit."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INSTAGRAM FEED POSTS ============== -->
+<section class="section section--parchment">
+  <div class="wrap">
+    <span class="rule"></span>
+    <span class="kicker">02 — Instagram Feed</span>
+    <h2 style="margin-top:10px;">Three post types, one visual language.</h2>
+    <p style="margin-top:14px; max-width:680px; margin-bottom:56px;">Every feed post falls into one of three modes — History, Event, or Community. Each mode owns a different role in the content mix.</p>
+
+    <div class="mockup-grid">
+
+      <!-- POST 1: HISTORY FACT -->
+      <div class="mockup">
+        <div class="mockup-label">Type A · History Fact · 1080×1080</div>
+        <div class="ig-post">
+          <div class="ig-head">
+            <div class="ig-avatar">
+              <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="16" r="6" />
+                <path d="M 8 34 Q 8 24 20 24 Q 32 24 32 34 Z" />
+              </svg>
+            </div>
+            <div class="ig-handle">sunnyvaleheritagepark<span>Sunnyvale, CA</span></div>
+            <div class="ig-dots">⋯</div>
+          </div>
+          <div class="ig-image post-history">
+            <span class="corner">SHPM · Est. 2008</span>
+            <span class="eyebrow">Did you know?</span>
+            <div class="headline">The Murphy family arrived here in <em style="font-style:normal; color:var(--apricot);">1844</em>.</div>
+            <span class="date-line">A quarter-century before statehood.</span>
+          </div>
+          <div class="ig-footer">
+            <div class="ig-actions">♡  💬  ↗</div>
+            <div class="ig-likes">Liked by heatherdunphy and 142 others</div>
+            <div class="ig-cap"><b>sunnyvaleheritagepark</b> Before Silicon Valley, before the orchards even, Martin &amp; Mary Murphy settled here with their family…</div>
+          </div>
+        </div>
+        <div class="mockup-notes">
+          <strong>Use for</strong>
+          Throwbacks, anniversaries, on-this-day facts, artifact spotlights. High-performing on Mondays and Thursdays.
+        </div>
+        <div class="caption-example">
+          Did you know? The Murphys arrived in Santa Clara Valley in 1844 — a full six years before California became a state. Their farmhouse still stands a few blocks from here. Drop by this weekend to see it. Link in bio.
+        </div>
+      </div>
+
+      <!-- POST 2: EVENT -->
+      <div class="mockup">
+        <div class="mockup-label">Type B · Event · 1080×1080</div>
+        <div class="ig-post">
+          <div class="ig-head">
+            <div class="ig-avatar">
+              <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="16" r="6" />
+                <path d="M 8 34 Q 8 24 20 24 Q 32 24 32 34 Z" />
+              </svg>
+            </div>
+            <div class="ig-handle">sunnyvaleheritagepark<span>Sunnyvale, CA</span></div>
+            <div class="ig-dots">⋯</div>
+          </div>
+          <div class="ig-image post-event">
+            <div class="photo-area">
+              <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(59,35,20,0.8)" stroke-width="2">
+                <rect x="90" y="90" width="120" height="90" />
+                <polygon points="80,90 220,90 205,70 95,70" fill="rgba(59,35,20,0.8)" stroke="none"/>
+                <line x1="100" y1="130" x2="200" y2="130" />
+                <line x1="115" y1="90" x2="115" y2="180" />
+                <line x1="140" y1="90" x2="140" y2="180" />
+                <line x1="160" y1="90" x2="160" y2="180" />
+                <line x1="185" y1="90" x2="185" y2="180" />
+              </svg>
+            </div>
+            <div class="event-content">
+              <span class="event-top">Spring Victorian Tea · 2026</span>
+              <div>
+                <div class="event-title">An Afternoon at the Murphy House</div>
+                <div class="event-date">Saturday, May 16 · 2–4pm</div>
+              </div>
+              <span class="btn-primary">Register Now
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="ig-footer">
+            <div class="ig-actions">♡  💬  ↗</div>
+            <div class="ig-likes">Liked by lisasato and 88 others</div>
+            <div class="ig-cap"><b>sunnyvaleheritagepark</b> Finger sandwiches, period costumes, and a rare peek inside the Murphy parlor…</div>
+          </div>
+        </div>
+        <div class="mockup-notes">
+          <strong>Use for</strong>
+          Teas, school programs, fundraisers, tours, guest lectures. Always pair with a clear CTA button and date.
+        </div>
+        <div class="caption-example">
+          Join us for our Spring Tea. All are welcome. Saturday, May 16 · 2–4pm · $15 members, $20 public. Reserve your seat at the link in our bio — space is limited to 32 guests.
+        </div>
+      </div>
+
+      <!-- POST 3: COMMUNITY / QUOTE -->
+      <div class="mockup">
+        <div class="mockup-label">Type C · Community · 1080×1080</div>
+        <div class="ig-post">
+          <div class="ig-head">
+            <div class="ig-avatar">
+              <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="16" r="6" />
+                <path d="M 8 34 Q 8 24 20 24 Q 32 24 32 34 Z" />
+              </svg>
+            </div>
+            <div class="ig-handle">sunnyvaleheritagepark<span>Sunnyvale, CA</span></div>
+            <div class="ig-dots">⋯</div>
+          </div>
+          <div class="ig-image post-quote">
+            <span class="mark">&ldquo;</span>
+            <blockquote>I've docented here twelve years. Every school group still teaches me something new.</blockquote>
+            <cite>— Margarete, Volunteer Docent</cite>
+          </div>
+          <div class="ig-footer">
+            <div class="ig-actions">♡  💬  ↗</div>
+            <div class="ig-likes">Liked by shaitaldesai and 67 others</div>
+            <div class="ig-cap"><b>sunnyvaleheritagepark</b> Meet Margarete — one of the volunteers who make every visit possible…</div>
+          </div>
+        </div>
+        <div class="mockup-notes">
+          <strong>Use for</strong>
+          Volunteer spotlights, visitor quotes, mission moments. Avoid self-congratulatory tone — let the community speak.
+        </div>
+        <div class="caption-example">
+          Meet Margarete. Twelve years as a docent, and she still lights up talking about the third-grade groups. If you've ever thought about volunteering with us — this is your sign. Details at the link in bio.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== INSTAGRAM STORY ============== -->
+<section class="section section--sage">
+  <div class="wrap">
+    <div class="story-section-grid">
+      <div class="ig-story">
+        <div class="story-bg"></div>
+        <div class="story-progress"></div>
+        <div class="story-header">
+          <div class="av">
+            <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="16" r="6" />
+              <path d="M 8 34 Q 8 24 20 24 Q 32 24 32 34 Z" />
+            </svg>
+          </div>
+          <div>
+            <strong>sunnyvaleheritagepark</strong>
+            <div style="opacity:0.75; font-size:11px;">2h</div>
+          </div>
+        </div>
+        <div class="story-content">
+          <div>
+            <span class="story-kicker">This Saturday</span>
+            <div class="story-main">
+              <h3>Spring Tea at the Heritage Park</h3>
+              <p>Finger sandwiches, period music, 32 seats.</p>
+            </div>
+          </div>
+          <div class="story-cta">Tap to Reserve →</div>
+        </div>
+      </div>
+
+      <div>
+        <span class="rule" style="background:var(--parchment);"></span>
+        <span class="kicker" style="color:var(--parchment);">03 — Instagram Story</span>
+        <h2 style="margin-top:10px; color:var(--parchment);">Vertical, bold, short-lived.</h2>
+        <p style="color:var(--parchment); opacity:0.95; font-size:18px; margin-top:18px; max-width:540px;">
+          Stories expire in 24 hours — use them for event reminders, countdowns, and behind-the-scenes snapshots. Keep the headline under eight words. The tap-through button is what matters most.
+        </p>
+
+        <table class="specs-table" style="color:var(--parchment); margin-top:32px;">
+          <thead>
+            <tr><th>Spec</th><th>Value</th></tr>
+          </thead>
+          <tbody style="background:rgba(245,239,224,0.08);">
+            <tr><td>Dimensions</td><td>1080 × 1920 px (9:16)</td></tr>
+            <tr><td>Safe zone</td><td>Keep text 250 px from top &amp; bottom</td></tr>
+            <tr><td>Heading font</td><td>Open Sauce Sans Bold, 42–56pt</td></tr>
+            <tr><td>CTA</td><td>Always use a sticker or swipe-up link</td></tr>
+            <tr><td>Use when</td><td>Event is within 7 days, or news is timely</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FACEBOOK POST ============== -->
+<section class="section section--parchment">
+  <div class="wrap">
+    <span class="rule"></span>
+    <span class="kicker">04 — Facebook Feed</span>
+    <h2 style="margin-top:10px;">Longer copy, older audience.</h2>
+    <p style="margin-top:14px; max-width:680px; margin-bottom:56px;">Our Facebook audience skews toward longtime Sunnyvale residents and parents of school-program kids. They'll read more copy than Instagram viewers will — use 2–4 full sentences, and always link to a page on sunnyvaleheritage.org.</p>
+
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:48px; align-items:start;">
+      <div>
+        <div class="mockup-label">Facebook Feed Post · 1200×630 image</div>
+        <div class="fb-post">
+          <div class="fb-head">
+            <div class="ig-avatar">
+              <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="16" r="6" />
+                <path d="M 8 34 Q 8 24 20 24 Q 32 24 32 34 Z" />
+              </svg>
+            </div>
+            <div class="ig-handle" style="font-size:14px;">Sunnyvale Heritage Park Museum<span>2h · Sunnyvale, CA · 🌐</span></div>
+          </div>
+          <div class="fb-copy">
+            The Murphy family shaped this valley. Come see how.<br /><br />
+            Our Spring Victorian Tea returns Saturday, May 16 — an afternoon of finger sandwiches, period music, and rare access to the Murphy parlor. 32 seats, first-come first-served. <a href="#">Reserve at sunnyvaleheritage.org</a> ↗
+          </div>
+          <div class="fb-image">
+            <div class="fb-image-kicker">Spring Victorian Tea · May 16</div>
+            <h3>An afternoon at the Murphy House.</h3>
+            <div class="fb-image-foot">
+              <span>Saturday · 2–4pm · Members $15</span>
+              <span class="btn">Register</span>
+            </div>
+          </div>
+          <div class="fb-link-box">
+            <div class="domain">sunnyvaleheritage.org</div>
+            <div class="title">Spring Victorian Tea — Registration</div>
+            <div class="desc">Join us in the historic Murphy House for tea, music, and stories from the Santa Clara Valley's earliest days.</div>
+          </div>
+          <div class="fb-meta">
+            <span>👍 47</span><span>💬 8 comments</span><span>↗ 12 shares</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom:16px;">Why this layout works</h3>
+        <ul style="list-style:none; padding:0; font-family:var(--font-serif); font-size:16px; line-height:1.55;">
+          <li style="padding:12px 0; border-bottom:1px solid rgba(59,35,20,0.15);"><strong style="font-family:var(--font-display); color:var(--apricot); display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Hook line</strong>First sentence is a full hook — FB cuts off the rest under "See more."</li>
+          <li style="padding:12px 0; border-bottom:1px solid rgba(59,35,20,0.15);"><strong style="font-family:var(--font-display); color:var(--apricot); display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Link preview</strong>Always include the sunnyvaleheritage.org link card — it drives clicks and adds credibility.</li>
+          <li style="padding:12px 0; border-bottom:1px solid rgba(59,35,20,0.15);"><strong style="font-family:var(--font-display); color:var(--apricot); display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">Image text</strong>Keep text on the image under 12 words. FB's algorithm still punishes text-heavy images.</li>
+          <li style="padding:12px 0;"><strong style="font-family:var(--font-display); color:var(--apricot); display:block; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:3px;">No hashtags</strong>Hashtags do nothing on Facebook. Save them for Instagram.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <div class="mockup-label">Facebook Cover Photo · 820×312</div>
+      <div class="fb-cover">
+        <div class="fb-cover-inner">
+          <div class="fb-cover-text">
+            <h3>Preserving Sunnyvale's story — from orchards to orbit.</h3>
+            <p>Open Thursday–Sunday · 550 E. Remington Dr · sunnyvaleheritage.org</p>
+          </div>
+        </div>
+      </div>
+      <p class="spec" style="margin-top:12px;">Cover renders at different dimensions on mobile vs. desktop — keep important content within the middle 640×312 area.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CAPTION TEMPLATES ============== -->
+<section class="section section--apricot">
+  <div class="wrap">
+    <div class="captions-intro">
+      <span class="rule" style="background:var(--parchment);"></span>
+      <span class="kicker" style="color:var(--parchment);">05 — Caption Templates</span>
+      <h2 style="color:var(--parchment); margin-top:10px;">Fill in the blanks. Stay short.</h2>
+      <p style="margin-top:14px;">Three reusable caption formulas — one per post type. Replace the highlighted spots with your specifics. Keep captions under 120 words on Instagram, under 250 on Facebook.</p>
+    </div>
+
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <h4>Template A</h4>
+        <div class="sub">History / Fact Post</div>
+        <div class="template">
+          Did you know? <em>[one-sentence history fact]</em>. <em>[One sentence of context — why it matters, what it tells us today]</em>. Come see the original <em>[artifact/exhibit]</em> at the museum — open <em>[days/times]</em>.
+        </div>
+        <div class="tags">#SunnyvaleHistory #SantaClaraValley #MurphyFamily</div>
+      </div>
+
+      <div class="cap-card">
+        <h4>Template B</h4>
+        <div class="sub">Event Post</div>
+        <div class="template">
+          <em>[Event name]</em>. All are welcome. <em>[Day, date · time]</em> · <em>[price / members note]</em>. Reserve at the link in our bio — space is limited to <em>[N]</em> guests.
+        </div>
+        <div class="tags">#SunnyvaleHeritagePark #VisitSunnyvale #BayAreaEvents</div>
+      </div>
+
+      <div class="cap-card">
+        <h4>Template C</h4>
+        <div class="sub">Community / Volunteer</div>
+        <div class="template">
+          Meet <em>[first name]</em>. <em>[One sentence on their role / tenure]</em>, and <em>[specific detail that shows character]</em>. If you've ever thought about volunteering with us — this is your sign. Details at the link in bio.
+        </div>
+        <div class="tags">#VolunteerSpotlight #SunnyvaleCommunity #HeritagePark</div>
+      </div>
+
+    </div>
+
+    <div class="hashtag-bank">
+      <h4>Hashtag Bank — pick 5–7 per Instagram post</h4>
+      <div class="tag-list">
+        <span class="tag">#SunnyvaleHeritagePark</span>
+        <span class="tag">#SunnyvaleHistory</span>
+        <span class="tag">#SantaClaraValley</span>
+        <span class="tag">#SiliconValleyHistory</span>
+        <span class="tag">#MurphyFamily</span>
+        <span class="tag">#ApricotOrchards</span>
+        <span class="tag">#CaliforniaHistory</span>
+        <span class="tag">#HistoricalMuseum</span>
+        <span class="tag">#VisitSunnyvale</span>
+        <span class="tag">#BayAreaHistory</span>
+        <span class="tag">#BayAreaEvents</span>
+        <span class="tag">#VictorianTea</span>
+        <span class="tag">#LocalHistory</span>
+        <span class="tag">#MuseumLife</span>
+        <span class="tag">#VolunteerSpotlight</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TONE DO / DON'T ============== -->
+<section class="section section--brown">
+  <div class="wrap">
+    <span class="rule"></span>
+    <span class="kicker">06 — Voice &amp; Tone</span>
+    <h2 style="margin-top:10px;">Write like the museum sounds in person.</h2>
+
+    <div class="tone-grid">
+      <div class="tone-col tone-col--do">
+        <h3>Do</h3>
+        <ul>
+          <li>Lead with the person, the place, or the story.</li>
+          <li>Use plain dates and times — "Saturday, May 16 · 2–4pm."</li>
+          <li>Write short sentences. Four or five per caption is plenty.</li>
+          <li>Name real people when you have permission — docents, visitors, donors.</li>
+          <li>End with a clear next step: "Link in bio," "RSVP by Friday," "Stop by this weekend."</li>
+        </ul>
+      </div>
+      <div class="tone-col tone-col--dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>Open with "We are thrilled to announce…" or similar corporate openers.</li>
+          <li>Use academic hedges — "arguably," "some might say," "it could be suggested."</li>
+          <li>Stack more than two emoji. Ideally zero or one.</li>
+          <li>Copy-paste press-release language. If you wouldn't say it to a neighbor, rewrite it.</li>
+          <li>Use more than seven hashtags on a single Instagram post.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== POSTING CADENCE ============== -->
+<section class="section section--parchment">
+  <div class="wrap">
+    <span class="rule"></span>
+    <span class="kicker">07 — Posting Cadence</span>
+    <h2 style="margin-top:10px;">A sustainable rhythm.</h2>
+    <p style="margin-top:14px; max-width:680px;">A small museum with volunteer-run social needs consistency more than volume. This cadence is achievable by one person in 2–3 hours per week.</p>
+
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Frequency</th>
+          <th>Best Days</th>
+          <th>Typical Mix (per month)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instagram Feed</strong></td>
+          <td>2× per week</td>
+          <td>Tue / Sat morning</td>
+          <td>4 history · 2 event · 2 community</td>
+        </tr>
+        <tr>
+          <td><strong>Instagram Stories</strong></td>
+          <td>As-needed</td>
+          <td>Day-of &amp; day-before events</td>
+          <td>4–8 during event weeks, 0 otherwise</td>
+        </tr>
+        <tr>
+          <td><strong>Facebook</strong></td>
+          <td>1× per week</td>
+          <td>Thursday afternoon</td>
+          <td>2 event · 1 history · 1 community</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer style="padding:40px;"></footer>
+
+</body>
+</html>
